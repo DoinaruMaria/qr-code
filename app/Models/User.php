@@ -24,7 +24,7 @@ class User extends Authenticatable
         'telefon',
         'tip',
         'judet',
-        'parola',
+        'password',
     ];
 
     /**

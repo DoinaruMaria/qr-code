@@ -2,21 +2,21 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <!-- First Name -->
+        <!-- Nume -->
         <div>
             <x-input-label for="nume" :value="__('Nume')" />
-            <x-text-input id="nume" class="block mt-1 w-full" type="text" name="nume" :value="old('numeme')" required autofocus autocomplete="first-name" />
+            <x-text-input id="nume" class="block mt-1 w-full" type="text" name="nume" :value="old('nume')" required autofocus autocomplete="nume" />
             <x-input-error :messages="$errors->get('nume')" class="mt-2" />
         </div>
 
-         <!-- Last Name -->
+         <!-- Prenume -->
         <div  class="mt-4">
             <x-input-label for="prenume" :value="__('Prenume')" />
-            <x-text-input id="prenume" class="block mt-1 w-full" type="text" name="prenume" :value="old('prenume')" required autofocus autocomplete="last-name" />
+            <x-text-input id="prenume" class="block mt-1 w-full" type="text" name="prenume" :value="old('prenume')" required autofocus autocomplete="prenume" />
             <x-input-error :messages="$errors->get('prenume')" class="mt-2" />
         </div>
 
-        <!-- Email Address -->
+        <!-- Email -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
@@ -32,7 +32,7 @@
 
         <!-- Type -->
         <div  class="mt-4 align-middle  ">
-            <x-input-label for="tip" :value="__('Tip')" />
+            <x-input-label for="tip" :value="__('Tip de utilizator')" />
             <div class="mt-1 flex flex-col" for="tip">
                 <div class="align-middle flex flex-row w-full items-center"> 
                     <input type="checkbox" class="rounded-full" name="tip"  value="Elev">
@@ -65,15 +65,14 @@
                     </input>
                 </div>
             </div>
-            
         </div>
 
         <!-- Country -->
         <div  class="mt-4">
             <x-input-label for="judet" :value="__('Judet')" />
-            <select id="judet" class="mt-1 text-sl">
-	            <option value="AB">Alba</option>
-	            <option value="AG">Arges</option>
+            <select name="judete" id="judet" class="mt-1 text-sl">
+	            <option nume='judet' value="AB">Alba</option>
+	            <option nume='judet' value="AG">Arges</option>
 	            <option value="AR">Arad</option>
 	            <option value="B" >Bucuresti</option>
                 <option value="BC">Bacau</option>
@@ -121,7 +120,7 @@
         <div class="mt-4">
             <x-input-label for="password" :value="__('Parola')" />
 
-            <x-text-input id="parola" class="block mt-1 w-full"
+            <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
                             name="password"
                             required autocomplete="new-password" />

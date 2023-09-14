@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nume');
             $table->date('data');
-            $table->string('descriere');
+            $table->text('descriere');
             $table->string('locatie');
             $table->logo();
             $table->cover();

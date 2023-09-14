@@ -18,53 +18,12 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('telefon');
             $table->string('tip'); 
-            $table->enum('judet',['Alba',
-            'Arges',
-            'Arad',
-            'Bucuresti',
-            'Bacau',
-            'Bihor',
-            'Bistrita',
-            'Braila',
-            'Botosani',
-            'Brasov',
-            'Buzau',
-            'Cluj',
-            'Calarasi',
-            'Caras-Severin',
-            'Constanta',
-            'Covasna',
-            'Dambovita',
-            'Dolj',
-            'Gorj',
-            'Galati',
-            'Giurgiu',
-            'Hunedoara',
-            'Harghita',
-            'Ilfov',
-            'Ialomita',
-            'Iasi',
-            'Mehedinti',
-            'Maramures',
-            'Mures',
-            'Neamt',
-            'Olt',
-            'Prahova',
-            'Sibiu',
-            'Salaj',
-            'Satu-Mare',
-            'Suceava',
-            'Tulcea',
-            'Timis',
-            'Teleorman',
-            'Valcea',
-            'Vrancea',
-            'Vaslui']);
+            $table->string('judet'); 
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('parola');
-            $table->string('idBilet');
-            $table->boolean('tipUser');
-            $table->string('idPoartaAcces');
+            $table->string('password');
+            // $table->string('idBilet');
+            // $table->boolean('tipUser');
+            // $table->string('idPoartaAcces');
             $table->rememberToken();
             $table->timestamps();
         });
