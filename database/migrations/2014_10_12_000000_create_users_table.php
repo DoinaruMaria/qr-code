@@ -13,14 +13,58 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('nume');
             $table->string('prenume');
             $table->string('email')->unique();
-            $table->string('phone');
-            $table->string('tip'); // checkbox: elev, student, absolvent, parinte, reprezentant companie, vizitator
-            $table->string('country'); // dropdown pentru judet
+            $table->string('telefon');
+            $table->string('tip'); 
+            $table->enum('judet',['Alba',
+            'Arges',
+            'Arad',
+            'Bucuresti',
+            'Bacau',
+            'Bihor',
+            'Bistrita',
+            'Braila',
+            'Botosani',
+            'Brasov',
+            'Buzau',
+            'Cluj',
+            'Calarasi',
+            'Caras-Severin',
+            'Constanta',
+            'Covasna',
+            'Dambovita',
+            'Dolj',
+            'Gorj',
+            'Galati',
+            'Giurgiu',
+            'Hunedoara',
+            'Harghita',
+            'Ilfov',
+            'Ialomita',
+            'Iasi',
+            'Mehedinti',
+            'Maramures',
+            'Mures',
+            'Neamt',
+            'Olt',
+            'Prahova',
+            'Sibiu',
+            'Salaj',
+            'Satu-Mare',
+            'Suceava',
+            'Tulcea',
+            'Timis',
+            'Teleorman',
+            'Valcea',
+            'Vrancea',
+            'Vaslui']);
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('parola');
+            $table->string('idBilet');
+            $table->boolean('tipUser');
+            $table->string('idPoartaAcces');
             $table->rememberToken();
             $table->timestamps();
         });
