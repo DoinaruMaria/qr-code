@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Evenimente extends Model
 {
     use HasFactory;
-
-     'nume',
+    
+    protected $fillable = [
+        'nume',
         'data',
         'descriere',
         'locatie',
@@ -17,4 +18,5 @@ class Evenimente extends Model
         'cover',
         'porti_acces',
         'editie',
+    ];
 }
