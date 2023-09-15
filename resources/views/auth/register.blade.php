@@ -24,14 +24,14 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <!-- Phone -->
+        <!-- Telefon -->
         <div  class="mt-4">
             <x-input-label for="telefon" :value="__('Telefon')" />
             <x-text-input id="telefon" class="block mt-1 w-full" type="text" name="telefon" :value="old('telefon')" required autofocus autocomplete="phone" />
             <x-input-error :messages="$errors->get('telefon')" class="mt-2" />
         </div>
 
-        <!-- Type -->
+        <!-- Tip -->
         <div  class="mt-4 align-middle  ">
             <x-input-label for="tip" :value="__('Tip de utilizator')" />
             <div class="mt-1 flex flex-col" for="tip">
@@ -79,7 +79,7 @@
             </select> 
         </div>
 
-        <!-- Password -->
+        <!-- Parola -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Parola')" />
 
@@ -91,7 +91,7 @@
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
-        <!-- Confirm Password -->
+        <!-- Confirma Parola -->
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Confirma Parola')" />
 
