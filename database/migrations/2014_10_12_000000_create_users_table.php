@@ -13,14 +13,17 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            // $table->increments('id');
-            $table->string('name');
+            $table->string('nume');
+            $table->string('prenume');
             $table->string('email')->unique();
-            $table->string('phone');
-            $table->string('tip'); // checkbox: elev, student, absolvent, parinte, reprezentant companie, vizitator
-            $table->string('country'); // dropdown pentru judet
+            $table->string('telefon');
+            $table->string('tip'); 
+            $table->string('judet'); 
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            // $table->string('idBilet');
+            // $table->boolean('tipUser');
+            // $table->string('idPoartaAcces');
             $table->rememberToken();
             $table->timestamps();
         });
