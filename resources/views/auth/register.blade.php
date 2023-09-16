@@ -1,89 +1,31 @@
 <x-guest-layout>
-  
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <!-- Nume -->
+        <!-- Name -->
         <div>
-            <x-input-label for="nume" :value="__('Nume')" />
-            <x-text-input id="nume" class="block mt-1 w-full" type="text" name="nume" :value="old('nume')" required autofocus autocomplete="nume" />
-            <x-input-error :messages="$errors->get('nume')" class="mt-2" />
+            <x-input-label for="name" :value="__('Name')" />
+            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
-         <!-- Prenume -->
-        <div  class="mt-4">
-            <x-input-label for="prenume" :value="__('Prenume')" />
-            <x-text-input id="prenume" class="block mt-1 w-full" type="text" name="prenume" :value="old('prenume')" required autofocus autocomplete="prenume" />
-            <x-input-error :messages="$errors->get('prenume')" class="mt-2" />
-        </div>
-
-        <!-- Email -->
+        <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <!-- Telefon -->
-        <div  class="mt-4">
-            <x-input-label for="telefon" :value="__('Telefon')" />
-            <x-text-input id="telefon" class="block mt-1 w-full" type="text" name="telefon" :value="old('telefon')" required autofocus autocomplete="phone" />
-            <x-input-error :messages="$errors->get('telefon')" class="mt-2" />
+        <!-- Phone -->
+        <div>
+            <x-input-label for="phone" :value="__('Phone')" />
+            <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone" />
+            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
         </div>
 
-        <!-- Tip -->
-        <div  class="mt-4 align-middle  ">
-            <x-input-label for="tip" :value="__('Tip de utilizator')" />
-            <div class="mt-1 flex flex-col" for="tip">
-                <div class="align-middle flex flex-row w-full items-center"> 
-                    <input type="checkbox" class="rounded-full" name="tip"  value="Elev">
-                    <span class="pl-2 text-center"> Elev </span>
-                    </input>
-                </div>
-                <div class="align-middle flex flex-row w-full items-center"> 
-                    <input type="checkbox" class="rounded-full" name="tip"  value="Stundent">
-                    <span class="pl-2 text-center"> Student </span>
-                    </input>
-                </div>
-                <div class="align-middle flex flex-row w-full items-center"> 
-                    <input type="checkbox" class="rounded-full" name="tip"  value="Absolvent">
-                    <span class="pl-2 text-center"> Absolvent </span>
-                    </input>
-                </div>
-                <div class="align-middle flex flex-row w-full items-center"> 
-                    <input type="checkbox" class="rounded-full" name="tip"  value="Parinte">
-                    <span class="pl-2 text-center"> Parinte </span>
-                    </input>
-                </div>
-                <div class="align-middle flex flex-row w-full items-center"> 
-                    <input type="checkbox" class="rounded-full" name="tip"  value="Vizitator">
-                    <span class="pl-2 text-center"> Vizitator </span>
-                    </input>
-                </div>
-                <div class="align-middle flex flex-row w-full items-center"> 
-                    <input type="checkbox" class="rounded-full" name="tip"  value="Reprezentant companie">
-                    <span class="pl-2 text-center"> Reprezentant companie </span>
-                    </input>
-                </div>
-            </div>
-            <x-input-error :messages="$errors->get('tip="mt-2" />
-        </div>
-
-        <!-- Judete-->
-        <div  class="mt-4">
-            <x-input-label for="judet" :value="__('Judet')" />
-            <select name="judet" id="judet" class="mt-1 text-sl">
-                <option value="">Selecteaza judetul</option>
-                @foreach ($judete as $key => $node)
-                    <option value="{{ $key }}" @selected(old('judet') == $key)>{{ $node }}</option>
-                @endforeach
-            </select> 
-            <x-input-error :messages="$errors->get('judet')" class="mt-2" />
-        </div>
-
-        <!-- Parola -->
+        <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Parola')" />
+            <x-input-label for="password" :value="__('Password')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
@@ -93,9 +35,9 @@
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
-        <!-- Confirma Parola -->
+        <!-- Confirm Password -->
         <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirma Parola')" />
+            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
                             type="password"

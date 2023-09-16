@@ -20,8 +20,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        $judete = [ "AB" => "Alba", "AR" => "Arad", "AG" => "Argeş", "BC" => "Bacău", "BH" => "Bihor", "BN" => "Bistriţa-Năsăud", "BT" => "Botoşani", "BR" => "Brăila", "BV" => "Braşov", "B" => "Bucureşti", "BZ" => "Buzău", "CL" => "Călăraşi", "CS" => "Caraş-Severin", "CJ" => "Cluj", "CT" => "Constanţa", "CV" => "Covasna", "DB" => "Dâmboviţa", "DJ" => "Dolj", "GL" => "Galaţi", "GR" => "Giurgiu", "GJ" => "Gorj", "HR" => "Harghita", "HD" => "Hunedoara", "IL" => "Ialomiţa", "IS" => "Iaşi", "IF" => "Ilfov", "MM" => "Maramureş", "MH" => "Mehedinţi", "MS" => "Mureş", "NT" => "Neamţ", "OT" => "Olt", "PH" => "Prahova", "SJ" => "Sălaj", "SM" => "Satu Mare", "SB" => "Sibiu", "SV" => "Suceava", "TR" => "Teleorman", "TM" => "Timiş", "TL" => "Tulcea", "VL" => "Vâlcea", "VS" => "Vaslui", "VN" => "Vrancea"];
-        return view('auth.register', ['judete' => $judete]);
+        return view('auth.register');
     }
 
     /**
@@ -32,22 +31,20 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'nume' => ['required', 'string', 'max:255'],
-            'prenume' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'telefon' => ['required', 'regex:/^\d{10}$/'],
-            'tip' => ['required', 'string'],
-            'judet' => ['required', 'string'], 
+            'phone' => ['required', 'string'],
+            'tip' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:255'], //judet
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
-            'nume' => $request->nume,
-            'prenume' => $request->prenume,
+            'name' => $request->name,
             'email' => $request->email,
-            'telefon' => $request->telefon,
+            'phone' => $request->phone,
             'tip' => $request->tip,
-            'judet' => $request->judet,
+            'country' => $request->country,
             'password' => Hash::make($request->password),
         ]);
 
