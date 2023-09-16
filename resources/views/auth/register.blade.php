@@ -66,6 +66,7 @@
                     </input>
                 </div>
             </div>
+            <x-input-error :messages="$errors->get('tip="mt-2" />
         </div>
 
         <!-- Judete-->
@@ -77,6 +78,7 @@
                     <option value="{{ $key }}" @selected(old('judet') == $key)>{{ $node }}</option>
                 @endforeach
             </select> 
+            <x-input-error :messages="$errors->get('judet')" class="mt-2" />
         </div>
 
         <!-- Parola -->
