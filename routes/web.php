@@ -1,9 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\DropdownController;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Events;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +19,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $events = DB::table('events')->get();
+    return view('dashboard', ['events' => $events]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -29,7 +29,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-    
-Route::get('dropdown', [DropdownController::class, 'index']);
+use App\Models\User;
 
 require __DIR__.'/auth.php';
+
+use app\Models\Event;
+
+Route::get('/sec', function () {
+    return view('sec');
+});
+
+Route::get('/first', 'App\Http\Controllers\EvenimenteController@index');
