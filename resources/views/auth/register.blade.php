@@ -66,8 +66,7 @@
                     </input>
                 </div>
             </div>
-            <x-input-error :messages="$errors->get('tip="mt-2" />
-        </div>
+            <x-input-error :messages="$errors->get('tip')" class="mt-2" />        </div>
 
         <!-- Judete-->
         <div  class="mt-4">

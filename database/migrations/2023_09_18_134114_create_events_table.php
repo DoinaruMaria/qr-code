@@ -11,10 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('poarta_access', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('id_eveniment');
             $table->string('nume');
+            $table->date('data');
+            $table->text('descriere');
+            $table->string('locatie');
+            $table->string('logo');
+            $table->string('cover');
+            $table->string('porti_acces');
+            $table->integer('editie');
             $table->timestamps();
         });
     }
@@ -24,6 +30,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('poarta_access');
+        Schema::dropIfExists('events');
     }
 };
+
