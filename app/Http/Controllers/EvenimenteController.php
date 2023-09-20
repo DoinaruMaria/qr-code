@@ -3,28 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Models\Event;
+use Illuminate\Support\Facades\View;
 
 class EvenimenteController extends Controller 
 {
 
-public function index(){
-    $events = DB::select('select * from events'); 
+    public function index(Request $request)
+    {
+        $event = Event::find(1);
 
-    $event = Event::show([
-        'nume' => $events->nume,
-        'data'=>$events->data,
-        'descriere' => $events->descriere,
-        'locatie' => $events->locatia,
-        'logo'=>$events->logo,
-        'cover'=>$events->cover,
-        'porti_acces'=>$events->porti_acces,
-        'editie'=>$events->editie,
-    ]);
-
-    return view('show_event', ['event'=>$event]);
+        return view('first', [
+            'event' => $event
+        ]);
     }
 
 }
