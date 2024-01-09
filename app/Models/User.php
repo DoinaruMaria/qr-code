@@ -25,6 +25,8 @@ class User extends Authenticatable
         'tip',
         'judet',
         'password',
+        'idBilet',
+        'tipUser'
     ];
 
     /**
@@ -46,4 +48,5 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
 }

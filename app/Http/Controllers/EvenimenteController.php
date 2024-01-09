@@ -3,21 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 use App\Models\Event;
-use Illuminate\Support\Facades\View;
 
 class EvenimenteController extends Controller 
 {
-
-    public function index(Request $request)
+   
+    public function index($id)
     {
-        $event = Event::find(1);
+        $events = Event::all();
+        
+        $event = Event::find($id);
 
-        return view('first', [
-            'event' => $event
-        ]);
+        if($event){
+            return view('evenimente', ['event'=> $event]);
+        }
+        return view('notEvent');
     }
+
+  
 
 }

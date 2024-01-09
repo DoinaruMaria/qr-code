@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+     <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
@@ -53,7 +54,7 @@
                                     {{$event->descriere}}   
                                     @endisset
                         
-                    <x-input-label  class="pt-2 "/><a href=""class="font-semibold text-blue-700">Ia bilet</a>
+                    <x-input-label  class="pt-2 "/><a href="{{ url('/generateTicket',$event->id) }}"class="font-semibold text-blue-700">Ia bilet</a>
 
                 </form>
             </div>
@@ -65,3 +66,10 @@
     
 </body>
 </html>
+
+       
+           
+        
+
+            
+     

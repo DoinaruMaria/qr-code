@@ -41,7 +41,7 @@
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center"> 
-                    <input type="checkbox" class="rounded-full" name="tip"  value="Stundent">
+                    <input type="checkbox" class="rounded-full" name="tip"  value="Student">
                     <span class="pl-2 text-center"> Student </span>
                     </input>
                 </div>

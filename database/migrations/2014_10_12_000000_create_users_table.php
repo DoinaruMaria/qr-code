@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('judet'); 
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            // $table->string('idBilet');
-            // $table->boolean('tipUser');
-            // $table->string('idPoartaAcces');
+            $table->integer('idBilet')->default(0); 
+            $table->boolean('tipUser')->default(0);
+            $table->string('idPoartaAcces')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
