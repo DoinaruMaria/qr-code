@@ -24,7 +24,7 @@
             @foreach ($events as $event)
                 @if($event->data > now()->toDateString())
                     <div class="p-6 h-80 flex flex-col text-gray-900 dark:text-gray-100">
-                        <img src="{{ asset('img/Event.jpg') }}" class="w-full h-52" alt="">
+                        <img src="{{ asset($event->cover) }}" class="w-full h-52" alt="">
                         <a href="{{ url('evenimente',$event->id) }}" class="py-2 text-xl font-semibold leading-tight">
                             {{ ucfirst($event->nume) }}
                         </a>
