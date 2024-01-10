@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nume');
             $table->date('data');
-            $table->date('excert');
+            $table->text('excerpt');
             $table->text('descriere');
             $table->string('locatie');
             $table->string('logo');
@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('thumbnail');
             $table->string('porti_acces');
             $table->integer('editie');
-            $table->integer('culoare_primara');
-            $table->integer('culoare_secundara');
+            $table->string('culoare_primara');
+            $table->string('culoare_secundara');
             $table->timestamps();
         });
     }
