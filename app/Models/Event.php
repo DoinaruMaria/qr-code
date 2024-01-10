@@ -14,11 +14,14 @@ class Event extends Model
     protected $fillable = [
         'nume',
         'data',
+        'excert',
         'descriere',
         'locatie',
         'logo',
         'cover',
         'porti_acces',
         'editie',
+        'culoare_primara',
+        'culoare_secundara',
     ];
 }
