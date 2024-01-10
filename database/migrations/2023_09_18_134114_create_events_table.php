@@ -15,12 +15,16 @@ return new class extends Migration
             $table->id();
             $table->string('nume');
             $table->date('data');
+            $table->text('excerpt');
             $table->text('descriere');
             $table->string('locatie');
             $table->string('logo');
             $table->string('cover');
+            $table->string('thumbnail');
             $table->string('porti_acces');
             $table->integer('editie');
+            $table->string('culoare_primara');
+            $table->string('culoare_secundara');
             $table->timestamps();
         });
     }
