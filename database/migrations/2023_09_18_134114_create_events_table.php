@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('thumbnail');
             $table->string('porti_acces');
             $table->integer('editie');
-            $table->integer('culoare_primara');
-            $table->integer('culoare_secundara');
+            $table->string('culoare_primara');
+            $table->string('culoare_secundara');
             $table->timestamps();
         });
     }
