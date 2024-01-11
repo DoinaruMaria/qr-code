@@ -5,16 +5,16 @@
 
         <!-- Nume -->
         <div>
-            <x-input-label for="nume" :value="__('Nume')" />
-            <x-text-input id="nume" class="block mt-1 w-full" type="text" name="nume" :value="old('nume')" required autofocus autocomplete="nume" />
-            <x-input-error :messages="$errors->get('nume')" class="mt-2" />
+            <x-input-label for="first_name" :value="__('Nume')" />
+            <x-text-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="old('first_name')" required autofocus autocomplete="first_name" />
+            <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
         </div>
 
          <!-- Prenume -->
         <div  class="mt-4">
-            <x-input-label for="prenume" :value="__('Prenume')" />
-            <x-text-input id="prenume" class="block mt-1 w-full" type="text" name="prenume" :value="old('prenume')" required autofocus autocomplete="prenume" />
-            <x-input-error :messages="$errors->get('prenume')" class="mt-2" />
+            <x-input-label for="last_name" :value="__('Prenume')" />
+            <x-text-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" required autofocus autocomplete="last_name" />
+            <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
         </div>
 
         <!-- Email -->
@@ -26,58 +26,58 @@
 
         <!-- Telefon -->
         <div  class="mt-4">
-            <x-input-label for="telefon" :value="__('Telefon')" />
-            <x-text-input id="telefon" class="block mt-1 w-full" type="text" name="telefon" :value="old('telefon')" required autofocus autocomplete="phone" />
-            <x-input-error :messages="$errors->get('telefon')" class="mt-2" />
+            <x-input-label for="phone" :value="__('Telefon')" />
+            <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone" />
+            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
         </div>
 
         <!-- Tip -->
         <div  class="mt-4 align-middle  ">
-            <x-input-label for="tip" :value="__('Tip de utilizator')" />
-            <div class="mt-1 flex flex-col" for="tip">
+            <x-input-label for="user_type" :value="__('Tip de utilizator')" />
+            <div class="mt-1 flex flex-col" for="user_type">
                 <div class="align-middle flex flex-row w-full items-center"> 
-                    <input type="checkbox" class="rounded-full" name="tip"  value="Elev">
+                    <input type="checkbox" class="rounded-full" name="user_type"  value="Elev">
                     <span class="pl-2 text-center"> Elev </span>
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center"> 
-                    <input type="checkbox" class="rounded-full" name="tip"  value="Student">
+                    <input type="checkbox" class="rounded-full" name="user_type"  value="Student">
                     <span class="pl-2 text-center"> Student </span>
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center"> 
-                    <input type="checkbox" class="rounded-full" name="tip"  value="Absolvent">
+                    <input type="checkbox" class="rounded-full" name="user_type"  value="Absolvent">
                     <span class="pl-2 text-center"> Absolvent </span>
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center"> 
-                    <input type="checkbox" class="rounded-full" name="tip"  value="Parinte">
+                    <input type="checkbox" class="rounded-full" name="user_type"  value="Parinte">
                     <span class="pl-2 text-center"> Parinte </span>
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center"> 
-                    <input type="checkbox" class="rounded-full" name="tip"  value="Vizitator">
+                    <input type="checkbox" class="rounded-full" name="user_type"  value="Vizitator">
                     <span class="pl-2 text-center"> Vizitator </span>
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center"> 
-                    <input type="checkbox" class="rounded-full" name="tip"  value="Reprezentant companie">
+                    <input type="checkbox" class="rounded-full" name="user_type"  value="Reprezentant companie">
                     <span class="pl-2 text-center"> Reprezentant companie </span>
                     </input>
                 </div>
             </div>
-            <x-input-error :messages="$errors->get('tip')" class="mt-2" />        </div>
+            <x-input-error :messages="$errors->get('user_type')" class="mt-2" />        </div>
 
         <!-- Judete-->
         <div  class="mt-4">
-            <x-input-label for="judet" :value="__('Judet')" />
-            <select name="judet" id="judet" class="mt-1 text-sl">
+            <x-input-label for="county" :value="__('Judet')" />
+            <select name="county" id="county" class="mt-1 text-sl">
                 <option value="">Selecteaza judetul</option>
                 @foreach ($judete as $key => $node)
-                    <option value="{{ $key }}" @selected(old('judet') == $key)>{{ $node }}</option>
+                    <option value="{{ $key }}" @selected(old('county') == $key)>{{ $node }}</option>
                 @endforeach
             </select> 
-            <x-input-error :messages="$errors->get('judet')" class="mt-2" />
+            <x-input-error :messages="$errors->get('county')" class="mt-2" />
         </div>
 
         <!-- Parola -->
