@@ -24,9 +24,9 @@ use App\Http\Requests;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // display events in dashboard 
 Route::get('/dashboard', function (Request $request) {
@@ -46,6 +46,33 @@ Route::get('/dashboard', function (Request $request) {
     $events=Event::paginate($noOfPaginacionData);
     return view('/dashboard', ['events' => $events]);
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+
+//display events homepage not logged in
+Route::get('/', function (Request $request) {
+    $currentDate = now()->toDateString();
+    $events = DB::table('events')
+        ->orderByRaw("CASE 
+            WHEN data = '{$currentDate}' THEN 0
+            WHEN data > '{$currentDate}' THEN 1
+            ELSE 2
+            END")
+        ->orderBy('data', 'ASC')
+        ->get();
+    $noOfPaginacionData = 6;
+    if($noOfPaginacionData == 6){
+       \Log::info('This is some useful information.');
+    }
+    $events=Event::paginate($noOfPaginacionData);
+    return view('welcome', ['events' => $events]);
+})->middleware(['auth', 'verified'])->name('welcome');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
