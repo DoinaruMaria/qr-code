@@ -13,12 +13,17 @@ return new class extends Migration
     {
         Schema::create('entries', function (Blueprint $table) {
             $table->id();
-            $table->string('id_user');
-            $table->string('id_eveniment');
-            $table->string('id_poarta_acces');
-            $table->date('data');
-            $table->time('ora');
+            $table->unsignedBigInteger('user_id');
+            $table->uuid('event_id');
+            $table->unsignedBigInteger('gate_id');
+            $table->dateTime('data_ora');
             $table->timestamps();
+                
+            // Chei străine
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
+            $table->foreign('gate_id')->references('id')->on('gates')->onDelete('cascade');
+
         });
     }
 
