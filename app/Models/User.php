@@ -18,15 +18,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'nume',
-        'prenume',
+        'first_name',
+        'last_name',
         'email',
-        'telefon',
-        'tip',
-        'judet',
+        'phone',
+        'user_type',
+        'county',
         'password',
         'idBilet',
-        'tipUser'
+        'role'
     ];
 
     /**
@@ -35,7 +35,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'parola',
+        'password',
         'remember_token',
     ];
 
@@ -48,5 +48,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class, 'user_id');
+    }
 }

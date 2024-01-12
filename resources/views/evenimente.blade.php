@@ -10,7 +10,11 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+@php
+    $primary_color=@isset($event->culoare_primara) ? $event->culoare_primara : '#fff';
+    $secondary_color=@isset($event->culoare_secundara) ? $event->culoare_secundara : '#fff';
 
+@endphp
         <script>
         // JavaScript countdown logic
         function countdown() {
@@ -47,9 +51,11 @@
 
     <x-app-layout>
     <x-slot name="header">
-        <div class="xl:h-[calc(100vh-97px)] bg-gradient-to-r from-red-400 to-violet-900">
+        <div class="xl:h-[calc(100vh-97px)] bg-gradient-to-r from-red-400 to-violet-900" style="background: linear-gradient(45deg,{{$secondary_color}}, {{$primary_color}})">
             <div class="relative">
-                <img src="{{ asset('img/space.png') }}" class="h-[30rem] md:h-full max-h-[44rem] bg-center bg-no-repeat bg-cover w-full" > </img>
+                <img src="@isset($event->cover)
+                    {{$event->cover}}   
+                    @endisset" class="h-[30rem] md:h-full max-h-[44rem] bg-center bg-no-repeat bg-cover w-full" > </img>
 
            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center font-bold">
                 <h1 class="text-white text-[3.75rem] uppercase">
@@ -58,9 +64,11 @@
                     @endisset
                 </h1>
                 <h1 class="text-white text-[1.75rem] mb-[2.5rem]"> 
-                    Excerpt for the event
+                    @isset($event->excerpt)
+                    {{$event->excerpt}}   
+                    @endisset
                 </h1>
-                <div class="flex justify-around mb-8">
+                <div class="flex justify-around mb-8 w-fit mx-auto">
                     <h1 class="text-white pr-4"> 
                         @isset($event->data)
                         {{$event->data}}   
@@ -77,7 +85,7 @@
                         @endisset
                     </h1>
                 </div>
-                <a href="{{ url('/generateTicket',$event->id) }}"><button class="bg-violet-900 px-[5rem] py-[1rem] uppercase text-white text-4 rounded">ia bilet</button></a>
+                <a href="{{ url('/generateTicket',$event->id) }}"><button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded" style="background-color: {{ $primary_color }};">ia bilet</button></a>
            </div>
         </div>
             <div id="countdown" class="flex justify-around text-white text-center text-[4rem] my-auto pb-4">
@@ -106,11 +114,13 @@
             
     </x-slot>
 
-    <section class="max-w-[80rem] dark:text-white mx-auto flex flex-col lg:flex-row py-[6rem] justify-center">
-        <div class="flex justify-center align-center mb-8 w-full basis-1/3">
-            <img src="{{ asset('img/logo.png') }}"></img>
+    <section class="flex flex-col lg:grid grid-cols-2 max-w-[80rem] dark:text-white mx-auto py-[6rem]">
+        <div class="flex justify-center align-center mb-8 w-full p-4 md:p-[2.5rem]">
+            <img src="@isset($event->logo)
+                    {{$event->logo}}   
+                    @endisset" class=""></img>
         </div>
-        <div class="p-4 md:p-[2.5rem] basis-1/2">
+        <div class="p-4 md:p-[2.5rem] flex-2">
             <h1 class="text-[2.25rem] border-b-2 mb-4">Despre eveniment</h1>
             <span>
                 <x-input-label  class="pt-2"/>

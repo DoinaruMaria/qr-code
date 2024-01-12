@@ -13,11 +13,15 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->string("id_user");
-            $table->string("id_eveniment");
-            $table->date("data_inregistrare");
+            $table->unsignedBigInteger('user_id');
+            $table->uuid('event_id');
+            $table->timestamp('purchase_date')->nullable();
             $table->string("lista_de_intrari");
             $table->timestamps();
+
+            // Chei străine
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
         });
     }
 
