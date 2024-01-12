@@ -12,59 +12,52 @@ use Illuminate\Support\Facades\DB;
 
 
 
-class GenerateTicketController extends Controller 
-{   
-
-    public function index($id){
+class GenerateTicketController extends Controller
+{
+    public function index($id)
+    {
         if (Auth::check()) {
-            //create ticket
-            $userId = Auth::id(); // current user id
-            $eventsUPB = Event::find($id);
+            $userId = Auth::id();
+            $event = Event::find($id);
 
-            if($eventsUPB){
-                $eventId = $eventsUPB->id;    
+            if ($event) {
                 $generateDate = now();
 
-                $collection = collect(['id_user', 'id_eveniment', 'data_generare_bilet']);
-                $combined = $collection->combine([$userId, $eventId, $generateDate]);
-                $combined->all();
+                // Caută biletul existent
+                $existingTicket = Ticket::where('user_id', $userId)
+                    ->where('event_id', $event->id)
+                    ->first();
 
-                //find ticket 
-                $existingTicket = Ticket::where('id_user', $userId)
-                ->where('id_eveniment', $eventId)
-                ->first();
-            
-                if ($existingTicket) { 
-                    $existingTicket->save();
-                    $ticketId = $existingTicket->id;
+                if ($existingTicket) {
+                    $existingTicket->update(['purchase_date' => $generateDate]);
 
-                    //add ticketId in Users db
+                    // Actualizează idBilet în Users db
                     $user = User::find($userId);
-                    $user->idBilet = strval($ticketId);
+                    $user->idBilet = strval($existingTicket->id);
                     $user->save();
- 
-                    return view('generateTicket', ['existingTicket' => $existingTicket]);
+
+                    return view('generateTicket', ['existingTicket' => $existingTicket, 'event' => $event]);
                 } else {
-                    //create new ticket and save it Tickets db
+                    // Creează și salvează un nou bilet în Tickets db
                     $ticket = new Ticket();
-                    $ticket->id_user = $userId;
-                    $ticket->id_eveniment = $eventId;
-                    $ticket->data_inregistrare = $generateDate;
+                    $ticket->user_id = $userId;
+                    $ticket->event_id = $event->id;
+                    $ticket->purchase_date = $generateDate;
                     $ticket->lista_de_intrari = '';
                     $ticket->save();
-    
-                    $ticketId = $ticket->id;
-    
-                    //add ticketId in Users db
+
+                    // Actualizează idBilet în Users db
                     $user = User::find($userId);
-                    $user->idBilet = strval($ticketId);
+                    $user->idBilet = strval($ticket->id);
                     $user->save();
-    
-                    return view('generateTicket', ['existingTicket' => $ticket]);
+
+                    return view('generateTicket', ['existingTicket' => $ticket, 'event' => $event]);
                 }
             }
+
             return view('notEvent');
-        } 
+        }
+
         return view('notTicket');
     }
 }

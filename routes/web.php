@@ -129,4 +129,4 @@ Route::get('/bilete/validare/{userId}/{eventId}', [ValidateController::class, 'v
 Route::get('/notAdmin', [NotAdminController::class, 'index']) ->name('notAdmin');
 
 //display list of generated tickets
-Route::get('/bileteleMele', [MyTicketsController::class, 'myTickets'])->name('bileteleMele');
+Route::get('/bileteleMele', [MyTicketsController::class, 'myTickets'])->name('my-tickets');
