@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->uuid('event_id');
             $table->timestamp('purchase_date')->nullable();
-            $table->string("lista_de_intrari");
+            $table->string("entry_location");
             $table->timestamps();
 
             // Chei străine

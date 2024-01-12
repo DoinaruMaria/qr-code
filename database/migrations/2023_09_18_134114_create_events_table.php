@@ -13,18 +13,18 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('nume');
-            $table->date('data');
+            $table->string('name');
+            $table->date('date');
             $table->text('excerpt');
-            $table->text('descriere');
-            $table->string('locatie');
+            $table->text('description');
+            $table->string('venue');
             $table->string('logo');
             $table->string('cover');
             $table->string('thumbnail');
-            $table->string('porti_acces');
-            $table->integer('editie');
-            $table->string('culoare_primara');
-            $table->string('culoare_secundara');
+            $table->string('gates');
+            $table->integer('edition');
+            $table->string('primary_color');
+            $table->string('secondary_color');
             $table->timestamps();
         });
     }
