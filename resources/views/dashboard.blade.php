@@ -19,7 +19,7 @@
                             </div>
                         </div>
                     </a>
-                    <div class="flex w-full rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center " >
+                    <div class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center " >
                         <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
                             <div class="flex items-center" >
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-200">
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                     </a>
-                    <div class="flex w-full rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center " >
+                    <div class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center " >
                         <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
                             <div class="flex items-center" >
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-200">
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                     </a>
-                    <div class="flex w-full rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center " >
+                    <div class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center " >
                         <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
                             <div class="flex items-center" >
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-200">
