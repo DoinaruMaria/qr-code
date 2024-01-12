@@ -11,9 +11,9 @@ class Ticket extends Model
 
     protected $fillable = [
         'id_user',
-        'id_eveniment',
-        'data_inregistrare',
-        'lista_de_intrari'
+        'id_event',
+        'purchase_date',
+        'entry_location'
     ];
 
     public function event()

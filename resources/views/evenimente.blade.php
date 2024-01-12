@@ -11,14 +11,14 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 @php
-    $primary_color=@isset($event->culoare_primara) ? $event->culoare_primara : '#fff';
-    $secondary_color=@isset($event->culoare_secundara) ? $event->culoare_secundara : '#fff';
+    $primary_color=@isset($event->primary_color) ? $event->primary_color : '#fff';
+    $secondary_color=@isset($event->secondary_color) ? $event->secondary_color : '#fff';
 
 @endphp
         <script>
         // JavaScript countdown logic
         function countdown() {
-            var countdownDate = new Date("{{$event->data}}").getTime();
+            var countdownDate = new Date("{{$event->date}}").getTime();
 
             var x = setInterval(function() {
                 var now = new Date().getTime();
@@ -51,39 +51,38 @@
 
     <x-app-layout>
     <x-slot name="header">
-        <div class="xl:h-[calc(100vh-97px)] bg-gradient-to-r from-red-400 to-violet-900" style="background: linear-gradient(45deg,{{$secondary_color}}, {{$primary_color}})">
+        <div class="flex flex-col xl:h-[calc(100vh-97px)] bg-gradient-to-r from-red-400 to-violet-900" style="background: linear-gradient(45deg,{{$secondary_color}}, {{$primary_color}})">
             <div class="relative">
-                <img src="@isset($event->cover)
-                    {{$event->cover}}   
-                    @endisset" class="h-[30rem] md:h-full max-h-[44rem] bg-center bg-no-repeat bg-cover w-full" > </img>
-
+                @isset($event->cover)
+                    <img src="{{$event->cover}}" class="h-[30rem] md:h-full max-h-[44rem] bg-center bg-no-repeat bg-cover w-full" /> 
+                @endisset
            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center font-bold">
-                <h1 class="text-white text-[3.75rem] uppercase">
-                    @isset($event->nume)
-                    {{$event->nume}}   
-                    @endisset
-                </h1>
-                <h1 class="text-white text-[1.75rem] mb-[2.5rem]"> 
-                    @isset($event->excerpt)
-                    {{$event->excerpt}}   
-                    @endisset
-                </h1>
+                @isset($event->name)
+                    <h1 class="text-white text-[3.75rem] uppercase">
+                        {{$event->name}}   
+                    </h1>
+                @endisset
+                @isset($event->excerpt)
+                    <h1 class="text-white text-[1.75rem] mb-[2.5rem]"> 
+                        {{$event->excerpt}}   
+                    </h1>
+                @endisset
                 <div class="flex justify-around mb-8 w-fit mx-auto">
-                    <h1 class="text-white pr-4"> 
-                        @isset($event->data)
-                        {{$event->data}}   
-                        @endisset
-                    </h1>
-                    <h1 class="text-white border-x-4 px-4"> 
-                        @isset($event->locatie)
-                        {{$event->locatie}}   
-                        @endisset
-                    </h1>
-                    <h1 class="text-white pl-4">Ediția 
-                        @isset($event->editie)
-                        {{$event->editie}}   
-                        @endisset
-                    </h1>
+                    @isset($event->date)
+                        <h1 class="text-white pr-4"> 
+                            {{$event->date}}   
+                        </h1>
+                    @endisset
+                    @isset($event->venue)
+                        <h1 class="text-white border-x-4 px-4"> 
+                            {{$event->venue}}   
+                        </h1>
+                    @endisset
+                    @isset($event->edition)
+                        <h1 class="text-white pl-4">Ediția 
+                            {{$event->edition}}   
+                        </h1>
+                    @endisset
                 </div>
                 <a href="{{ url('/generateTicket',$event->id) }}"><button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded" style="background-color: {{ $primary_color }};">ia bilet</button></a>
            </div>
@@ -91,22 +90,22 @@
             <div id="countdown" class="flex justify-around text-white text-center text-[4rem] my-auto pb-4">
                 <div class="flex flex-col">
                     <span id="zileramase" class="text-extrabold"></span>
-                    <span class="text-[10px] mt-[-15px] tracking-[0.3em]">ZILE</span>
+                    <span class="text-[10px] mt-[-15px] tracking-[0.2em]">ZILE</span>
                 </div>
                 <span>:</span>
                 <div class="flex flex-col">
                     <span id="oreramase" class="text-extrabold"></span>
-                    <span class="text-[10px] mt-[-15px] tracking-[0.3em]">ORE</span>    
+                    <span class="text-[10px] mt-[-15px] tracking-[0.2em]">ORE</span>    
                 </div>
                 <span>:</span>
                 <div class="flex flex-col">
                     <span id="minuteramase" class="text-extrabold"></span>
-                    <span class="text-[10px] mt-[-15px] tracking-[0.3em]">MINUTE</span> 
+                    <span class="text-[10px] mt-[-15px] tracking-[0.2em]">MINUTE</span> 
                 </div>
                 <span>:</span>
                 <div class="flex flex-col">
                     <span id="secunderamase" class="text-extrabold"></span>
-                    <span class="text-[10px] mt-[-15px] tracking-[0.3em]">SECUNDE</span> 
+                    <span class="text-[10px] mt-[-15px] tracking-[0.2em]">SECUNDE</span> 
                 </div>
             </div>
         </div>
@@ -116,19 +115,20 @@
 
     <section class="flex flex-col lg:grid grid-cols-2 max-w-[80rem] dark:text-white mx-auto py-[6rem]">
         <div class="flex justify-center align-center mb-8 w-full p-4 md:p-[2.5rem]">
-            <img src="@isset($event->logo)
-                    {{$event->logo}}   
-                    @endisset" class=""></img>
+            @isset($event->logo)
+                <img src="{{$event->logo}}"/>
+            @endisset
         </div>
+       
+        @isset($event->description)
         <div class="p-4 md:p-[2.5rem] flex-2">
             <h1 class="text-[2.25rem] border-b-2 mb-4">Despre eveniment</h1>
             <span>
                 <x-input-label  class="pt-2"/>
-                @isset($event->descriere)
-                {{$event->descriere}}   
-                @endisset
+                {{$event->description}}   
             </span>
         </div>
+        @endisset
         </div>
     </section>
      
