@@ -8,10 +8,10 @@
 <body>
 
     <x-app-layout>
-        <section class="max-w-[50rem] mx-auto flex flex-col justify-center items-center h-[calc(100vh-97px)]">
+        <section class="max-w-[54rem] mx-auto flex flex-col justify-center items-center h-[calc(100vh-97px)]">
             <div id="printableSection" class="flex w-full h-[13rem] bg-white">
                 <div class="h-full w-[30%] relative bg-cover bg-center bg-no-repeat" style="background-image: url({{ asset('img/spacefest.png') }}"></div>
-                <div class="w-[45%] p-4 h-full">
+                <div class="w-[40%] p-4 h-full">
                     <div class="text-black flex flex-col justify-between items-between h-full">
                         <div class="flex flex-col">
                             <h1 class="text-[2rem] font-bold uppercase">
@@ -39,11 +39,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-[25%] flex justify-center items-center border-l-2 border-dashed">
+                <div class="relative w-[30%] flex justify-center items-center border-l-2 border-dashed">
                     {!! QrCode::size(150)->generate('http://127.0.0.1:8000/bilete/validare/{userId}/{eventId}') !!}
+                    <button id="printButton" class="absolute top-0 right-0 bg-black h-[2rem] w-[2rem] flex justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 h-6">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                        </svg>
+                    </button>
                 </div>
+
             </div>
-            <button id="printButton" class="bg-white h-[4rem] w-[12rem] mt-16 text-[1.2rem] font-bold rounded">Printează biletul</button>
             <script>
                 document.getElementById('printButton').addEventListener('click', function() {
                     printSection('printableSection');
