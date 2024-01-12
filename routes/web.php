@@ -61,11 +61,11 @@ Route::get('/', function (Request $request) {
     $currentDate = now()->toDateString();
     $events = DB::table('events')
         ->orderByRaw("CASE 
-            WHEN data = '{$currentDate}' THEN 0
-            WHEN data > '{$currentDate}' THEN 1
+            WHEN date = '{$currentDate}' THEN 0
+            WHEN date > '{$currentDate}' THEN 1
             ELSE 2
             END")
-        ->orderBy('data', 'ASC')
+        ->orderBy('date', 'ASC')
         ->get();
     $noOfPaginacionData = 6;
     if($noOfPaginacionData == 6){
