@@ -12,16 +12,16 @@ class Event extends Model
     use HasFactory;
     
     protected $fillable = [
-        'nume',
-        'data',
+        'name',
+        'date',
         'excert',
-        'descriere',
-        'locatie',
+        'description',
+        'venue',
         'logo',
         'cover',
-        'porti_acces',
-        'editie',
-        'culoare_primara',
-        'culoare_secundara',
+        'gates',
+        'edition',
+        'primary_color',
+        'secondary_color',
     ];
 }
