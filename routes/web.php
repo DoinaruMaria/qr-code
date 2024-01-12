@@ -7,6 +7,7 @@ use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\EvenimenteController;
 use App\Http\Controllers\ValidateController;
 use App\Http\Controllers\MyTicketsController;
+use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Event;
 use App\Models\User;
@@ -24,9 +25,9 @@ use App\Http\Requests;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // display events in dashboard 
 Route::get('/dashboard', function (Request $request) {
@@ -46,6 +47,33 @@ Route::get('/dashboard', function (Request $request) {
     $events=Event::paginate($noOfPaginacionData);
     return view('/dashboard', ['events' => $events]);
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+
+//display events homepage not logged in
+Route::get('/', function (Request $request) {
+    $currentDate = now()->toDateString();
+    $events = DB::table('events')
+        ->orderByRaw("CASE 
+            WHEN data = '{$currentDate}' THEN 0
+            WHEN data > '{$currentDate}' THEN 1
+            ELSE 2
+            END")
+        ->orderBy('data', 'ASC')
+        ->get();
+    $noOfPaginacionData = 6;
+    if($noOfPaginacionData == 6){
+       \Log::info('This is some useful information.');
+    }
+    $events=Event::paginate($noOfPaginacionData);
+    return view('welcome', ['events' => $events]);
+})->middleware(['auth', 'verified'])->name('welcome');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -91,6 +119,9 @@ Route::get('/evenimente/{id}', [EvenimenteController::class, 'index']);
 // generates ticket and display qr code
 Route::get('/generateTicket/{id}', [GenerateTicketController::class, 'index']);
 
+//generate PDF file
+Route::get('/pdf/userPDF', [PDFController::class, 'generatePDF'])->name("generatePDF");
+
 // display tickets details if the user is admin
 Route::get('/bilete/validare/{userId}/{eventId}', [ValidateController::class, 'validateAdmin'])->middleware(EnsureUserIsAdmin::class);
 
@@ -99,6 +130,3 @@ Route::get('/notAdmin', [NotAdminController::class, 'index']) ->name('notAdmin')
 
 //display list of generated tickets
 Route::get('/bileteleMele', [MyTicketsController::class, 'myTickets'])->name('my-tickets');
-
-
-
