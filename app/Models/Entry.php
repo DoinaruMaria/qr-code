@@ -12,7 +12,7 @@ class Intrari extends Model
     
     protected $fillable = [
         'id_user',
-        'id_eveniment', 
-        'id_poarta_acces',
+        'id_event', 
+        'id_gate',
     ];
 }
