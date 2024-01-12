@@ -19,6 +19,7 @@ class Event extends Model
         'locatie',
         'logo',
         'cover',
+        'thumbnail',
         'porti_acces',
         'editie',
         'culoare_primara',

@@ -10,20 +10,15 @@ use App\Models\Ticket;
 
 class MyTicketsController extends Controller
 {
-    public function myTickets(){
-
+    public function myTickets()
+    {
         $userId = Auth::id();
 
-
-        // find tickets
-        $myTickets = DB::table('tickets')
-            ->join('events', 'id_eveniment', '=', 'events.id' )
-            ->where('id_user', '=', $userId)
-            ->select('tickets.*', 'events.nume')
-            ->get();       
+        // Folosește Eloquent pentru a obține biletele utilizatorului și asocierea automată cu evenimentele
+        $myTickets = Ticket::where('user_id', $userId)
+            ->with('event') // Eager loading pentru a încărca evenimentul asociat cu fiecare bilet
+            ->get();
 
         return view('bileteleMele', ['myTickets' => $myTickets]);
     }
-
-
 }

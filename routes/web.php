@@ -7,6 +7,7 @@ use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\EvenimenteController;
 use App\Http\Controllers\ValidateController;
 use App\Http\Controllers\MyTicketsController;
+use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Event;
 use App\Models\User;
@@ -118,6 +119,9 @@ Route::get('/evenimente/{id}', [EvenimenteController::class, 'index']);
 // generates ticket and display qr code
 Route::get('/generateTicket/{id}', [GenerateTicketController::class, 'index']);
 
+//generate PDF file
+Route::get('/pdf/userPDF', [PDFController::class, 'generatePDF'])->name("generatePDF");
+
 // display tickets details if the user is admin
 Route::get('/bilete/validare/{userId}/{eventId}', [ValidateController::class, 'validateAdmin'])->middleware(EnsureUserIsAdmin::class);
 
@@ -125,5 +129,4 @@ Route::get('/bilete/validare/{userId}/{eventId}', [ValidateController::class, 'v
 Route::get('/notAdmin', [NotAdminController::class, 'index']) ->name('notAdmin');
 
 //display list of generated tickets
-Route::get('/bileteleMele', [MyTicketsController::class, 'myTickets'])->name('bileteleMele');
-
+Route::get('/bileteleMele', [MyTicketsController::class, 'myTickets'])->name('my-tickets');
