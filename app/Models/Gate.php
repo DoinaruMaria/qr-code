@@ -11,7 +11,7 @@ class PoartaAcces extends Model
 
     
     protected $fillable = [
-        'id_eveniment', 
-        'nume',
+        'id_event', 
+        'name',
     ];
 }

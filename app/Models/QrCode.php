@@ -11,6 +11,6 @@ class QrCode extends Model
 
     protected $fillable = [
         'id_user',
-        'id_eveniment', 
+        'id_event', 
     ];
 }
