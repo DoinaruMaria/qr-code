@@ -15,7 +15,7 @@ class ValidateController extends Controller
         if($isTicket){
            return view('bilete/validare', ['isTicket' => $isTicket]);
         } 
-       return view('notTicket');
+       return view('not-ticket');
     }
 
 }
