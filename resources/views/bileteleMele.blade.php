@@ -4,9 +4,10 @@
         <link href="{{ asset('/css/bileteleMele.css') }}" rel="stylesheet">
     </head>
 <body>
-<x-app-layout>
+<x-app-layout class="max-w-[80rem] mx-auto  " >
+    <h2 class="m-16 text-center font-[900] text-yellow-400 dark:text-white  text-5xl">Biletele mele</h2>
     <div class="py-12">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Biletele mele</h2>
+        
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class=" overflow-hidden">
                @foreach($myTickets as $myTicket)
