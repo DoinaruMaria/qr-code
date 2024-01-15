@@ -19,4 +19,10 @@ class PoartaAcces extends Model
     {
         return $this->hasMany(Ticket::class, 'gate_id');
     }
+
+    public function users()
+    {
+        return $this->hasMany(User::class, 'gate_id');
+
+    }
 }
