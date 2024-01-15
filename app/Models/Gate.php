@@ -14,4 +14,9 @@ class PoartaAcces extends Model
         'id_event', 
         'name',
     ];
+    
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class, 'gate_id');
+    }
 }
