@@ -15,7 +15,7 @@ class EnsureUserIsAdmin {
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if($request->user()->tipUser !== 1)
+        if($request->user()->role !== 1)
             return redirect()->route('notAdmin');
         
         return $next($request); 

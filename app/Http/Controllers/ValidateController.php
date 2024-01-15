@@ -8,8 +8,8 @@ class ValidateController extends Controller
 
     public function validateAdmin(string $userId, string $eventId){
         // find ticket 
-        $isTicket = Ticket::where('id_user', $userId)
-            ->where('id_eveniment', $eventId)
+        $isTicket = Ticket::where('user_id', $userId)
+            ->where('event_id', $eventId)
             ->first();
 
         if($isTicket){
