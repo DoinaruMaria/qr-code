@@ -1,9 +1,3 @@
-
-<html>
-    <head>
-        <link href="{{ asset('/css/bileteleMele.css') }}" rel="stylesheet">
-    </head>
-<body>
 <x-app-layout class="max-w-[80rem] mx-auto  " >
     <h2 class="m-16 text-center font-[900] text-yellow-400 dark:text-white  text-5xl">Biletele mele</h2>
     <div class="py-12">
@@ -34,8 +28,8 @@
                                     </svg>
                                     {{ $myTicket->event->date }}
                                 </span>
-                                <span id="location" class="text-[0.75rem] font-semibold flex items-center mt-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" id="location_icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
+                                <span id="venue" class="text-[0.75rem] font-semibold flex items-center mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" id="venue_icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                                     </svg>
@@ -45,11 +39,14 @@
                             </div>
                         </div>
                     </div>
-                    <div id="qr" class="w-[25%] flex justify-center items-center border-l-2 border-dashed">
+                    <div class="relative w-[30%] flex justify-center items-center border-l-2 border-dashed">
                         {!! QrCode::size(150)->generate('http://127.0.0.1:8000/bilete/validare/{userId}/{eventId}') !!}
+                        <button id="printButton" class="absolute top-0 right-0 bg-black h-[2rem] w-[2rem] flex justify-center items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 h-6">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                            </svg>
+                        </button>
                     </div>
-                </div>
-                            <button id="printButton" class="bg-white h-[4rem] w-[12rem] text-[1.2rem] font-bold rounded">Printează biletul</button>
             <script>
                 document.getElementById('printButton').addEventListener('click', function() {
                     printSection('printableSection');
@@ -74,5 +71,3 @@
         </div>
     
 </x-app-layout>
-</body>
-<html>
