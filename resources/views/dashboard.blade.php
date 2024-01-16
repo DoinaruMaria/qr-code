@@ -1,6 +1,6 @@
 <x-app-layout class="max-w-[80rem] mx-auto  " >
     
-    <h2 class="m-16 text-center font-[900] text-yellow-400 dark:text-white  text-5xl">Evenimente</h2>
+    <h2 class="m-8 md:m-16 text-center font-[900] text-[40px]  text-yellow-400 dark:text-white  md:text-5xl">Evenimente</h2>
 
     <div class="max-w-[80rem] mx-auto grid md:grid-cols-2 px-8 lg:px-4 lg:grid-cols-3 gap-8">
             @forelse ($events as $event)
