@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->uuid('event_id');
+            $table->uuid('ticket_id');
             $table->unsignedBigInteger('gate_id');
             $table->dateTime('data_ora');
             $table->timestamps();
