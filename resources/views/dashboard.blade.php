@@ -19,7 +19,7 @@
                             </div>
                         </div>
                     </a>
-                    <div class="flex w-full rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center " >
+                    <div class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center " >
                         <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
                             <div class="flex items-center" >
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-200">
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                     </a>
-                    <div class="flex w-full rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center " >
+                    <div class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center " >
                         <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
                             <div class="flex items-center" >
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-200">
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                     </a>
-                    <div class="flex w-full rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center " >
+                    <div class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center " >
                         <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
                             <div class="flex items-center" >
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-200">
@@ -144,13 +144,13 @@
     <div class="mt-10 bg-gray-100 dark:bg-[#111827] max-w-[80rem] mx-auto ">
         <div class="py-8 block w-64 lg:w-full lg:flex mx-auto lg:justify-center">
             <div class="lg:mr-8 mb-8 lg:mb-0 w-64 p-2 bg-white flex justify-center items-center sm:rounded-lg bg-yellow-300 hover:bg-yellow-400 dark:bg-white  dark:hover:bg-gray-300 transition-all duration-300 ease-in-out ">
-                 <a href = "{{ url('evenimenteCurente')}}" class="w-64 p-5 border-dashed border-2 border-black text-center sm:rounded-lg">Evenimente<br> în desfășurare</a>
+                 <a href = "{{ url('evenimente-curente')}}" class="w-64 p-5 border-dashed border-2 border-black text-center sm:rounded-lg">Evenimente<br> în desfășurare</a>
             </div>
             <div class="lg:mr-8 mb-8 lg:mb-0 p-2 bg-white flex justify-center items-center sm:rounded-lg bg-yellow-300 hover:bg-yellow-400 dark:bg-white  dark:hover:bg-gray-300 transition-all duration-300 ease-in-out">
-                <a href = "{{ url('evenimenteViitoare')}}" class="w-64 p-5 border-dashed border-2 border-black text-center sm:rounded-lg">Evenimente<br> viitoare</a>
+                <a href = "{{ url('evenimente-viitoare')}}" class="w-64 p-5 border-dashed border-2 border-black text-center sm:rounded-lg">Evenimente<br> viitoare</a>
             </div>
             <div class=" p-2 mb-8 lg:mb-0 bg-white flex justify-center items-center sm:rounded-lg bg-yellow-300 hover:bg-yellow-400 dark:bg-white  dark:hover:bg-gray-300 transition-all duration-300 ease-in-out">
-                <a href = "{{ url('evenimenteIncheiate')}}" class="w-64 p-5 border-dashed border-2 border-black text-center sm:rounded-lg">Evenimente<br> încheiate</a> 
+                <a href = "{{ url('evenimente-incheiate')}}" class="w-64 p-5 border-dashed border-2 border-black text-center sm:rounded-lg">Evenimente<br> încheiate</a> 
             </div>
         </div>
     </div>

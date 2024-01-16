@@ -37,32 +37,32 @@
             <div class="mt-1 flex flex-col" for="user_type">
                 <div class="align-middle flex flex-row w-full items-center"> 
                     <input type="checkbox" class="rounded-full" name="user_type"  value="Elev">
-                    <span class="pl-2 text-center"> Elev </span>
+                    <span class="pl-2 text-center text-gray-300 "> Elev </span>
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center"> 
                     <input type="checkbox" class="rounded-full" name="user_type"  value="Student">
-                    <span class="pl-2 text-center"> Student </span>
+                    <span class="pl-2 text-center text-gray-300"> Student </span>
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center"> 
                     <input type="checkbox" class="rounded-full" name="user_type"  value="Absolvent">
-                    <span class="pl-2 text-center"> Absolvent </span>
+                    <span class="pl-2 text-center text-gray-300"> Absolvent </span>
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center"> 
                     <input type="checkbox" class="rounded-full" name="user_type"  value="Parinte">
-                    <span class="pl-2 text-center"> Parinte </span>
+                    <span class="pl-2 text-center text-gray-300"> Parinte </span>
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center"> 
                     <input type="checkbox" class="rounded-full" name="user_type"  value="Vizitator">
-                    <span class="pl-2 text-center"> Vizitator </span>
+                    <span class="pl-2 text-center text-gray-300"> Vizitator </span>
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center"> 
                     <input type="checkbox" class="rounded-full" name="user_type"  value="Reprezentant companie">
-                    <span class="pl-2 text-center"> Reprezentant companie </span>
+                    <span class="pl-2 text-center text-gray-300"> Reprezentant companie </span>
                     </input>
                 </div>
             </div>
@@ -71,8 +71,8 @@
         <!-- Judete-->
         <div  class="mt-4">
             <x-input-label for="county" :value="__('Judet')" />
-            <select name="county" id="county" class="mt-1 text-sl">
-                <option value="">Selecteaza judetul</option>
+            <select name="county" id="county" class="mt-1 text-sl bg-gray-900 text-gray-400 ">
+                <option value="" class=""  >Selecteaza judetul</option>
                 @foreach ($judete as $key => $node)
                     <option value="{{ $key }}" @selected(old('county') == $key)>{{ $node }}</option>
                 @endforeach
@@ -105,11 +105,11 @@
 
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
+                {{ __('Ești deja înregristrat?') }}
             </a>
 
             <x-primary-button class="ml-4">
-                {{ __('Register') }}
+                {{ __('Înregistrează-te') }}
             </x-primary-button>
         </div>
     </form>
