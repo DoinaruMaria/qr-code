@@ -2,16 +2,16 @@
     <h2 class="m-16 text-center font-[900] text-yellow-400 dark:text-white  text-5xl">Biletele mele</h2>
     <div class="py-12">
         
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class=" overflow-hidden">
                @foreach($myTickets as $myTicket)
                @if($myTicket->event)
                <div id="section">
 
-                <div id="printableSection" class="flex w-full h-[13rem] bg-white">
-                    <div id="ticket_event_cover" class="h-full w-[30%] relative bg-cover bg-center bg-no-repeat" style="background-image: url({{ asset('img/spacefest.png') }}"></div>
-                        <div id="info_box" class="w-[45%] p-4 h-full">
-                        <div id="content" class="text-black flex flex-col justify-between items-between h-full">
+                <div id="printableSection" class="relative  block md:flex w-full h-[34rem] md:h-[13rem] bg-white">
+                    <div id="ticket_event_cover" class="h-[33%] w-full md:w-[30%] md:h-full relative bg-cover bg-center bg-no-repeat" style="background-image: url({{ asset('img/spacefest.png') }}"></div>
+                        <div id="info_box" class="w-full h-[33%]  md:w-[45%] p-4 md:h-full">
+                        <div id="content" class="text-black flex flex-col text-center  md:justify-between md:text-left items-between h-full">
                         <div id="info" class="flex flex-col">
                             <h1 id="event_name" class="text-[2rem] font-bold uppercase">
                                 {{ $myTicket->event->name }}
@@ -20,8 +20,7 @@
                                     Ediția {{ $myTicket->event->edition }}
 
                             </span>
-                        </div>
-                            <div id="info-box" class="flex flex-col">
+                            <div id="info-box" class="flex flex-col items-center md:items-start md:mt-12 ">
                                 <span id="date" class="text-[0.75rem] font-semibold flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" id="calendar_icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
@@ -38,15 +37,17 @@
                                 </span>
                             </div>
                         </div>
+                            
+                        </div>
                     </div>
-                    <div class="relative w-[30%] flex justify-center items-center border-l-2 border-dashed">
+                    <div class=" w-full pt-4 mb-4 border-t-2   md:mt-0 md:mb-0 md:w-[30%] md:border-t-0  flex justify-center items-center border-l-2 border-dashed">
                         {!! QrCode::size(150)->generate('http://127.0.0.1:8000/bilete/validare/{userId}/{eventId}') !!}
-                        <button id="printButton" class="absolute top-0 right-0 bg-black h-[2rem] w-[2rem] flex justify-center items-center">
+                    </div>
+                    <button id="printButton" class="absolute top-0 right-0 bg-black h-[2rem] w-[2rem] flex justify-center items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 h-6">
                               <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                             </svg>
-                        </button>
-                    </div>
+                    </button>
             <script>
                 document.getElementById('printButton').addEventListener('click', function() {
                     printSection('printableSection');
