@@ -19,7 +19,7 @@ class EvenimenteController extends Controller
         if($event){
             return view('evenimente', ['event'=> $event]);
         }
-        return view('notEvent');
+        return view('not-event');
     }
 
   
