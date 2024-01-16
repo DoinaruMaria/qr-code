@@ -43,7 +43,7 @@ class GenerateTicketController extends Controller
                     $ticket->user_id = $userId;
                     $ticket->event_id = $event->id;
                     $ticket->purchase_date = $generateDate;
-                    $ticket->entry_location = '';
+                    // $ticket->entry_location = '';
                     $ticket->save();
 
                     // Actualizează idBilet în Users db

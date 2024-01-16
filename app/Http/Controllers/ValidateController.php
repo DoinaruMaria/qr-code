@@ -18,25 +18,19 @@ class ValidateController extends Controller
     public function validateAdmin(string $userId, string $eventId)
     {
         $user = auth()->user();
-
-        // Găsiți biletul
         $ticket = Ticket::where('user_id', $user->id)
             ->where('event_id', $eventId)
             ->first();
 
         if ($ticket) {
-            // Actualizați câmpurile pentru bilet
             $ticket->gate_id = $user->gate_id;
             $ticket->scanned_at = now();
             $ticket->scan_count += 1;
+            $entryId = $this->entryService->createEntry($user->id, $eventId, $user->gate_id, $ticket->id);
             $ticket->update();
-
-            // Adăugați o nouă intrare utilizând serviciul
-            $this->entryService->createEntry($user->id, $eventId, $user->gate_id);
-
+        
             return view('bilete/validare', ['isTicket' => $ticket]);
-        }
-
+        } 
         return view('not-ticket');
     }
 }

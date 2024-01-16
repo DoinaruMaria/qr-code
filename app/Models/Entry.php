@@ -14,6 +14,11 @@ class Entry extends Model
         'user_id',
         'event_id', 
         'gate_id',
+        'ticket_id',
         'data_ora'
     ];
+    public function tickets()
+    {
+        return $this->belongsToMany(Ticket::class, 'entry_ticket');
+    }
 }
