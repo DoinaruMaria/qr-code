@@ -8,8 +8,8 @@
                @if($myTicket->event)
                <div id="section">
 
-                <div id="printableSection" class="relative  block md:flex w-full h-[34rem] md:h-[13rem] bg-white">
-                    <div id="ticket_event_cover" class="h-[33%] w-full md:w-[30%] md:h-full relative bg-cover bg-center bg-no-repeat" style="background-image: url({{ asset('img/spacefest.png') }}"></div>
+                <div id="printableSection" class="relative  block md:flex w-full h-[34rem] rounded-xl md:h-[13rem] bg-white">
+                    <div id="ticket_event_cover" class="h-[33%] w-full md:w-[30%] md:h-full relative rounded-t-xl md:rounded-l-xl md:rounded-tr-none bg-cover bg-center bg-no-repeat" style="background-image: url({{ asset('img/spacefest.png') }}"></div>
                         <div id="info_box" class="w-full h-[33%]  md:w-[45%] p-4 md:h-full">
                         <div id="content" class="text-black flex flex-col text-center  md:justify-between md:text-left items-between h-full">
                         <div id="info" class="flex flex-col">
@@ -43,7 +43,7 @@
                     <div class=" w-full pt-4 mb-4 border-t-2   md:mt-0 md:mb-0 md:w-[30%] md:border-t-0  flex justify-center items-center border-l-2 border-dashed">
                         {!! QrCode::size(150)->generate('http://127.0.0.1:8000/bilete/validare/{userId}/{eventId}') !!}
                     </div>
-                    <button id="printButton" class="absolute top-0 right-0 bg-black h-[2rem] w-[2rem] flex justify-center items-center">
+                    <button id="printButton" class="absolute rounded-tr-xl top-0 right-0 bg-black h-[2rem] w-[2rem] flex justify-center items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 h-6">
                               <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                             </svg>
