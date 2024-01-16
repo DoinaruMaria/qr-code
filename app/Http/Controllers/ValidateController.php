@@ -28,7 +28,7 @@ public function validateAdmin($eventId)
             return view('bilete/validare', ['isTicket' => $ticket]);
         }
 
-    return view('notTicket');
+    return view('not-ticket');
 }
 
 }
