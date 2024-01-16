@@ -17,11 +17,15 @@ return new class extends Migration
             $table->uuid('event_id');
             $table->timestamp('purchase_date')->nullable();
             $table->string("entry_location");
+            $table->timestamp('scanned_at')->nullable();
+             $table->unsignedBigInteger('gate_id')->nullable();
+            $table->unsignedInteger('scan_count')->default(0);
             $table->timestamps();
 
             // Chei străine
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
+            $table->foreign('gate_id')->references('id')->on('gates')->onDelete('set null');
         });
     }
 

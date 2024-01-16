@@ -19,6 +19,6 @@ class MyTicketsController extends Controller
             ->with('event') // Eager loading pentru a încărca evenimentul asociat cu fiecare bilet
             ->get();
 
-        return view('bileteleMele', ['myTickets' => $myTickets]);
+        return view('biletele-mele', ['myTickets' => $myTickets]);
     }
 }

@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class NotAdminController extends Controller
 {
     public function index(){
-        return view('notAdmin');
+        return view('not-admin');
     }
 }

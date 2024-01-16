@@ -84,46 +84,46 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 // display events
-Route::get('/evenimenteCurente', function(){
+Route::get('/evenimente-curente', function(){
     $currentDate= now()->toDateString();
     $events = DB::table('events')
         ->where('date', '=', '{$currentDate}')
         ->get();
     
-    return view('/evenimenteCurente', ['events' => $events]);
+    return view('/evenimente-curente', ['events' => $events]);
     });
 
-Route::get('/evenimenteViitoare', function(){
+Route::get('/evenimente-viitoare', function(){
     $currentDate= now()->toDateString();
     $events = DB::table('events')
         ->where('date', '>', '{$currentDate}')
         ->orderBy('date', 'ASC')
         ->get();
     
-    return view('/evenimenteViitoare', ['events' => $events]);
+    return view('/evenimente-viitoare', ['events' => $events]);
     });
 
-Route::get('/evenimenteIncheiate', function(){
+Route::get('/evenimente-incheiate', function(){
     $currentDate= now()->toDateString();
     $events = DB::table('events')
         ->where('date', '>', '{$currentDate}')
         ->orderBy('date', 'DESC')
         ->get();
     
-    return view('/evenimenteIncheiate', ['events' => $events]);
+    return view('/evenimente-incheiate', ['events' => $events]);
     });
 
 // display event's infos
 Route::get('/evenimente/{id}', [EvenimenteController::class, 'index']);
 
 // generates ticket and display qr code
-Route::get('/generateTicket/{id}', [GenerateTicketController::class, 'index']);
+Route::get('/generate-ticket/{id}', [GenerateTicketController::class, 'index']);
 
 // display tickets details if the user is admin
 Route::get('/bilete/validare/{userId}/{eventId}', [ValidateController::class, 'validateAdmin'])->middleware(EnsureUserIsAdmin::class);
 
 // display message if the user is not admin
-Route::get('/notAdmin', [NotAdminController::class, 'index']) ->name('notAdmin');
+Route::get('/not-admin', [NotAdminController::class, 'index']) ->name('notAdmin');
 
 //display list of generated tickets
-Route::get('/bileteleMele', [MyTicketsController::class, 'myTickets'])->name('my-tickets');
+Route::get('/biletele-mele', [MyTicketsController::class, 'myTickets'])->name('my-tickets');

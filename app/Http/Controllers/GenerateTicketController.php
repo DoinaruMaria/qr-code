@@ -55,10 +55,10 @@ class GenerateTicketController extends Controller
                 }
             }
 
-            return view('notEvent');
+            return view('not-event');
         }
 
-        return view('notTicket');
+        return view('not-ticket');
     }
 }
            
