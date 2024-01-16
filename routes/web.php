@@ -119,9 +119,6 @@ Route::get('/evenimente/{id}', [EvenimenteController::class, 'index']);
 // generates ticket and display qr code
 Route::get('/generateTicket/{id}', [GenerateTicketController::class, 'index']);
 
-//generate PDF file
-Route::get('/pdf/userPDF', [PDFController::class, 'generatePDF'])->name("generatePDF");
-
 // display tickets details if the user is admin
 Route::get('/bilete/validare/{userId}/{eventId}', [ValidateController::class, 'validateAdmin'])->middleware(EnsureUserIsAdmin::class);
 
