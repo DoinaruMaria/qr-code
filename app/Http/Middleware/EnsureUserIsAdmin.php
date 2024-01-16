@@ -18,6 +18,6 @@ class EnsureUserIsAdmin {
         if($request->user()->role !== 1)
             return redirect()->route('notAdmin');
         
-        return $next($request); 
+         
     }
 }
