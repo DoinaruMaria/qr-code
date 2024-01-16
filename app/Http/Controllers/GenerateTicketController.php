@@ -36,7 +36,7 @@ class GenerateTicketController extends Controller
                     $user->idBilet = strval($existingTicket->id);
                     $user->save();
 
-                    return view('generateTicket', ['existingTicket' => $existingTicket, 'event' => $event]);
+                    return view('generate-ticket', ['existingTicket' => $existingTicket, 'event' => $event]);
                 } else {
                     // Creează și salvează un nou bilet în Tickets db
                     $ticket = new Ticket();
@@ -51,7 +51,7 @@ class GenerateTicketController extends Controller
                     $user->idBilet = strval($ticket->id);
                     $user->save();
 
-                    return view('generateTicket', ['existingTicket' => $ticket, 'event' => $event]);
+                    return view('generate-ticket', ['existingTicket' => $ticket, 'event' => $event]);
                 }
             }
 

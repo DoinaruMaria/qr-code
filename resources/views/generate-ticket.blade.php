@@ -11,10 +11,10 @@
     <x-app-layout>
         <section class="max-w-[54rem] mx-auto flex flex-col justify-center items-center h-[calc(100vh-97px)]">
             <div id="printableSection" class="flex w-full h-[13rem] bg-white">
-                <div id="ticket_event_cover" class="h-full w-[30%] relative bg-cover bg-center bg-no-repeat" >
-                    <img src="{{ asset($event->cover) }}" id="img_cover" alt="" class="h-full w-full">
+                <div id="ticket_event_cover" class="h-full !w-[30%] relative bg-cover bg-center bg-no-repeat" >
+                    <img src="{{ asset($event->thumbnail) }}" id="img_cover" alt="" class="h-full w-full">
                 </div>
-                <div id="info_box" class="w-[40%] p-4 h-full">
+                <div id="info_box" class="!w-[40%] p-4 h-full">
                     <div id="content" class="text-black flex flex-col justify-between items-between h-full">
                         <div id="info" class="flex flex-col">
                             <h1 id="event_name" class="text-[2rem] font-bold uppercase">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="qr" class="relative w-[30%] flex justify-center items-center border-l-2 border-dashed">
+                <div id="qr" class="relative !w-[30%] flex justify-center items-center border-l-2 border-dashed">
                     {!! QrCode::size(150)->generate('http://127.0.0.1:8000/bilete/validare/{userId}/{eventId}') !!}
                     <button id="printButton" class="!block absolute top-0 right-0 bg-black h-[2rem] w-[2rem] flex justify-center items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 h-6">
