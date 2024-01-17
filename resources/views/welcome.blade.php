@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
+<<<<<<< HEAD
 
     @vite('resources/css/app.css')
 
@@ -32,16 +33,63 @@
             @if (Route::has('register'))
             <a href="{{ route('register') }}"
                 class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+=======
+    </head>
+    <body class="antialiased dark">
+        <div class="relative  justify-center block sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+           
+        @if (Route::has('login'))
+                <div class="sm:fixed sm:top-0 sm:right-0 w-full bg-[#111827] h-20 z-[999] flex justify-between text-right z-10">
+                    <div class="flex justify-center  w-16 h-16 m-2">
+                    <img src="{{ asset('img/logo.png') }}" >
+                </div> 
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="font-semibold p-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                    @else
+                        <a href="{{ route('login') }}" class="font-semibold p-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 font-semibold p-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                        @endif
+                    @endauth
+                </div>
+>>>>>>> main
             @endif
             @endauth
         </div>
         @endif
 
+<<<<<<< HEAD
         <div class="w-full p-6 lg:p-8">
             <div class="flex justify-center">
                 <img src="{{ asset('img/logo.png') }}">
             </div>
             <h2 class="m-16 text-center font-[900] text-yellow-400 dark:text-white  text-5xl">Evenimente</h2>
+=======
+            <div class="w-full flex justify-center relative "  >
+                <img src="{{ asset('img/curte-rectorat.jpg') }}"  />
+                <div class="hidden  md:flex  absolute w-[80%] lg:w-[60%] h-28 bottom-[-4rem] z-10 bg-gray-700 rounded-xl grid grid-cols-3  " >
+                    <div class="w-[33%] block pl-8 pr-4 py-4 justify-start  text-white h-full  " >
+                        <p class="text-[12px] lg:text-[14px] "  >Unde?</p>
+                        <p class="w-full border-b-[2px] border-gray-300/[.3] text-[14px] lg:text-4 pt-[24px] pb-2 " >Politehnica Bucuresti</p>
+                    </div>
+                    <div class="w-[33%] block pl-4 pr-4 py-4 justify-start  text-white h-full  " >
+                        <p class="text-[12px] lg:text-[14px] "  >Unde?</p>
+                        <p class="w-full border-b-[2px] border-gray-300/[.3] text-[14px] lg:text-4 pt-[24px] pb-2 " >Politehnica Bucuresti</p>
+                    </div>
+                    <div class="w-[33%] block pl-4 pr-8 py-4 justify-start  text-white h-full  " >
+                        <p class="text-[12px] lg:text-[14px] "  >Unde?</p>
+                        <p class="w-full border-b-[2px] border-gray-300/[.3] text-[14px] lg:text-4 pt-[24px] pb-2 " >Politehnica Bucuresti</p>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="w-full p-6 lg:p-8">
+                
+
+                <h2 class=" mt-0 m-8 md:mt-24 text-center font-[900] text-[40px]  text-yellow-400 dark:text-white  md:text-5xl">Evenimente</h2>
+>>>>>>> main
 
             <div class="max-w-[80rem] mx-auto grid md:grid-cols-2 px-8 lg:px-4 lg:grid-cols-3 gap-8">
                 @forelse ($events as $event)
