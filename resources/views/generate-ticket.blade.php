@@ -10,26 +10,32 @@
 
 <body>
 
-    <x-app-layout>
-        <section class="max-w-[54rem] mx-auto flex flex-col justify-center items-center h-[calc(100vh-97px)]">
+    <x-app-layout class="max-w-[80rem] mx-auto ">
+        <section
+            class="max-w-7xl mx-auto px-8 flex flex-col justify-center items-center xl:h-[calc(100vh-97px)]   h-[50rem]">
+
             <!-- Sectiunea asta trebuie printata -->
             <!-- TICKET -->
-            <div id="printableSection" class="flex w-full h-[13rem] bg-white rounded-xl printable-section">
-                <div class="h-full !w-[30%] relative bg-cover bg-center bg-no-repeat ticket-event-cover">
+            <div id="{{$event->id}}"
+                class="relative block md:flex w-full h-[34rem] rounded-xl md:h-[13rem] bg-white mb-8 printable-section">
+                <div
+                    class="h-[33%] w-full md:w-[30%] md:h-full relative rounded-t-xl md:rounded-l-xl md:rounded-tr-none ticket-event-cover">
                     <img src="{{ asset($event->thumbnail) }}" alt="event-cover"
                         class="h-full w-full rounded-l-xl img-cover">
                 </div>
-                <div class="!w-[40%] p-4 h-full info-box">
-                    <div class="text-black flex flex-col justify-between items-between h-full content">
+                <div class="w-full h-[33%]  md:w-[45%] p-4 md:h-full info-box">
+                    <div
+                        class="text-black flex flex-col text-center md:justify-between md:text-left items-between h-full content">
                         <div class="flex flex-col info">
                             <h1 class="text-[2rem] font-bold uppercase event-name">
                                 {{ $event->name }}
                             </h1>
                             <span class="text-[1.4rem] font-bold edition">
                                 Ediția {{ $event->edition }}
+
                             </span>
                         </div>
-                        <div class="flex flex-col info">
+                        <div class="flex flex-col items-center md:items-start md:mt-12 info">
                             <span class="text-[0.75rem] font-semibold flex items-center date">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2 calendar-icon">
@@ -52,10 +58,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative !w-[30%] flex justify-center items-center border-l-2 border-dashed qr">
-                    {!! QrCode::size(150)->generate('http://127.0.0.1:8000/bilete/validare/{userId}/{eventId}') !!}
-                    <button id="printButton"
-                        class="!block absolute top-0 right-0 bg-black h-[2rem] w-[2rem] flex justify-center items-center rounded-tr-xl printButton">
+                <div
+                    class=" w-full pt-4 mb-4 border-t-2   md:mt-0 md:mb-0 md:w-[30%] md:border-t-0  flex justify-center items-center border-l-2 border-dashed qr">
+
+                    {!! QrCode::size(150)->generate('http://127.0.0.1:8000/bilete/validare/{userId}/{eventId}')
+                    !!}
+                    <button id="printButton" onClick="printTicket({{$event->id}})"
+                        class="absolute rounded-tr-xl top-0 right-0 bg-black h-[2rem] w-[2rem] flex justify-center items-center sm:rounded-tr-xl printButton">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="white" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -66,11 +75,7 @@
 
             </div>
             <script>
-            document.getElementById('printButton').addEventListener('click', function() {
-                printSection('printableSection');
-            });
-
-            function printSection(sectionId) {
+            function printTicket(sectionId) {
                 var printContents = document.getElementById(sectionId).outerHTML;
                 var originalContents = document.body.innerHTML;
 
