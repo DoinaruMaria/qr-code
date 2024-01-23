@@ -1,6 +1,6 @@
 <x-app-layout class="max-w-[80rem] mx-auto  " >
     
-    <h2 class="m-16 text-center font-[900] text-yellow-400 dark:text-white  text-5xl">Evenimente</h2>
+    <h2 class="m-8 md:m-16 text-center font-[900] text-[40px]  text-yellow-400 dark:text-white  md:text-5xl">Evenimente</h2>
 
     <div class="max-w-[80rem] mx-auto grid md:grid-cols-2 px-8 lg:px-4 lg:grid-cols-3 gap-8">
             @forelse ($events as $event)
@@ -9,7 +9,7 @@
                     <a href="{{ url('evenimente',$event->id) }}" class=" h-150 flex flex-col text-gray-900 dark:text-gray-100">
                         <div class="relative" >
                             <div  class="w-full h-[250px] lg:h-[350px] rounded-xl relative bg-cover bg-center bg-no-repeat " 
-                            style="background-image: url({{ asset('img/spacefestt.png') }}"
+                            style="background-image: url({{asset($event->thumbnail) }}"
                             ></div>
                             <div  class="py-2 px-4 text-xl w-full font-semibold rounded-b-xl leading-tight absolute bottom-0 bg-black bg-opacity-[0.6] backdrop-blur-sm ">
                                 <h3 class="flex justify-center text-bold text-white  " >
@@ -54,7 +54,7 @@
                     <a href="{{ url('evenimente',$event->id) }}" class=" h-150 flex flex-col text-gray-900 dark:text-gray-100">
                         <div class="relative" >
                             <div  class="w-full h-[250px] lg:h-[350px] rounded-xl relative bg-cover bg-center bg-no-repeat " 
-                            style="background-image: url({{ asset('img/spacefestt.png') }}"
+                            style="background-image: url({{asset($event->thumbnail) }}"
                             ></div>
                             <div  class="py-2 px-4 text-xl w-full font-semibold rounded-b-xl leading-tight absolute bottom-0 bg-black bg-opacity-[0.6] backdrop-blur-sm ">
                                 <h3 class="flex justify-center text-bold text-white  " >
@@ -98,7 +98,7 @@
                     <a href="{{ url('evenimente',$event->id) }}" class=" h-150 flex flex-col text-gray-900 dark:text-gray-100">
                         <div class="relative" >
                             <div  class="w-full h-[250px] lg:h-[350px] rounded-xl relative bg-cover bg-center bg-no-repeat " 
-                            style="background-image: url({{ asset('img/spacefestt.png') }}"
+                            style="background-image: url({{asset($event->thumbnail) }}"
                             ></div>
                             <div  class="py-2 px-4 text-xl w-full font-semibold rounded-b-xl leading-tight absolute bottom-0 bg-black  bg-opacity-[0.6] backdrop-blur-sm ">
                                 <h3 class="flex justify-center text-bold text-white  " >
@@ -144,13 +144,13 @@
     <div class="mt-10 bg-gray-100 dark:bg-[#111827] max-w-[80rem] mx-auto ">
         <div class="py-8 block w-64 lg:w-full lg:flex mx-auto lg:justify-center">
             <div class="lg:mr-8 mb-8 lg:mb-0 w-64 p-2 bg-white flex justify-center items-center sm:rounded-lg bg-yellow-300 hover:bg-yellow-400 dark:bg-white  dark:hover:bg-gray-300 transition-all duration-300 ease-in-out ">
-                 <a href = "{{ url('evenimenteCurente')}}" class="w-64 p-5 border-dashed border-2 border-black text-center sm:rounded-lg">Evenimente<br> în desfășurare</a>
+                 <a href = "{{ url('evenimente-curente')}}" class="w-64 p-5 border-dashed border-2 border-black text-center sm:rounded-lg">Evenimente<br> în desfășurare</a>
             </div>
             <div class="lg:mr-8 mb-8 lg:mb-0 p-2 bg-white flex justify-center items-center sm:rounded-lg bg-yellow-300 hover:bg-yellow-400 dark:bg-white  dark:hover:bg-gray-300 transition-all duration-300 ease-in-out">
-                <a href = "{{ url('evenimenteViitoare')}}" class="w-64 p-5 border-dashed border-2 border-black text-center sm:rounded-lg">Evenimente<br> viitoare</a>
+                <a href = "{{ url('evenimente-viitoare')}}" class="w-64 p-5 border-dashed border-2 border-black text-center sm:rounded-lg">Evenimente<br> viitoare</a>
             </div>
             <div class=" p-2 mb-8 lg:mb-0 bg-white flex justify-center items-center sm:rounded-lg bg-yellow-300 hover:bg-yellow-400 dark:bg-white  dark:hover:bg-gray-300 transition-all duration-300 ease-in-out">
-                <a href = "{{ url('evenimenteIncheiate')}}" class="w-64 p-5 border-dashed border-2 border-black text-center sm:rounded-lg">Evenimente<br> încheiate</a> 
+                <a href = "{{ url('evenimente-incheiate')}}" class="w-64 p-5 border-dashed border-2 border-black text-center sm:rounded-lg">Evenimente<br> încheiate</a> 
             </div>
         </div>
     </div>

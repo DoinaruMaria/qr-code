@@ -1,75 +1,77 @@
-#section {
-    margin-bottom: 2rem;
-}
-#printableSection {
+.printable-section {
     display: flex;
     width: 100%;
     height: 13rem;
     background-color: white;
     border: 1px solid #d1d5db;
 }
-#ticket_event_cover {
+.ticket-event-cover {
     height: 100%;
-    width: 30%;
+    width: 33%;
     position: relative;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url("/img/spacefest.png");
 }
-#info_box {
-    width: 45%;
+.img-cover {
     height: 100%;
-    padding: 1rem;
+    width: 100%;
+    object-fit: cover;
 }
-#content {
+.info-box {
+    width: 33%;
+    height: 100%;
+    margin-left: 1rem;
+}
+.content {
     color: black;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 100%;
 }
-#info {
+.info {
     display: flex;
     flex-direction: column;
 }
-#event_name {
+.event-name {
     font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
+    padding-top: 0;
+    margin-top: 0;
 }
-#edition {
+.edition {
     font-size: 1.4rem;
     font-weight: bold;
 }
-#date {
-    font-size: 0.75rem;
+.date {
     font-weight: 600;
     display: flex;
     align-items: center;
 }
-#calendar_icon {
-    width: 1.25rem;
+.calendar-icon {
+    width: 1.5rem;
     height: 1.25rem;
     margin-right: 0.5rem;
 }
-#location {
-    font-size: 0.75rem;
+.venue {
+    font-size: 1rem;
     font-weight: 600;
     display: flex;
     align-items: center;
     margin-top: 0.25rem;
 }
-#location_icon {
-    width: 1.25rem;
+.venue-icon {
+    width: 1.5rem;
     height: 1.25rem;
     margin-right: 0.5rem;
 }
-#qr {
-    width: 25%;
+.qr {
+    width: 33%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     border-left-width: 2px;
-    border-style: dashed;
+    border-left-style: dashed;
+}
+.printButton {
+    display: none;
 }

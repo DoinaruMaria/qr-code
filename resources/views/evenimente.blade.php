@@ -54,7 +54,7 @@
         <div class="flex flex-col xl:h-[calc(100vh-97px)] bg-gradient-to-r from-red-400 to-violet-900" style="background: linear-gradient(45deg,{{$secondary_color}}, {{$primary_color}})">
             <div class="relative">
                 @isset($event->cover)
-                    <img src="{{$event->cover}}" class="h-[30rem] md:h-full max-h-[44rem] bg-center bg-no-repeat bg-cover w-full" /> 
+                    <img src="{{ asset($event->cover) }}" class="h-[30rem] md:h-full max-h-[44rem] bg-center bg-no-repeat bg-cover w-full" /> 
                 @endisset
            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center font-bold">
                 @isset($event->name)
@@ -84,7 +84,7 @@
                         </h1>
                     @endisset
                 </div>
-                <a href="{{ url('/generateTicket',$event->id) }}"><button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded" style="background-color: {{ $primary_color }};">ia bilet</button></a>
+                <a href="{{ url('/generate-ticket',$event->id) }}"><button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded" style="background-color: {{ $primary_color }};">ia bilet</button></a>
            </div>
         </div>
             <div id="countdown" class="flex justify-around text-white text-center text-[4rem] my-auto pb-4">
