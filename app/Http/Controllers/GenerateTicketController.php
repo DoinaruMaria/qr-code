@@ -57,8 +57,6 @@ class GenerateTicketController extends Controller
 
             return view('not-event');
         }
-
-        return view('not-ticket');
+            return view('auth.login');
     }
 }
-           
