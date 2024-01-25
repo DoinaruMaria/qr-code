@@ -14,7 +14,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('acasa')" :active="request()->routeIs('acasa')">
-                        {{ __('Home') }}
+                        {{ __('Acasă') }}
                     </x-nav-link>
                     <x-nav-link :href="route('my-tickets')" :active="request()->routeIs('my-tickets')">
                         {{ __('Biletele mele') }}
@@ -46,7 +46,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Profil') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -55,7 +55,7 @@
 
                             <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Deconectează-te') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -83,20 +83,26 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('acasa')" :active="request()->routeIs('acasa')">
-                {{ __('Home') }}
+                {{ __('Acasă') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('my-tickets')" :active="request()->routeIs('my-tickets')">
+                {{ __('Biletele mele') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('closed-events')" :active="request()->routeIs('closed-events')">
+                {{ __('Evenimente încheiate') }}
             </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
+                <!-- <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div> -->
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                    {{ __('Profil') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -105,7 +111,7 @@
 
                     <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Deconectați-vă') }}
                     </x-responsive-nav-link>
                 </form>
             </div>
