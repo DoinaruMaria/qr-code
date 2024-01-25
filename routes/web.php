@@ -45,8 +45,8 @@ Route::get('/dashboard', function (Request $request) {
        \Log::info('This is some useful information.');
     }
     $events=Event::paginate($noOfPaginacionData);
-    return view('/dashboard', ['events' => $events]);
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('/acasa', ['events' => $events]);
+})->middleware(['auth', 'verified'])->name('acasa');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

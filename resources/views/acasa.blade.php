@@ -141,7 +141,7 @@
 
 
 
-    <div class="mt-10 bg-gray-100 dark:bg-[#111827] max-w-[80rem] mx-auto ">
+    <!-- <div class="mt-10 bg-gray-100 dark:bg-[#111827] max-w-[80rem] mx-auto ">
         <div class="py-8 block w-64 lg:w-full lg:flex mx-auto lg:justify-center">
             <div class="lg:mr-8 mb-8 lg:mb-0 w-64 p-2 bg-white flex justify-center items-center sm:rounded-lg bg-yellow-300 hover:bg-yellow-400 dark:bg-white  dark:hover:bg-gray-300 transition-all duration-300 ease-in-out ">
                  <a href = "{{ url('evenimente-curente')}}" class="w-64 p-5 border-dashed border-2 border-black text-center sm:rounded-lg">Evenimente<br> în desfășurare</a>
@@ -153,6 +153,6 @@
                 <a href = "{{ url('evenimente-incheiate')}}" class="w-64 p-5 border-dashed border-2 border-black text-center sm:rounded-lg">Evenimente<br> încheiate</a> 
             </div>
         </div>
-    </div>
+    </div> -->
 
 </x-app-layout>
