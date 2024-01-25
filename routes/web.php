@@ -30,15 +30,15 @@ use App\Http\Requests;
 // });
 
 // display events in dashboard 
-Route::get('/dashboard', function (Request $request) {
+Route::get('/acasa', function (Request $request) {
     $currentDate = now()->toDateString();
     $events = DB::table('events')
         ->orderByRaw("CASE 
-            WHEN date = '{$currentDate}' THEN 0
-            WHEN date > '{$currentDate}' THEN 1
+            WHEN start_date = '{$currentDate}' THEN 0
+            WHEN start_date > '{$currentDate}' THEN 1
             ELSE 2
             END")
-        ->orderBy('date', 'ASC')
+        ->orderBy('start_date', 'ASC')
         ->get();
     $noOfPaginacionData = 6;
     if($noOfPaginacionData == 6){
@@ -61,11 +61,11 @@ Route::get('/', function (Request $request) {
     $currentDate = now()->toDateString();
     $events = DB::table('events')
         ->orderByRaw("CASE 
-            WHEN date = '{$currentDate}' THEN 0
-            WHEN date > '{$currentDate}' THEN 1
+            WHEN start_date = '{$currentDate}' THEN 0
+            WHEN start_date > '{$currentDate}' THEN 1
             ELSE 2
             END")
-        ->orderBy('date', 'ASC')
+        ->orderBy('start_date', 'ASC')
         ->get();
     $noOfPaginacionData = 6;
     if($noOfPaginacionData == 6){
@@ -84,30 +84,30 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 // display events
-Route::get('/evenimente-curente', function(){
-    $currentDate= now()->toDateString();
-    $events = DB::table('events')
-        ->where('date', '=', '{$currentDate}')
-        ->get();
+// Route::get('/evenimente-curente', function(){
+//     $currentDate= now()->toDateString();
+//     $events = DB::table('events')
+//         ->where('date', '=', '{$currentDate}')
+//         ->get();
     
-    return view('/evenimente-curente', ['events' => $events]);
-    });
+//     return view('/evenimente-curente', ['events' => $events]);
+//     });
 
-Route::get('/evenimente-viitoare', function(){
-    $currentDate= now()->toDateString();
-    $events = DB::table('events')
-        ->where('date', '>', '{$currentDate}')
-        ->orderBy('date', 'ASC')
-        ->get();
+// Route::get('/evenimente-viitoare', function(){
+//     $currentDate= now()->toDateString();
+//     $events = DB::table('events')
+//         ->where('date', '>', '{$currentDate}')
+//         ->orderBy('date', 'ASC')
+//         ->get();
     
-    return view('/evenimente-viitoare', ['events' => $events]);
-    });
+//     return view('/evenimente-viitoare', ['events' => $events]);
+//     });
 
 Route::get('/evenimente-incheiate', function(){
     $currentDate= now()->toDateString();
     $events = DB::table('events')
-        ->where('date', '>', '{$currentDate}')
-        ->orderBy('date', 'DESC')
+        ->where('end_date', '>', '{$currentDate}')
+        ->orderBy('end_date', 'DESC')
         ->get();
     
     return view('/evenimente-incheiate', ['events' => $events]);

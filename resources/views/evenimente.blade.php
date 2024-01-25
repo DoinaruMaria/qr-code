@@ -18,7 +18,7 @@
         <script>
         // JavaScript countdown logic
         function countdown() {
-            var countdownDate = new Date("{{$event->date}}").getTime();
+            var countdownDate = new Date("{{$event->start_date}}").getTime();
 
             var x = setInterval(function() {
                 var now = new Date().getTime();
@@ -68,9 +68,9 @@
                     </h1>
                 @endisset
                 <div class="flex justify-around mb-8 w-fit mx-auto">
-                    @isset($event->date)
+                    @isset($event->start_date)
                         <h1 class="text-white pr-4"> 
-                            {{$event->date}}   
+                            {{$event->start_date}} - {{$event->end_date}}   
                         </h1>
                     @endisset
                     @isset($event->venue)
