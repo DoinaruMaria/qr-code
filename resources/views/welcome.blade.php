@@ -23,26 +23,26 @@
             <div class="flex justify-center  w-16 h-16 m-2">
                 <img src="{{ asset('img/logo.png') }}">
             </div>
-            @auth
-            <a href="{{ url('/dashboard') }}"
-                class="font-semibold p-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-            @else
-            <a href="{{ route('login') }}"
-                class="font-semibold p-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
-                in</a>
+            <div class="flex justify-end text-right">
+                @auth
+                <a href="{{ url('/dashboard') }}"
+                    class="font-semibold p-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                @else
+                <a href="{{ route('login') }}"
+                    class="font-semibold p-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
+                    in</a>
 
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}"
-                class="ml-4 font-semibold p-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-            @endif
-            @endauth
+                @if (Route::has('register'))
+                <a href="{{ route('register') }}"
+                    class="ml-4 font-semibold p-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                @endif
+                @endauth
+            </div>
+
         </div>
         @endif
 
         <div class="w-full p-6 lg:p-8">
-            <div class="flex justify-center pt-12">
-                <img src="{{ asset('img/logo.png') }}">
-            </div>
             <div class="w-full flex justify-center relative ">
                 <img src="{{ asset('img/curte-rectorat.jpg') }}" />
                 <div
