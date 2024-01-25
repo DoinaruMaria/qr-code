@@ -1,7 +1,7 @@
 <x-app-layout>
     
     <h2 class="m-16 text-center font-[900] text-yellow-400 dark:text-white  text-5xl" >
-            {{ __('Profile') }}
+            {{ __('Profil') }}
         </h2>
 
     <div class="py-6">
