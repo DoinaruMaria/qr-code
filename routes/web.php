@@ -45,8 +45,8 @@ Route::get('/dashboard', function (Request $request) {
        \Log::info('This is some useful information.');
     }
     $events=Event::paginate($noOfPaginacionData);
-    return view('/dashboard', ['events' => $events]);
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('/acasa', ['events' => $events]);
+})->middleware(['auth', 'verified'])->name('acasa');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -73,7 +73,7 @@ Route::get('/', function (Request $request) {
     }
     $events=Event::paginate($noOfPaginacionData);
     return view('welcome', ['events' => $events]);
-})->middleware(['auth', 'verified'])->name('welcome');
+})->name('welcome');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -111,7 +111,7 @@ Route::get('/evenimente-incheiate', function(){
         ->get();
     
     return view('/evenimente-incheiate', ['events' => $events]);
-    });
+    })->name('closed-events')  ;
 
 // display event's infos
 Route::get('/evenimente/{id}', [EvenimenteController::class, 'index']);
