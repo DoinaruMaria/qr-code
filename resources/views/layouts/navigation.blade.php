@@ -18,7 +18,9 @@
                     <x-nav-link :href="route('my-tickets')" :active="request()->routeIs('my-tickets')">
                         {{ __('Biletele mele') }}
                     </x-nav-link>
-
+                    <x-nav-link :href="route('closed-events')" :active="request()->routeIs('closed-events')">
+                        {{ __('Evenimente încheiate') }}
+                    </x-nav-link>
                 </div>
             </div>
 

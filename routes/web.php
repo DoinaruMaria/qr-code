@@ -111,7 +111,7 @@ Route::get('/evenimente-incheiate', function(){
         ->get();
     
     return view('/evenimente-incheiate', ['events' => $events]);
-    });
+    })->name('closed-events')  ;
 
 // display event's infos
 Route::get('/evenimente/{id}', [EvenimenteController::class, 'index']);
