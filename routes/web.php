@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\profileController;
 use App\Http\Controllers\GenerateTicketController;
 use App\Http\Controllers\NotAdminController;
 use App\Http\Controllers\QrCodeController;
@@ -42,16 +42,16 @@ Route::get('/acasa', function (Request $request) {
         ->get();
     $noOfPaginacionData = 6;
     if($noOfPaginacionData == 6){
-       \Log::info('This is some useful information.');
+       Log::info('This is some useful information.');
     }
     $events=Event::paginate($noOfPaginacionData);
     return view('/acasa', ['events' => $events]);
 })->middleware(['auth', 'verified'])->name('acasa');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profil', [profileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profil', [profileController::class, 'update'])->name('profile.update');
+    Route::delete('/profil', [profileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';
@@ -76,9 +76,9 @@ Route::get('/', function (Request $request) {
 })->name('welcome');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profil', [profileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profil', [profileController::class, 'update'])->name('profile.update');
+    Route::delete('/profil', [profileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';
