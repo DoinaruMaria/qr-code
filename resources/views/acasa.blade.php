@@ -1,4 +1,4 @@
-<x-app-layout class="max-w-[80rem] mx-auto  bg-white">
+<x-app-layout class="max-w-[80rem] mx-auto">
 
     <h2 class="m-8 md:m-16 text-center font-[900] text-[40px]  text-yellow-400 dark:text-white  md:text-5xl">Evenimente
     </h2>
