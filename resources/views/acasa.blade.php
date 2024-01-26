@@ -2,7 +2,7 @@
     
     <h2 class="m-8 md:m-16 text-center font-[900] text-[40px]  text-yellow-400 dark:text-white  md:text-5xl">Evenimente</h2>
 
-    <div class="max-w-[80rem] mx-auto grid md:grid-cols-2 px-8 lg:px-4 lg:grid-cols-3 gap-8">
+    <div class="max-w-[80rem] mx-auto grid md:grid-cols-2 px-8 lg:px-4 lg:grid-cols-3 gap-8 pb-8">
         <!-- Evenimente curente  -->
             <!-- @forelse ($events as $event)
                 @if($event->start_date == now()->toDateString() )
@@ -49,7 +49,7 @@
                 @empty
             @endforelse -->
 
-            @foreach ($events as $event)
+            @foreach ($events->sortBy('end_date') as $event)
                 @if($event->end_date >= now()->toDateString())
                     <div class="w-full" >
                     <a href="{{ url('evenimente',$event->id) }}" class=" h-150 flex flex-col text-gray-900 dark:text-gray-100">
