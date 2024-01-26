@@ -21,7 +21,4 @@ class EvenimenteController extends Controller
         }
         return view('not-event');
     }
-
-  
-
 }
