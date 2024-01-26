@@ -29,7 +29,7 @@ use App\Http\Requests;
 //     return view('welcome');
 // });
 
-// display events in dashboard 
+// display events in home 
 Route::get('/acasa', function (Request $request) {
     $currentDate = now()->toDateString();
     $events = DB::table('events')
@@ -112,6 +112,8 @@ Route::get('/evenimente-incheiate', function(){
     
     return view('/evenimente-incheiate', ['events' => $events]);
     })->name('closed-events')  ;
+
+Route::get('/evenimente', [EvenimenteController::class, 'duplicateEvents']);
 
 // display event's infos
 Route::get('/evenimente/{id}', [EvenimenteController::class, 'index']);
