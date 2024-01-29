@@ -1,0 +1,22 @@
+
+   Error 
+
+  Class "App\Console\Commands\Event" not found
+
+  at app\Console\Commands\DplicateEventsCommand.php:28
+     24▕      * Execute the console command.
+     25▕      */
+     26▕     public function handle()
+     27▕     {
+  ➜  28▕         $events = Event::all();
+     29▕         foreach ($events as $event) {
+     30▕             if ($event->end_date < now()->toDateString()) {
+     31▕                 $newEvent = $event->replicate();
+     32▕                 $newEvent->id = $event->id + 15; // Be careful with direct ID manipulation
+
+  1   vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:36
+      App\Console\Commands\DplicateEventsCommand::handle()
+
+  2   vendor\laravel\framework\src\Illuminate\Container\Util.php:41
+      Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+
