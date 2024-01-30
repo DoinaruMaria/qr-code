@@ -12,7 +12,7 @@
 
     <x-app-layout class="max-w-[80rem] mx-auto ">
         <section
-            class="max-w-7xl mx-auto px-8 flex flex-col justify-center items-center xl:h-[calc(100vh-97px)]   h-[50rem]">
+            class="max-w-7xl mx-auto px-8 flex flex-col justify-center items-center md:items-end xl:h-[calc(100vh-97px)]   h-[50rem]">
 
             <!-- Sectiunea asta trebuie printata -->
             <!-- TICKET -->
@@ -27,10 +27,10 @@
                     <div
                         class="text-black flex flex-col text-center md:justify-between md:text-left items-between h-full content">
                         <div class="flex flex-col info">
-                            <h1 class="text-[2rem] font-bold uppercase event-name">
+                            <h1 class="!text-[2rem] font-bold uppercase event-name">
                                 {{ $event->name }}
                             </h1>
-                            <span class="text-[1.4rem] font-bold edition">
+                            <span class="!text-[1.4rem] font-bold edition">
                                 Ediția {{ $event->edition }}
 
                             </span>
@@ -59,21 +59,21 @@
                     </div>
                 </div>
                 <div
-                    class=" w-full pt-4 mb-4 border-t-2   md:mt-0 md:mb-0 md:w-[30%] md:border-t-0  flex justify-center items-center border-l-2 border-dashed qr">
-
+                    class="py-4 md:py-0 md:pt-0 flex flex-col w-full mb-4 border-t-2 md:mt-0 md:mb-0 md:w-[30%] md:border-t-0 border-l-2 border-dashed qr">
                     {!! QrCode::size(150)->generate('http://127.0.0.1:8000/bilete/validare/{userId}/{eventId}')
                     !!}
                     <button id="printButton" onClick="printTicket({{$event->id}})"
-                        class="absolute rounded-tr-xl top-0 right-0 bg-black h-[2rem] w-[2rem] flex justify-center items-center sm:rounded-tr-xl printButton">
+                        class="pt-4 md:pt-0 mt-[0.5] h-[1rem] w-[12rem] flex justify-center items-center hover:font-semibold printButton">Descarcă
+                        biletul
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="white" class="w-6 h-6">
+                            stroke="black" class="ml-2 w-[1rem] h-[1rem] hover:font-semibold ">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                         </svg>
                     </button>
                 </div>
-
             </div>
+
             <script>
             function printTicket(sectionId) {
                 var printContents = document.getElementById(sectionId).outerHTML;
