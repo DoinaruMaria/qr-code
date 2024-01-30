@@ -40,8 +40,8 @@ Route::get('/acasa', function (Request $request) {
             END")
         ->orderBy('start_date', 'ASC')
         ->get();
-    $noOfPaginacionData = 6;
-    if($noOfPaginacionData == 6){
+    $noOfPaginacionData = 20;
+    if($noOfPaginacionData == 20){
        Log::info('This is some useful information.');
     }
     $events=Event::paginate($noOfPaginacionData);
@@ -67,8 +67,8 @@ Route::get('/', function (Request $request) {
             END")
         ->orderBy('start_date', 'ASC')
         ->get();
-    $noOfPaginacionData = 6;
-    if($noOfPaginacionData == 6){
+    $noOfPaginacionData = 20;
+    if($noOfPaginacionData == 20){
        \Log::info('This is some useful information.');
     }
     $events=Event::paginate($noOfPaginacionData);
