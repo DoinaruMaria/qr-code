@@ -15,7 +15,7 @@ class Event extends Model
         'name',
         'start_date',
         'end_date',
-        'excert',
+        'excerpt',
         'description',
         'venue',
         'logo',
