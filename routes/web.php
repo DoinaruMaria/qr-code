@@ -29,7 +29,7 @@ use App\Http\Requests;
 //     return view('welcome');
 // });
 
-// display events in dashboard 
+// display events in home 
 Route::get('/acasa', function (Request $request) {
     $currentDate = now()->toDateString();
     $events = DB::table('events')
