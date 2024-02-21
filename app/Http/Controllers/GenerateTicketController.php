@@ -33,7 +33,7 @@ class GenerateTicketController extends Controller
 
                     // Actualizează idBilet în Users db
                     $user = User::find($userId);
-                    $user->ticket_id = strval($existingTicket->id);
+                    // $user->ticket_id = strval($existingTicket->id);
                     $user->save();
 
                     return view('generate-ticket', ['existingTicket' => $existingTicket, 'event' => $event]);
@@ -57,8 +57,6 @@ class GenerateTicketController extends Controller
 
             return view('not-event');
         }
-
-        return view('not-ticket');
+            return view('auth.login');
     }
 }
-           

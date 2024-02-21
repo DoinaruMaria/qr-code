@@ -1,5 +1,5 @@
 <x-app-layout>
-    <h2 class="m-16 text-center font-[900] text-yellow-400 dark:text-white  text-5xl">Evenimente viitoare</h2>
+    <h2 class="m-8 md:m-16 text-center font-[900] text-[40px]  text-yellow-400 dark:text-white  md:text-5xl">Evenimente viitoare</h2>
     <div class="py-12" id='evenimente_viitoare'>
         <div class="max-w-[80rem] mx-auto grid md:grid-cols-2 px-8 lg:px-4 lg:grid-cols-3 gap-8">
             <div class=" overflow-hidden shadow-sm sm:rounded-lg">
@@ -21,7 +21,7 @@
                             </div>
                         </div>
                     </a>
-                    <div class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center " >
+                    <div class="flex w-full mt-[10px] rounded-xl  border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center " >
                         <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
                             <div class="flex items-center" >
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-200">

@@ -1,80 +1,77 @@
-#section {
-    margin-bottom: 2rem;
+.printable-section {
+  display: flex;
+  width: 100%;
+  height: 13rem;
+  background-color: white;
+  border: 1px solid #d1d5db;
 }
-#printableSection {
-    display: flex;
-    width: 100%;
-    height: 13rem;
-    background-color: white;
-    border: 1px solid #d1d5db;
+.ticket-event-cover {
+  height: 100%;
+  width: 33%;
+  position: relative;
 }
-#ticket_event_cover {
-    height: 100%;
-    width: 30%;
-    position: relative;
+.img-cover {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
-#img_cover {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+.info-box {
+  width: 33%;
+  height: 100%;
+  margin-left: 1rem;
 }
-#info_box {
-    width: 45%;
-    height: 100%;
-    margin-left: 1rem;
+.content {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
 }
-#content {
-    color: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100%;
+.info {
+  display: flex;
+  flex-direction: column;
 }
-#info {
-    display: flex;
-    flex-direction: column;
+.event-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-top: 0;
+  margin-top: 0;
 }
-#event_name {
-    font-size: 2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-top: 0;
+.edition {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
-#edition {
-    font-size: 1.4rem;
-    font-weight: bold;
+.date {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
 }
-#date {
-    font-size: 1rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
+.calendar-icon {
+  width: 1.5rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
 }
-#calendar_icon {
-    width: 1.5rem;
-    height: 1.25rem;
-    margin-right: 0.5rem;
+.venue {
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin-top: 0.25rem;
 }
-#venue {
-    font-size: 1rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    margin-top: 0.25rem;
+.venue-icon {
+  width: 1.5rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
 }
-#venue_icon {
-    width: 1.5rem;
-    height: 1.25rem;
-    margin-right: 0.5rem;
+.qr {
+  width: 33%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-left-width: 2px;
+  border-left-style: dashed;
 }
-#qr {
-    width: 25%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    border-left-width: 2px;
-    border-left-style: dashed;
-}
-#printButton {
-    display: none;
+.printButton {
+  display: none;
 }

@@ -1,13 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\profileController;
 use App\Http\Controllers\GenerateTicketController;
 use App\Http\Controllers\NotAdminController;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\EvenimenteController;
 use App\Http\Controllers\ValidateController;
 use App\Http\Controllers\MyTicketsController;
-use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Event;
 use App\Models\User;
@@ -29,29 +28,29 @@ use App\Http\Requests;
 //     return view('welcome');
 // });
 
-// display events in dashboard 
-Route::get('/dashboard', function (Request $request) {
+// display events in home 
+Route::get('/acasa', function (Request $request) {
     $currentDate = now()->toDateString();
     $events = DB::table('events')
         ->orderByRaw("CASE 
-            WHEN date = '{$currentDate}' THEN 0
-            WHEN date > '{$currentDate}' THEN 1
+            WHEN start_date = '{$currentDate}' THEN 0
+            WHEN start_date > '{$currentDate}' THEN 1
             ELSE 2
             END")
-        ->orderBy('date', 'ASC')
+        ->orderBy('start_date', 'ASC')
         ->get();
-    $noOfPaginacionData = 6;
-    if($noOfPaginacionData == 6){
-       \Log::info('This is some useful information.');
+    $noOfPaginacionData = 20;
+    if($noOfPaginacionData == 20){
+       Log::info('This is some useful information.');
     }
     $events=Event::paginate($noOfPaginacionData);
-    return view('/dashboard', ['events' => $events]);
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('/acasa', ['events' => $events]);
+})->middleware(['auth', 'verified'])->name('acasa');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profil', [profileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profil', [profileController::class, 'update'])->name('profile.update');
+    Route::delete('/profil', [profileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';
@@ -61,57 +60,57 @@ Route::get('/', function (Request $request) {
     $currentDate = now()->toDateString();
     $events = DB::table('events')
         ->orderByRaw("CASE 
-            WHEN date = '{$currentDate}' THEN 0
-            WHEN date > '{$currentDate}' THEN 1
+            WHEN start_date = '{$currentDate}' THEN 0
+            WHEN start_date > '{$currentDate}' THEN 1
             ELSE 2
             END")
-        ->orderBy('date', 'ASC')
+        ->orderBy('start_date', 'ASC')
         ->get();
-    $noOfPaginacionData = 6;
-    if($noOfPaginacionData == 6){
+    $noOfPaginacionData = 20;
+    if($noOfPaginacionData == 20){
        \Log::info('This is some useful information.');
     }
     $events=Event::paginate($noOfPaginacionData);
     return view('welcome', ['events' => $events]);
-})->middleware(['auth', 'verified'])->name('welcome');
+})->name('welcome');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profil', [profileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profil', [profileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profil', [profileController::class, 'destroy'])->name('profile.destroy');
+// });
 
-require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';
 
 // display events
-Route::get('/evenimente-curente', function(){
-    $currentDate= now()->toDateString();
-    $events = DB::table('events')
-        ->where('date', '=', '{$currentDate}')
-        ->get();
+// Route::get('/evenimente-curente', function(){
+//     $currentDate= now()->toDateString();
+//     $events = DB::table('events')
+//         ->where('date', '=', '{$currentDate}')
+//         ->get();
     
-    return view('/evenimente-curente', ['events' => $events]);
-    });
+//     return view('/evenimente-curente', ['events' => $events]);
+//     });
 
-Route::get('/evenimente-viitoare', function(){
-    $currentDate= now()->toDateString();
-    $events = DB::table('events')
-        ->where('date', '>', '{$currentDate}')
-        ->orderBy('date', 'ASC')
-        ->get();
+// Route::get('/evenimente-viitoare', function(){
+//     $currentDate= now()->toDateString();
+//     $events = DB::table('events')
+//         ->where('date', '>', '{$currentDate}')
+//         ->orderBy('date', 'ASC')
+//         ->get();
     
-    return view('/evenimente-viitoare', ['events' => $events]);
-    });
+//     return view('/evenimente-viitoare', ['events' => $events]);
+//     });
 
 Route::get('/evenimente-incheiate', function(){
     $currentDate= now()->toDateString();
     $events = DB::table('events')
-        ->where('date', '>', '{$currentDate}')
-        ->orderBy('date', 'DESC')
+        ->where('end_date', '>', '{$currentDate}')
+        ->orderBy('end_date', 'DESC')
         ->get();
     
     return view('/evenimente-incheiate', ['events' => $events]);
-    });
+    })->name('closed-events')  ;
 
 // display event's infos
 Route::get('/evenimente/{id}', [EvenimenteController::class, 'index']);
