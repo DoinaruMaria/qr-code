@@ -53,12 +53,13 @@
     <x-app-layout>
         @if(!Auth::check())
         <div
-            class="relative  justify-center block sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+            class="relative  justify-center block sm:items-center bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
 
             @if (Route::has('login'))
             <div class="sm:fixed sm:top-0 sm:right-0 w-full bg-[#111827] h-20 flex justify-between text-right z-10">
-                <div class="flex justify-center  w-16 h-16 m-2">
-                    <img src="{{ asset('img/logo.svg') }}">
+
+                <div class="flex justify-center w-16 h-16 m-2">
+                    <img src="{{ asset('img/logo.svg') }}" alt="Logo" id="logoImage">
                 </div>
                 <div class="flex justify-end text-right">
                     @auth
@@ -76,6 +77,11 @@
                 </div>
 
             </div>
+            <script>
+                document.getElementById('logoImage').addEventListener('click', function() {
+                    window.location.href = "{{ url('/') }}";
+                });
+            </script>
             @endif
         </div>
         @endif
