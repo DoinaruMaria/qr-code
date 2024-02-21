@@ -16,35 +16,35 @@
 
     @endphp
     <script>
-    // JavaScript countdown logic
-    function countdown() {
-        var countdownDate = new Date("{{$event->start_date}}").getTime();
+        // JavaScript countdown logic
+        function countdown() {
+            var countdownDate = new Date("{{$event->start_date}}").getTime();
 
-        var x = setInterval(function() {
-            var now = new Date().getTime();
-            var distance = countdownDate - now;
+            var x = setInterval(function () {
+                var now = new Date().getTime();
+                var distance = countdownDate - now;
 
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("zileramase").innerHTML = days;
-            document.getElementById("oreramase").innerHTML = hours;
-            document.getElementById("minuteramase").innerHTML = minutes;
-            document.getElementById("secunderamase").innerHTML = seconds;
+                document.getElementById("zileramase").innerHTML = days;
+                document.getElementById("oreramase").innerHTML = hours;
+                document.getElementById("minuteramase").innerHTML = minutes;
+                document.getElementById("secunderamase").innerHTML = seconds;
 
 
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("countdown").innerHTML = "Evenimentul s-a sfârșit.";
-            }
-        }, 1000);
-    }
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("countdown").innerHTML = "Evenimentul s-a sfârșit.";
+                }
+            }, 1000);
+        }
 
-    window.onload = function() {
-        countdown();
-    };
+        window.onload = function () {
+            countdown();
+        };
     </script>
 </head>
 
@@ -79,34 +79,28 @@
             @endif
         </div>
         @endif
-        <x-slot name="header">
-            <div class="flex flex-col xl:h-[calc(100vh-97px)] bg-gradient-to-r from-red-400 to-violet-900"
-                style="background: linear-gradient(45deg,{{$secondary_color}}, {{$primary_color}})">
-                <div class="relative">
-                    @isset($event->cover)
-                    <img src="{{ asset($event->cover) }}"
-                        class="h-[30rem] md:h-full max-h-[44rem] bg-center bg-no-repeat bg-cover w-full" />
-                    @endisset
+        <x-slot name="header" style="calc(100svh - 96px)">
+            <div class="flex flex-col bg-gradient-to-r from-red-400 to-violet-900">
+                <div class="w-full h-[80svh] bg-center bg-no-repeat bg-cover"
+                    style="background-image: url({{ asset($event->cover) }})">
                 </div>
-                <div id="countdown" class="flex justify-around text-white text-center text-[4rem] my-auto pb-4">
-                    <div class="flex flex-col">
-                        <span id="zileramase" class="text-extrabold"></span>
-                        <span class="text-[10px] mt-[-15px] tracking-[0.2em]">ZILE</span>
+                <div id="countdown" class="flex  items-center justify-center text-white text-center  text-[4rem] "
+                    style="height: calc(20svh - 96px)">
+                    <div class="flex flex-col me-8 md:me-12 lg:me-16 xl:me-20 2xl:me-32">
+                        <span id="zileramase" class="text-3xl md:text-6xl font-bold"></span>
+                        <span class="text-xs tracking-[0.2em]">ZILE</span>
                     </div>
-                    <span>:</span>
-                    <div class="flex flex-col">
-                        <span id="oreramase" class="text-extrabold"></span>
-                        <span class="text-[10px] mt-[-15px] tracking-[0.2em]">ORE</span>
+                    <div class="flex flex-col me-8 md:me-12 lg:me-16 xl:me-20 2xl:me-32">
+                        <span id="oreramase" class="text-3xl md:text-6xl font-bold"></span>
+                        <span class="text-xs tracking-[0.2em]">ORE</span>
                     </div>
-                    <span>:</span>
-                    <div class="flex flex-col">
-                        <span id="minuteramase" class="text-extrabold"></span>
-                        <span class="text-[10px] mt-[-15px] tracking-[0.2em]">MINUTE</span>
+                    <div class="flex flex-col me-8 md:me-12 lg:me-16 xl:me-20 2xl:me-32">
+                        <span id="minuteramase" class="text-3xl md:text-6xl font-bold"></span>
+                        <span class="text-xs tracking-[0.2em]">MINUTE</span>
                     </div>
-                    <span>:</span>
                     <div class="flex flex-col">
-                        <span id="secunderamase" class="text-extrabold"></span>
-                        <span class="text-[10px] mt-[-15px] tracking-[0.2em]">SECUNDE</span>
+                        <span id="secunderamase" class="text-3xl md:text-6xl font-bold"></span>
+                        <span class="text-xs tracking-[0.2em]">SECUNDE</span>
                     </div>
                 </div>
             </div>
