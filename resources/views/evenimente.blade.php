@@ -148,9 +148,19 @@
                     </h1>
                     @endisset
                 </div>
-                <a href="{{ url('/generate-ticket',$event->id) }}"><button
-                        class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded"
-                        style="background-color: {{ $primary_color }};">ia bilet</button></a>
+@if(Auth::check())
+    @if(Auth::user()->hasTicketForEvent($event->id))
+        <a href="{{ url('/generate-ticket', $event->id) }}">
+            <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded"
+                    style="background-color: {{ $primary_color }};">Vezi biletul</button>
+        </a>
+    @else
+        <a href="{{ url('/generate-ticket', $event->id) }}">
+            <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded"
+                    style="background-color: {{ $primary_color }};">Ia bilet</button>
+        </a>
+    @endif
+@endif
             </div>
         </section>
 
