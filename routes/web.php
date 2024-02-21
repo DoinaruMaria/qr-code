@@ -24,10 +24,6 @@ use App\Http\Requests;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 // display events in home 
 Route::get('/acasa', function (Request $request) {
     $currentDate = now()->toDateString();
@@ -55,7 +51,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-//display events homepage not logged in
+//display events in homepage not logged in
 Route::get('/', function (Request $request) {
     $currentDate = now()->toDateString();
     $events = DB::table('events')
