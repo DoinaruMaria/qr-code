@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -48,10 +47,33 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Define the relationship with tickets.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function tickets()
     {
         return $this->hasMany(Ticket::class, 'user_id');
     }
+
+    /**
+     * Check if the user has a ticket for a specific event.
+     *
+     * @param int $eventId
+     * @return bool
+     */
+    public function hasTicketForEvent($eventId)
+    {
+        return $this->tickets()->where('event_id', $eventId)->exists();
+    }
+
+    /**
+     * Define the relationship with gates.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function gate()
     {
         return $this->belongsTo(PoartaAcces::class, 'gate_id');
