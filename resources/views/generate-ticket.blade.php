@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel</title>
+    <title>Bilete UPB</title>
     <link href="{{ asset('/css/bileteleMele.css') }}" rel="stylesheet">
 
     <script>
