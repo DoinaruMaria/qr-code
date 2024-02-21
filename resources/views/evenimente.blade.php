@@ -56,8 +56,7 @@
             class="relative  justify-center block sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
 
             @if (Route::has('login'))
-            <div
-                class="sm:fixed sm:top-0 sm:right-0 w-full bg-[#111827] h-20 flex justify-between text-right z-10">
+            <div class="sm:fixed sm:top-0 sm:right-0 w-full bg-[#111827] h-20 flex justify-between text-right z-10">
                 <div class="flex justify-center  w-16 h-16 m-2">
                     <img src="{{ asset('img/logo.svg') }}">
                 </div>
@@ -113,8 +112,7 @@
             </div>
         </x-slot>
         <section class="max-w-[80rem] mx-auto pt-[6rem]">
-            <div
-                class="text-center font-bold ">
+            <div class="text-center font-bold ">
                 @isset($event->name)
                 <h1 class="text-white text-[3.75rem] uppercase">
                     {{$event->name}}
@@ -128,7 +126,8 @@
                 <div class="flex justify-around mb-8 w-fit mx-auto">
                     @isset($event->start_date)
                     <h1 class="text-white pr-4">
-                        {{$event->start_date}}
+                        {{ date('d-m-Y', strtotime($event->start_date)) }}
+
                     </h1>
                     @endisset
                     @isset($event->venue)
@@ -153,7 +152,7 @@
                 <img src="{{$event->logo}}" />
                 @endisset
             </div>
-        
+
             @isset($event->description)
             <div class="p-4 md:p-[2.5rem] flex-2">
                 <h1 class="text-[2.25rem] border-b-2 mb-4">Despre eveniment</h1>
