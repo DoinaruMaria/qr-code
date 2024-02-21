@@ -17,7 +17,7 @@ class EnsureUserIsAdmin {
     {
         if($request->user()->role == 1)
             return $next($request);
-        return redirect()->route('/bilete/validare');
+        return redirect()->route('notAdmin');
         
          
     }
