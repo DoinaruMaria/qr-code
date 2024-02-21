@@ -7,7 +7,6 @@ use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\EvenimenteController;
 use App\Http\Controllers\ValidateController;
 use App\Http\Controllers\MyTicketsController;
-use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Event;
 use App\Models\User;
@@ -75,13 +74,13 @@ Route::get('/', function (Request $request) {
     return view('welcome', ['events' => $events]);
 })->name('welcome');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profil', [profileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profil', [profileController::class, 'update'])->name('profile.update');
-    Route::delete('/profil', [profileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profil', [profileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profil', [profileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profil', [profileController::class, 'destroy'])->name('profile.destroy');
+// });
 
-require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';
 
 // display events
 // Route::get('/evenimente-curente', function(){
