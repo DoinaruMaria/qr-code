@@ -53,7 +53,7 @@
                         <div
                             class="h-[33%] w-full md:w-[30%] md:h-full relative rounded-t-xl md:rounded-l-xl md:rounded-tr-none ticket-event-cover">
                             <img src="{{ asset($myTicket->event->thumbnail) }}" alt="event-cover"
-                                class="h-full w-full rounded-l-xl img-cover">
+                                class="h-full w-full rounded-t-xl md:rounded-tr-none md:rounded-bl-xl img-cover">
                         </div>
                         <div class="w-full h-[33%]  md:w-[45%] p-4 ml-0 md:h-full info-box">
                             <div
