@@ -80,12 +80,12 @@
         </div>
         @endif
         <x-slot name="header" style="calc(100svh - 96px)">
-            <div class="flex flex-col bg-gradient-to-r from-red-400 to-violet-900">
-                <div class="w-full h-[80svh] bg-center bg-no-repeat bg-cover"
+            <div class="flex flex-col">
+                <div class="w-full h-[30svh] md:h-[50svh] lg:h-[80svh] bg-center bg-no-repeat bg-cover"
                     style="background-image: url({{ asset($event->cover) }})">
                 </div>
                 <div id="countdown" class="flex  items-center justify-center text-white text-center  text-[4rem] "
-                    style="height: calc(20svh - 96px)">
+                    style="height: calc(20svh - 96px); background: linear-gradient(45deg,{{$secondary_color}}, {{$primary_color}})">
                     <div class="flex flex-col me-8 md:me-12 lg:me-16 xl:me-20 2xl:me-32">
                         <span id="zileramase" class="text-3xl md:text-6xl font-bold"></span>
                         <span class="text-xs tracking-[0.2em]">ZILE</span>
@@ -105,23 +105,30 @@
                 </div>
             </div>
         </x-slot>
-        <section class="max-w-[80rem] mx-auto pt-[6rem]">
+        <section class="max-w-[80rem] mx-auto py-8 lg:py-[6rem]">
+            <div class="flex justify-center align-center w-full bg-center bg-no-repeat bg-contain h-[14rem]"
+                style="background-image: url({{ asset($event->logo) }})">
+            </div>
             <div class="text-center font-bold ">
-                @isset($event->name)
-                <h1 class="text-white text-[3.75rem] uppercase">
-                    {{$event->name}}
-                </h1>
-                @endisset
                 @isset($event->excerpt)
-                <h1 class="text-white text-[1.75rem] mb-[2.5rem]">
+                <h1 class="text-white text-[1.75rem] px-2 lg:px-4">
                     {{$event->excerpt}}
                 </h1>
                 @endisset
+            <div class="flex max-w-[60rem] dark:text-white mx-auto text-sm">
+            @isset($event->description)
+            <div class="p-4 py-8 flex-2">
+                <span>
+                    <x-input-label />
+                    {{$event->description}}
+                </span>
+            </div>
+            @endisset
+        </div>
                 <div class="flex justify-around mb-8 w-fit mx-auto">
                     @isset($event->start_date)
                     <h1 class="text-white pr-4">
                         {{ date('d-m-Y', strtotime($event->start_date)) }}
-
                     </h1>
                     @endisset
                     @isset($event->venue)
@@ -140,24 +147,6 @@
                         style="background-color: {{ $primary_color }};">ia bilet</button></a>
             </div>
         </section>
-        <section class="flex flex-col lg:grid grid-cols-2 max-w-[80rem] dark:text-white mx-auto py-[6rem]">
-            <div class="flex justify-center align-center mb-8 w-full p-4 md:p-[2.5rem]">
-                @isset($event->logo)
-                <img src="{{$event->logo}}" />
-                @endisset
-            </div>
-
-            @isset($event->description)
-            <div class="p-4 md:p-[2.5rem] flex-2">
-                <h1 class="text-[2.25rem] border-b-2 mb-4">Despre eveniment</h1>
-                <span>
-                    <x-input-label class="pt-2" />
-                    {{$event->description}}
-                </span>
-            </div>
-            @endisset
-        </section>
-
 
     </x-app-layout>
 
