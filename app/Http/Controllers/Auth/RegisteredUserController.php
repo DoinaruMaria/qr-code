@@ -39,8 +39,6 @@ class RegisteredUserController extends Controller
             'user_type' => ['required', 'string'],
             'county' => ['required', 'string'], 
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'role' => ['required', 'string'],
-            'gate_id' => ['required', 'string'],
         ]);
 
         $user = User::create([
@@ -51,8 +49,6 @@ class RegisteredUserController extends Controller
             'user_type' => $request->user_type,
             'county' => $request->county,
             'password' => Hash::make($request->password),   
-            'role'  => $request->role,
-            'gate_id' => $request->gate_id,
         ]);
 
         event(new Registered($user));
