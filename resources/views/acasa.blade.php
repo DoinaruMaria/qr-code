@@ -50,7 +50,7 @@
                             {{ ucfirst($event->name) }}
                         </h3>
                         <p
-                            class="my-2 hidden  opacity-[0.8] lg:flex text-align:left text-sm truncate overflow-hidden text-white  ">
+                            class="my-2 hidden opacity-[0.8] lg:block text-align:left text-sm truncate overflow-hidden text-white  ">
                             {{$event->excerpt}}</p>
                     </div>
                 </div>
