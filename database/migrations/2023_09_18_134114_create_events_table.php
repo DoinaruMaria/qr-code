@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('cover');
             $table->string('thumbnail');
             $table->string('gates');
+            $table->string('website');
             $table->integer('edition');
             $table->string('primary_color');
             $table->string('secondary_color');

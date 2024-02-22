@@ -13,6 +13,8 @@
     @php
     $primary_color=@isset($event->primary_color) ? $event->primary_color : '#fff';
     $secondary_color=@isset($event->secondary_color) ? $event->secondary_color : '#fff';
+    $google_start=gmdate('Ymd\THis\Z', strtotime($event->start_date));
+    $google_end=gmdate('Ymd\THis\Z', strtotime($event->end_date));
 
     @endphp
     <script>
@@ -178,6 +180,7 @@
                     @endisset
                 </div>
                 <div class="flex justify-around mb-8 w-fit mx-auto font-bold">
+
                     @isset($event->start_date)
                     <h1 class="text-white pr-4">
                         {{ date('d-m-Y', strtotime($event->start_date)) }}
@@ -194,6 +197,7 @@
                     </h1>
                     @endisset
                 </div>
+                </a>
                 @if(Auth::check())
                 @if(Auth::user()->hasTicketForEvent($event->name))
                 <a href="{{ url('/generate-ticket', $event->slug) }}">

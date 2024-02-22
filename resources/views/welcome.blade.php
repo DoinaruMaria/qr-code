@@ -19,7 +19,7 @@
         class="relative  justify-center block sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
 
         @if (Route::has('login'))
-        <div class="sm:fixed sm:top-0 w-full bg-gray-800 sm:right-0 align-middle px-4 sm:px-6 lg:px-8 w-full h-24   text-right z-10">
+        <div class="sm:fixed sm:top-0 w-full bg-gray-800 sm:right-0 align-middle px-4 sm:px-6 lg:px-8 h-24   text-right z-20">
             <div class="flex justify-between max-w-[95rem] mx-auto " >
                 <div class="flex justify-center m-2">
                     <img src="{{ asset('img/logo.svg') }}" width="80px" height="80px" >
@@ -46,24 +46,24 @@
         </div>
         @endif
 
-        <div class="w-full p-6 lg:p-8">
+        <div class="w-full px-6 pb-6 lg:p-8">
             <div class="w-full flex justify-center relative ">
-                <img src="{{ asset('img/curte-rectorat.jpg') }}" class="rounded-2xl" />
+                <img src="{{ asset('img/curte-rectorat.jpg') }}" class="rounded-b-2xl" />
                 <div
                     class="hidden  md:flex  absolute w-[80%] lg:w-[60%] h-28 bottom-[-4rem] z-10 bg-gray-700 rounded-xl grid grid-cols-3  ">
-                    <div class="w-[33%] block pl-8 pr-4 py-4 justify-start  text-white h-full">
-                        <h3 class="text-[20px] lg:text-[20px] text-center">Unde?</h3>
-                        <p class="w-full text-[14px] lg:text-4 pt-[24px] pb-2 text-center">
+                    <div class="w-[33%] block px-4 py-4  justify-start  text-white h-full">
+                        <h3 class="text-[20px] lg:text-[20px] text-center font-bold ">Unde?</h3>
+                        <p class="w-full text-[14px] lg:text-4 pt-[16px] pb-2 text-center font-normal">
                             Splaiul Independenței nr. 313, București</p>
                     </div>
-                    <div class="w-[33%] block pl-4 pr-4 py-4 justify-start  text-white h-full  ">
-                        <p class="text-[20px] lg:text-[20px] text-center">Când?</p>
-                        <p class="w-full  text-[14px] lg:text-4 pt-[24px] pb-2 text-center">
+                    <div class="w-[33%] block px-4 py-4 justify-start  text-white h-full  ">
+                        <p class="text-[20px] lg:text-[20px] text-center font-bold ">Când?</p>
+                        <p class="w-full  text-[14px] lg:text-4 pt-[16px] pb-2 text-center font-normal">
                             14 martie - 20 noiembrie 2024</p>
                     </div>
-                    <div class="w-[33%] block pl-4 pr-8 py-4 justify-start  text-white h-full  ">
-                        <p class="text-[20px] lg:text-[20px] text-center">Cine?</p>
-                        <p class="w-full  text-[14px] lg:text-4 pt-[24px] pb-2 text-center">
+                    <div class="w-[33%] block px-4 py-4  justify-start  text-white h-full  ">
+                        <p class="text-[20px] lg:text-[20px] text-center font-bold ">Cine?</p>
+                        <p class="w-full  text-[14px] lg:text-4 pt-[16px] pb-2 text-center font-normal">
                             POLITEHNICA București</p>
                     </div>
 
