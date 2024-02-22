@@ -149,23 +149,32 @@
             <div class="flex justify-center align-center w-full bg-center bg-no-repeat bg-contain h-[14rem]"
                 style="background-image: url({{ asset($event->logo) }})">
             </div>
-            <div class="text-center font-bold ">
+            <div class="text-center pt-4">
                 @isset($event->excerpt)
-                <h1 class="text-white text-[1.75rem] px-2 lg:px-4">
+                <h1 class="text-white text-[1.75rem] px-2 lg:px-4 font-bold leading-[1.2]">
                     {{$event->excerpt}}
                 </h1>
                 @endisset
+                    @if (!empty($event->website))
+                        <div class="flex justify-center pt-4 text-sm uppercase text-white">
+                            <a href="{{ $event->website }}" target="_blank" class="flex justify-center">Viziteaza site-ul
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="ml-2 w-[1.2rem] h-[1.2rem] broder-2 border rounded bg-white text-black">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                                </svg>
+                            </a>
+                        </div>
+                    @endif
                 <div class="flex max-w-[60rem] dark:text-white mx-auto text-sm">
-                    @isset($event->description)
-                    <div class="p-4 py-8 flex-2">
-                        <span>
-                            <x-input-label />
-                            {{$event->description}}
-                        </span>
-                    </div>
-                    @endisset
-                </div>
-                <div class="flex justify-around mb-8 w-fit mx-auto">
+            @isset($event->description)
+            <div class="p-4 pb-8 flex-2">
+                <span>
+                    <x-input-label />
+                    {{$event->description}}
+                </span>
+            </div>
+            @endisset
+            </div>
+                <div class="flex justify-around mb-8 w-fit mx-auto font-bold">
                     @isset($event->start_date)
                     <h1 class="text-white pr-4">
                         {{ date('d-m-Y', strtotime($event->start_date)) }}
