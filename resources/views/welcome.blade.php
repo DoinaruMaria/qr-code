@@ -26,7 +26,6 @@
             <div class="flex justify-end text-right">
                 @auth
                 <a href="{{ url('/acasa') }}"
-
                     class="font-semibold p-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Acasă</a>
 
                 @else
@@ -77,7 +76,7 @@
                 @forelse ($events as $event)
                 @if($event->date == now()->toDateString())
                 <div class="w-full">
-                    <a href="{{ url('evenimente',$event->id) }}"
+                    <a href="{{ url('evenimente',$event->name) }}"
                         class=" h-150 flex flex-col text-gray-900 dark:text-gray-100">
                         <div class="relative">
                             <div class="w-full h-[250px] lg:h-[350px] rounded-xl relative bg-cover bg-center bg-no-repeat "
@@ -120,7 +119,7 @@
                                 </p>
                             </div>
                         </div>
-                        <a href="{{ url('evenimente',$event->id) }}">
+                        <a href="{{ url('evenimente',$event->name) }}">
                             <p
                                 class="mr-4 px-[25px] py-2 my-[10px] rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
                                 Bilete
@@ -135,7 +134,7 @@
                 @foreach ($events as $event)
                 @if($event->date > now()->toDateString())
                 <div class="w-full">
-                    <a href="{{ url('evenimente',$event->id) }}"
+                    <a href="{{ url('evenimente',$event->name) }}"
                         class=" h-150 flex flex-col text-gray-900 dark:text-gray-100">
                         <div class="relative">
                             <div class="w-full h-[250px] lg:h-[350px] rounded-xl relative bg-cover bg-center bg-no-repeat "
@@ -178,7 +177,7 @@
                                 </p>
                             </div>
                         </div>
-                        <a href="{{ url('evenimente',$event->id) }}">
+                        <a href="{{ url('evenimente',$event->name) }}">
                             <p
                                 class="mr-4 px-[25px] py-2 my-[10px] rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
                                 Bilete
@@ -192,7 +191,7 @@
                 @foreach ($events->sortByDesc('date') as $event)
                 @if($event->date < now()->toDateString())
                     <div class="w-full">
-                        <a href="{{ url('evenimente',$event->id) }}"
+                        <a href="{{ url('evenimente',$event->name) }}"
                             class=" h-150 flex flex-col text-gray-900 dark:text-gray-100">
                             <div class="relative">
                                 <div class="w-full h-[250px] lg:h-[350px] rounded-xl relative bg-cover bg-center bg-no-repeat "
@@ -235,7 +234,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <a href="{{ url('evenimente',$event->id) }}">
+                            <a href="{{ url('evenimente',$event->name) }}">
                                 <p
                                     class="mr-4 px-[25px] py-2 my-[10px] rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out">
                                     Bilete

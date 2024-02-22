@@ -16,35 +16,35 @@
 
     @endphp
     <script>
-        // JavaScript countdown logic
-        function countdown() {
-            var countdownDate = new Date("{{$event->start_date}}").getTime();
+    // JavaScript countdown logic
+    function countdown() {
+        var countdownDate = new Date("{{$event->start_date}}").getTime();
 
-            var x = setInterval(function () {
-                var now = new Date().getTime();
-                var distance = countdownDate - now;
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countdownDate - now;
 
-                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                document.getElementById("zileramase").innerHTML = days;
-                document.getElementById("oreramase").innerHTML = hours;
-                document.getElementById("minuteramase").innerHTML = minutes;
-                document.getElementById("secunderamase").innerHTML = seconds;
+            document.getElementById("zileramase").innerHTML = days;
+            document.getElementById("oreramase").innerHTML = hours;
+            document.getElementById("minuteramase").innerHTML = minutes;
+            document.getElementById("secunderamase").innerHTML = seconds;
 
 
-                if (distance < 0) {
-                    clearInterval(x);
-                    document.getElementById("countdown").innerHTML = "Evenimentul s-a sfârșit.";
-                }
-            }, 1000);
-        }
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "Evenimentul s-a sfârșit.";
+            }
+        }, 1000);
+    }
 
-        window.onload = function () {
-            countdown();
-        };
+    window.onload = function() {
+        countdown();
+    };
     </script>
 </head>
 
@@ -78,9 +78,9 @@
 
             </div>
             <script>
-                document.getElementById('logoImage').addEventListener('click', function() {
-                    window.location.href = "{{ url('/') }}";
-                });
+            document.getElementById('logoImage').addEventListener('click', function() {
+                window.location.href = "{{ url('/') }}";
+            });
             </script>
             @endif
         </div>
@@ -121,16 +121,16 @@
                     {{$event->excerpt}}
                 </h1>
                 @endisset
-            <div class="flex max-w-[60rem] dark:text-white mx-auto text-sm">
-            @isset($event->description)
-            <div class="p-4 py-8 flex-2">
-                <span>
-                    <x-input-label />
-                    {{$event->description}}
-                </span>
-            </div>
-            @endisset
-        </div>
+                <div class="flex max-w-[60rem] dark:text-white mx-auto text-sm">
+                    @isset($event->description)
+                    <div class="p-4 py-8 flex-2">
+                        <span>
+                            <x-input-label />
+                            {{$event->description}}
+                        </span>
+                    </div>
+                    @endisset
+                </div>
                 <div class="flex justify-around mb-8 w-fit mx-auto">
                     @isset($event->start_date)
                     <h1 class="text-white pr-4">
@@ -148,19 +148,19 @@
                     </h1>
                     @endisset
                 </div>
-@if(Auth::check())
-    @if(Auth::user()->hasTicketForEvent($event->id))
-        <a href="{{ url('/generate-ticket', $event->id) }}">
-            <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded"
-                    style="background-color: {{ $primary_color }};">Vezi biletul</button>
-        </a>
-    @else
-        <a href="{{ url('/generate-ticket', $event->id) }}">
-            <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded"
-                    style="background-color: {{ $primary_color }};">Ia bilet</button>
-        </a>
-    @endif
-@endif
+                @if(Auth::check())
+                @if(Auth::user()->hasTicketForEvent($event->name))
+                <a href="{{ url('/generate-ticket', $event->name) }}">
+                    <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded"
+                        style="background-color: {{ $primary_color }};">Vezi biletul</button>
+                </a>
+                @else
+                <a href="{{ url('/generate-ticket', $event->name) }}">
+                    <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded"
+                        style="background-color: {{ $primary_color }};">Ia bilet</button>
+                </a>
+                @endif
+                @endif
             </div>
         </section>
 

@@ -41,7 +41,7 @@
                     @foreach ($events->sortByDesc('end_date') as $event)
                     @if($event->end_date < now()->toDateString())
                         <div class="w-full">
-                            <a href="{{ url('evenimente',$event->id) }}"
+                            <a href="{{ url('evenimente',$event->name) }}"
                                 class=" h-150 flex flex-col text-gray-900 dark:text-gray-100">
                                 <div class="relative">
                                     <div class="w-full h-[250px] lg:h-[350px] rounded-xl relative bg-cover bg-center bg-no-repeat "
