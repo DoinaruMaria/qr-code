@@ -1,3 +1,18 @@
+@if (session('status') === 'password-updated')
+                <div
+                    x-data="{ show: true }"
+                    x-show="show"
+                    x-transition
+                    x-init="setTimeout(() => show = false, 5000)"
+                    class="w-full  p-4 bg-[#111827] flex justify-start mb-6"
+                >
+                    <p class="text-md dark:text-green-400" >
+                        {{ __('Parola a fost actualizată cu succes!') }}
+                    </p>
+                </div>
+            @endif
+
+
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
@@ -13,6 +28,7 @@
         @csrf
         @method('put')
 
+        
         <div>
             <x-input-label for="current_password" :value="__('Parola curentă')" />
             <x-text-input id="current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
@@ -34,15 +50,8 @@
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Salvați') }}</x-primary-button>
 
-            @if (session('status') === 'password-updated')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600 dark:text-gray-400"
-                >{{ __('Salvat.') }}</p>
-            @endif
+            
         </div>
+
     </form>
 </section>
