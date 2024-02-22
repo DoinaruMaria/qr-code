@@ -7,6 +7,7 @@ use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\EvenimenteController;
 use App\Http\Controllers\ValidateController;
 use App\Http\Controllers\MyTicketsController;
+use App\Http\Controllers\CalendarController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Event;
 use App\Models\User;
@@ -55,3 +56,7 @@ Route::get('/not-admin', [NotAdminController::class, 'index']) ->name('notAdmin'
 
 //display list of generated tickets
 Route::get('/biletele-mele', [MyTicketsController::class, 'myTickets'])->name('my-tickets');
+
+// Adauga in calendar evenimentul
+Route::get('/download-ics/{eventId}', [CalendarController::class, 'downloadICS'])->name('download.ics');
+
