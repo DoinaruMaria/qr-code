@@ -19,25 +19,29 @@
         class="relative  justify-center block sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
 
         @if (Route::has('login'))
-        <div class="sm:fixed sm:top-0 sm:right-0 w-full bg-[#111827] h-20 flex justify-between text-right z-10">
-            <div class="flex justify-center  w-16 h-16 m-2">
-                <img src="{{ asset('img/logo.svg') }}">
-            </div>
-            <div class="flex justify-end text-right ">
-                @auth
-                <a href="{{ url('/acasa') }}"
-                    class="font-semibold py-6 pr-2 flex justify-center items-center text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Acasă</a>
+        <div class="sm:fixed sm:top-0 w-full bg-gray-800 sm:right-0 align-middle px-4 sm:px-6 lg:px-8 w-full h-24   text-right z-10">
+            <div class="flex justify-between max-w-[95rem] mx-auto " >
+                <div class="flex justify-center m-2">
+                    <img src="{{ asset('img/logo.svg') }}" width="80px" height="80px" >
+                </div>
+                <div class="flex justify-end  text-right">
+                    @auth
+                    <a href="{{ url('/acasa') }}"
 
-                @else
-                <a href="{{ route('login') }}"
-                    class="font-semibold py-6 pr-2 flex justify-center items-center  text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Conectați-vă</a>
+                        class="font-semibold flex items-center py-4 mx-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Acasă</a>
 
-                @if (Route::has('register'))
-                <a href="{{ route('register') }}"
-                    class="ml-4 font-semibold py-6 pr-2 flex justify-center items-center  text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Înregistrați-vă</a>
-                @endif
-                @endauth
+                    @else
+                    <a href="{{ route('login') }}"
+                        class="font-semibold flex items-center py-4 mx-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Conectați-vă</a>
+
+                    @if (Route::has('register'))
+                    <a href="{{ route('register') }}"
+                        class="ml-4 font-semibold flex items-center py-4 mx-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Înregistrați-vă</a>
+                    @endif
+                    @endauth
+                </div>
             </div>
+            
 
         </div>
         @endif
