@@ -85,7 +85,7 @@
                         </p>
                     </div>
                 </div>
-                <a href="{{ url('evenimente',$event->id) }}">
+                <a href="{{ url('evenimente',$event->name) }}">
                     <p
                         class="ml-4 md:ml-0 mr-4 px-[25px] py-2 my-[10px] rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
                         Bilete
