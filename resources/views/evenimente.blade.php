@@ -56,17 +56,17 @@
                     <div class="flex justify-center w-16 h-16 m-2">
                         <img src="{{ asset('img/logo.svg') }}" alt="Logo" id="logoImage">
                     </div>
-                    <div class="flex justify-end text-right">
+                    <div class="flex justify-end text-right ">
                         @auth
                         <a href="{{ url('/acasa') }}"
-                            class="font-semibold p-4  text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                            class="font-semibold py-6 pr-2 flex justify-center items-center text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                         @else
                         <a href="{{ route('login') }}"
-                            class="font-semibold p-4  text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Conectați-vă</a>
+                            class="font-semibold py-6 pr-2 flex justify-center items-center text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Conectați-vă</a>
     
                         @if (Route::has('register'))
                         <a href="{{ route('register') }}"
-                            class="ml-4 font-semibold p-4 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Înregistrați-vă</a>
+                            class="ml-4 font-semibold py-6 pr-2 flex justify-center items-center text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Înregistrați-vă</a>
                         @endif
                         @endauth
                     </div>

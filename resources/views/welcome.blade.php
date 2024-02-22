@@ -23,19 +23,19 @@
             <div class="flex justify-center  w-16 h-16 m-2">
                 <img src="{{ asset('img/logo.svg') }}">
             </div>
-            <div class="flex justify-end text-right">
+            <div class="flex justify-end text-right ">
                 @auth
                 <a href="{{ url('/acasa') }}"
 
-                    class="font-semibold py-4 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Acasă</a>
+                    class="font-semibold py-6 pr-2 flex justify-center items-center  text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Acasă</a>
 
                 @else
                 <a href="{{ route('login') }}"
-                    class="font-semibold py-4 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Conectați-vă</a>
+                    class="font-semibold py-6 pr-2 flex justify-center items-center  text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Conectați-vă</a>
 
                 @if (Route::has('register'))
                 <a href="{{ route('register') }}"
-                    class="ml-4 font-semibold py-4 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Înregistrați-vă</a>
+                    class="ml-4 font-semibold py-6 pr-2 flex justify-center items-center  text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Înregistrați-vă</a>
                 @endif
                 @endauth
             </div>
@@ -68,11 +68,11 @@
             </div>
             <div class="w-full p-6 lg:p-8">
                 <h2
-                    class=" mt-0 m-8 md:mt-24 text-center font-[900] text-[40px]  text-yellow-400 dark:text-white  md:text-5xl">
+                    class=" mt-0 m-8 md:mt-24 flex text-center justify-center items-center font-[900] text-[40px]  text-yellow-400 dark:text-white  md:text-5xl">
                     Evenimente</h2>
             </div>
 
-            <div class="max-w-[80rem] mx-auto grid md:grid-cols-2 px-8 lg:px-4 lg:grid-cols-3 gap-8">
+            <div class="max-w-[80rem] mx-auto grid md:grid-cols-2 px-2 lg:px-4 lg:grid-cols-3 gap-8">
 
                 @forelse ($events as $event)
                 @if($event->date == now()->toDateString())
@@ -96,6 +96,7 @@
                     <div
                         class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
                         <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
+                            <a href="{{ url('evenimente',$event->id) }}">
                             <div class="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor"
@@ -119,6 +120,7 @@
                                     {{$event->venue}}
                                 </p>
                             </div>
+                            </a>
                         </div>
                         <a href="{{ url('evenimente',$event->id) }}">
                             <p
@@ -154,6 +156,7 @@
                     <div
                         class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
                         <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
+                            <a href="{{ url('evenimente',$event->id) }}">
                             <div class="flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor"
@@ -177,6 +180,7 @@
                                     {{$event->venue}}
                                 </p>
                             </div>
+                            </a>
                         </div>
                         <a href="{{ url('evenimente',$event->id) }}">
                             <p
@@ -211,6 +215,7 @@
                         <div
                             class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
                             <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
+                                <a href="{{ url('evenimente',$event->id) }}">
                                 <div class="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor"
@@ -234,6 +239,7 @@
                                         {{$event->venue}}
                                     </p>
                                 </div>
+                                </a>
                             </div>
                             <a href="{{ url('evenimente',$event->id) }}">
                                 <p
