@@ -7,7 +7,6 @@ use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\EvenimenteController;
 use App\Http\Controllers\ValidateController;
 use App\Http\Controllers\MyTicketsController;
-use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Event;
 use App\Models\User;
@@ -24,10 +23,6 @@ use App\Http\Requests;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 // display events in home 
 Route::get('/acasa', function (Request $request) {
@@ -56,7 +51,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-//display events homepage not logged in
+//display events in homepage not logged in
 Route::get('/', function (Request $request) {
     $currentDate = now()->toDateString();
     $events = DB::table('events')
@@ -75,13 +70,13 @@ Route::get('/', function (Request $request) {
     return view('welcome', ['events' => $events]);
 })->name('welcome');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profil', [profileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profil', [profileController::class, 'update'])->name('profile.update');
-    Route::delete('/profil', [profileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profil', [profileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profil', [profileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profil', [profileController::class, 'destroy'])->name('profile.destroy');
+// });
 
-require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';
 
 // display events
 // Route::get('/evenimente-curente', function(){
