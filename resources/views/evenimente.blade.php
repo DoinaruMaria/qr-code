@@ -97,7 +97,7 @@
                 </div>
                 <div class="flex justify-end text-right">
                     @auth
-                    <a href="{{ url('/acasa') }}"
+                    <a href="{{ url('welcome') }}"
                         class="font-semibold p-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                     @else
                     <a href="{{ route('login') }}"
@@ -155,25 +155,28 @@
                     {{$event->excerpt}}
                 </h1>
                 @endisset
-                    @if (!empty($event->website))
-                        <div class="flex justify-center pt-4 text-sm uppercase text-white">
-                            <a href="{{ $event->website }}" target="_blank" class="flex justify-center">Viziteaza site-ul
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="ml-2 w-[1.2rem] h-[1.2rem] broder-2 border rounded bg-white text-black">
-                                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                                </svg>
-                            </a>
-                        </div>
-                    @endif
+                @if (!empty($event->website))
+                <div class="flex justify-center pt-4 text-sm uppercase text-white">
+                    <a href="{{ $event->website }}" target="_blank" class="flex justify-center">Viziteaza site-ul
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor"
+                            class="ml-2 w-[1.2rem] h-[1.2rem] broder-2 border rounded bg-white text-black">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                        </svg>
+                    </a>
+                </div>
+                @endif
                 <div class="flex max-w-[60rem] dark:text-white mx-auto text-sm">
-            @isset($event->description)
-            <div class="p-4 pb-8 flex-2">
-                <span>
-                    <x-input-label />
-                    {{$event->description}}
-                </span>
-            </div>
-            @endisset
-            </div>
+                    @isset($event->description)
+                    <div class="p-4 pb-8 flex-2">
+                        <span>
+                            <x-input-label />
+                            {{$event->description}}
+                        </span>
+                    </div>
+                    @endisset
+                </div>
                 <div class="flex justify-around mb-8 w-fit mx-auto font-bold">
                     @isset($event->start_date)
                     <h1 class="text-white pr-4">
@@ -193,12 +196,12 @@
                 </div>
                 @if(Auth::check())
                 @if(Auth::user()->hasTicketForEvent($event->name))
-                <a href="{{ url('/generate-ticket', $event->name) }}">
+                <a href="{{ url('/generate-ticket', $event->slug) }}">
                     <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded"
                         style="background-color: {{ $primary_color }};">Vezi biletul</button>
                 </a>
                 @else
-                <a href="{{ url('/generate-ticket', $event->name) }}">
+                <a href="{{ url('/generate-ticket', $event->slug) }}">
                     <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded"
                         style="background-color: {{ $primary_color }};">Ia bilet</button>
                 </a>
