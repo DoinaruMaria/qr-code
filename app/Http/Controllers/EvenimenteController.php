@@ -10,9 +10,9 @@ use App\Models\Event;
 class EvenimenteController extends Controller 
 {
    
-   public function index($name)
+   public function index($slug)
 {
-    $event = Event::where('name', $name)->first();
+    $event = Event::where('slug', $slug)->first();
 
     if ($event) {
         return view('evenimente', ['event' => $event]);
@@ -21,23 +21,7 @@ class EvenimenteController extends Controller
     return view('not-event');
 }
 
-    public function showEventsHome(){
-        $currentDate = now()->toDateString();
-        $events = DB::table('events')
-            ->orderByRaw("CASE 
-                WHEN start_date = '{$currentDate}' THEN 0
-                WHEN start_date > '{$currentDate}' THEN 1
-                ELSE 2
-                END")
-            ->orderBy('start_date', 'ASC')
-            ->get();
-        $noOfPaginacionData = 20;
-        $events=Event::paginate($noOfPaginacionData);
-
-        return view('/acasa', ['events' => $events]);
-    }
-
-     public function showEventsWelcome(){
+     public function showEvents(){
         $currentDate = now()->toDateString();
         $events = DB::table('events')
             ->orderByRaw("CASE 
