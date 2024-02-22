@@ -1,16 +1,3 @@
-@if (session('status') === 'password-updated')
-                <div
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 5000)"
-                    class="w-full  p-4 bg-[#111827] flex justify-start mb-6"
-                >
-                    <p class="text-md dark:text-green-400" >
-                        {{ __('Parola a fost actualizată cu succes!') }}
-                    </p>
-                </div>
-            @endif
 
 
 <section>
