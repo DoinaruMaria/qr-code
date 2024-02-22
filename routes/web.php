@@ -24,24 +24,8 @@ use App\Http\Requests;
 |
 */
 
-// display events in home 
-Route::get('/acasa', function (Request $request) {
-    $currentDate = now()->toDateString();
-    $events = DB::table('events')
-        ->orderByRaw("CASE 
-            WHEN start_date = '{$currentDate}' THEN 0
-            WHEN start_date > '{$currentDate}' THEN 1
-            ELSE 2
-            END")
-        ->orderBy('start_date', 'ASC')
-        ->get();
-    $noOfPaginacionData = 20;
-    if($noOfPaginacionData == 20){
-       Log::info('This is some useful information.');
-    }
-    $events=Event::paginate($noOfPaginacionData);
-    return view('/acasa', ['events' => $events]);
-})->middleware(['auth', 'verified'])->name('acasa');
+// display events in homepage without being logged in
+Route::get('/',[EvenimenteController::class, 'showEventsWelcome'] )->name('welcome');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profil', [profileController::class, 'edit'])->name('profile.edit');
@@ -51,68 +35,17 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-//display events in homepage not logged in
-Route::get('/', function (Request $request) {
-    $currentDate = now()->toDateString();
-    $events = DB::table('events')
-        ->orderByRaw("CASE 
-            WHEN start_date = '{$currentDate}' THEN 0
-            WHEN start_date > '{$currentDate}' THEN 1
-            ELSE 2
-            END")
-        ->orderBy('start_date', 'ASC')
-        ->get();
-    $noOfPaginacionData = 20;
-    if($noOfPaginacionData == 20){
-       \Log::info('This is some useful information.');
-    }
-    $events=Event::paginate($noOfPaginacionData);
-    return view('welcome', ['events' => $events]);
-})->name('welcome');
+// display events in home 
+Route::get('/acasa', [EvenimenteController::class, 'showEventsHome'])->middleware(['auth', 'verified'])->name('acasa');
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profil', [profileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profil', [profileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profil', [profileController::class, 'destroy'])->name('profile.destroy');
-// });
-
-// require __DIR__.'/auth.php';
-
-// display events
-// Route::get('/evenimente-curente', function(){
-//     $currentDate= now()->toDateString();
-//     $events = DB::table('events')
-//         ->where('date', '=', '{$currentDate}')
-//         ->get();
-    
-//     return view('/evenimente-curente', ['events' => $events]);
-//     });
-
-// Route::get('/evenimente-viitoare', function(){
-//     $currentDate= now()->toDateString();
-//     $events = DB::table('events')
-//         ->where('date', '>', '{$currentDate}')
-//         ->orderBy('date', 'ASC')
-//         ->get();
-    
-//     return view('/evenimente-viitoare', ['events' => $events]);
-//     });
-
-Route::get('/evenimente-incheiate', function(){
-    $currentDate= now()->toDateString();
-    $events = DB::table('events')
-        ->where('end_date', '>', '{$currentDate}')
-        ->orderBy('end_date', 'DESC')
-        ->get();
-    
-    return view('/evenimente-incheiate', ['events' => $events]);
-    })->name('closed-events')  ;
+//display closed events 
+Route::get('/evenimente-incheiate', [EvenimenteController::class, 'showClosedEvents'])->name('closed-events')  ;
 
 // display event's infos
-Route::get('/evenimente/{id}', [EvenimenteController::class, 'index']);
+Route::get('/evenimente/{name}', [EvenimenteController::class, 'index']);
 
 // generates ticket and display qr code
-Route::get('/generate-ticket/{id}', [GenerateTicketController::class, 'index']);
+Route::get('/generate-ticket/{name}', [GenerateTicketController::class, 'index']);
 
 // display tickets details if the user is admin
 Route::get('/bilete/validare/{userId}/{eventId}', [ValidateController::class, 'validateAdmin'])->middleware(EnsureUserIsAdmin::class);
