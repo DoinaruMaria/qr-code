@@ -16,9 +16,11 @@
                     <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
                         {{ __('Acasă') }}
                     </x-nav-link>
+
                     <x-nav-link :href="route('my-tickets')" :active="request()->routeIs('my-tickets')">
                         {{ __('Biletele mele') }}
                     </x-nav-link>
+
                     <x-nav-link :href="route('closed-events')" :active="request()->routeIs('closed-events')">
                         {{ __('Evenimente încheiate') }}
                     </x-nav-link>
@@ -117,5 +119,38 @@
             </div>
         </div>
     </div>
-    @endif
+    @else
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+        <div class="flex justify-between h-24">
+            <div class="flex">
+                <!-- Logo -->
+                <div class="shrink-0 flex items-center">
+                    <a href="{{ route('welcome') }}">
+                        <img src="{{ asset('img/logo.svg') }}" width="80x" height="80px">
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                        {{ __('Acasă') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('closed-events')" :active="request()->routeIs('closed-events')">
+                        {{ __('Evenimente încheiate') }}
+                    </x-nav-link>
+                </div>
+            </div>
+
+            <!-- Connecting -->
+            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <x-nav-link :href="route('login')">{{ __('Conectare') }}</x-nav-link>
+                <x-nav-link :href="route('register')">{{ __('Înregistrare') }}</x-nav-link>
+
+            </div>
+
+        </div>
+        @endif
+
+
 </nav>

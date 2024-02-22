@@ -15,37 +15,8 @@
 </head>
 
 <body class="antialiased dark">
-    <div
-        class="relative  justify-center block sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
 
-        @if (Route::has('login'))
-        <div
-            class="sm:fixed sm:top-0 w-full bg-gray-800 sm:right-0 align-middle px-4 sm:px-6 lg:px-8 h-24   text-right z-20">
-            <div class="flex justify-between max-w-[95rem] mx-auto ">
-                <div class="flex justify-center m-2">
-                    <img src="{{ asset('img/logo.svg') }}" width="80px" height="80px">
-                </div>
-                <div class="flex justify-end  text-right">
-                    @auth
-                    <a href="{{ url('/acasa') }}"
-                        class="font-semibold flex items-center py-4 mx-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Acasă</a>
-
-                    @else
-                    <a href="{{ route('login') }}"
-                        class="font-semibold flex items-center py-4 mx-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Conectați-vă</a>
-
-                    @if (Route::has('register'))
-                    <a href="{{ route('register') }}"
-                        class="ml-4 font-semibold flex items-center py-4 mx-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Înregistrați-vă</a>
-                    @endif
-                    @endauth
-                </div>
-            </div>
-
-
-        </div>
-        @endif
-
+    <x-app-layout>
         <div class="w-full px-6 pb-6 lg:p-8">
             <div class="w-full flex justify-center relative ">
                 <img src="{{ asset('img/curte-rectorat.jpg') }}" class="rounded-b-2xl" />
@@ -256,7 +227,8 @@
                     @endforeach
             </div>
         </div>
-    </div>
+        </div>
+    </x-app-layout>
 </body>
 
 </html>
