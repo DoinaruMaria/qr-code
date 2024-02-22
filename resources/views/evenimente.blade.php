@@ -46,6 +46,40 @@
         countdown();
     };
     </script>
+    @if(!Auth::check())
+    <div
+        class="relative  justify-center block sm:items-center bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+
+        @if (Route::has('login'))
+        <div class="sm:fixed sm:top-0 sm:right-0 w-full bg-[#111827] h-20 flex justify-between text-right z-10">
+
+            <div class="flex justify-center w-16 h-16 m-2">
+                <img src="{{ asset('img/logo.svg') }}" alt="Logo" id="logoImage">
+            </div>
+            <div class="flex justify-end text-right ">
+                @auth
+                <a href="{{ url('/acasa') }}"
+                    class="font-semibold py-6 pr-2 flex justify-center items-center text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                @else
+                <a href="{{ route('login') }}"
+                    class="font-semibold py-6 pr-2 flex justify-center items-center text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Conectați-vă</a>
+
+                @if (Route::has('register'))
+                <a href="{{ route('register') }}"
+                    class="ml-4 font-semibold py-6 pr-2 flex justify-center items-center text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Înregistrați-vă</a>
+                @endif
+                @endauth
+            </div>
+
+        </div>
+        <script>
+        document.getElementById('logoImage').addEventListener('click', function() {
+            window.location.href = "{{ url('/') }}";
+        });
+        </script>
+        @endif
+    </div>
+    @endif
 </head>
 
 <body>
@@ -91,7 +125,7 @@
                     style="background-image: url({{ asset($event->cover) }})">
                 </div>
                 <div id="countdown" class="flex  items-center justify-center text-white text-center  text-[4rem] "
-                    style="height: calc(20svh - 96px); background: linear-gradient(45deg,{{$secondary_color}}, {{$primary_color}})">
+                    style="height: calc(23svh - 96px); background: linear-gradient(45deg,{{$secondary_color}}, {{$primary_color}})">
                     <div class="flex flex-col me-8 md:me-12 lg:me-16 xl:me-20 2xl:me-32">
                         <span id="zileramase" class="text-3xl md:text-6xl font-bold"></span>
                         <span class="text-xs tracking-[0.2em]">ZILE</span>
@@ -111,7 +145,7 @@
                 </div>
             </div>
         </x-slot>
-        <section class="max-w-[80rem] mx-auto py-8 lg:py-[6rem]">
+        <section class="max-w-[80rem] mx-auto py-10 px-10 lg:py-[6rem] lg:px-[6rem]">
             <div class="flex justify-center align-center w-full bg-center bg-no-repeat bg-contain h-[14rem]"
                 style="background-image: url({{ asset($event->logo) }})">
             </div>
