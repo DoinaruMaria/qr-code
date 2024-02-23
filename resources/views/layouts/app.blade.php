@@ -31,6 +31,7 @@
             <main class="max-w-[80rem] mx-auto " >
                 {{ $slot }}
             </main>
+            @include('layouts.footer')
         </div>
     </body>
 </html>

@@ -17,7 +17,7 @@
 <body class="antialiased dark">
 
     <x-app-layout>
-        <div class="w-full px-6 pb-6 lg:p-8">
+        <div class="w-full px-6 pb-6 ">
             <div class="w-full flex justify-center relative ">
                 <img src="{{ asset('img/curte-rectorat.jpg') }}" class="rounded-b-2xl" />
                 <div
@@ -40,9 +40,9 @@
 
                 </div>
             </div>
-            <div class="w-full p-6 lg:p-8">
+            <div class="w-full p-6 ">
                 <h2
-                    class=" mt-0 m-8 md:mt-24 flex text-center justify-center items-center font-[900] text-[40px]  text-yellow-400 dark:text-white  md:text-5xl">
+                    class=" mt-4 md:mt-20 flex text-center justify-center items-center font-[900] text-[40px]  text-yellow-400 dark:text-white  md:text-5xl">
                     Evenimente</h2>
             </div>
 
@@ -68,7 +68,7 @@
                         </div>
                     </a>
                     <div
-                        class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
+                        class="flex w-full mt-[10px] rounded-xl border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
                         <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
                             <a href="{{ url('evenimente',$event->slug) }}">
                                 <div class="flex items-center">
@@ -128,7 +128,7 @@
                         </div>
                     </a>
                     <div
-                        class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
+                        class="flex w-full mt-[10px] rounded-xl  border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
                         <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
                             <a href="{{ url('evenimente',$event->slug) }}">
                                 <div class="flex items-center">
@@ -187,7 +187,7 @@
                             </div>
                         </a>
                         <div
-                            class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
+                            class="flex w-full mt-[10px] rounded-xl  border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
                             <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
                                 <a href="{{ url('evenimente',$event->slug) }}">
                                     <div class="flex items-center">
@@ -226,7 +226,6 @@
                     @endif
                     @endforeach
             </div>
-        </div>
         </div>
     </x-app-layout>
 </body>

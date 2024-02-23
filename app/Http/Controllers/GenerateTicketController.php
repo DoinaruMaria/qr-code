@@ -18,7 +18,7 @@ class GenerateTicketController extends Controller
 {
     if (Auth::check()) {
         $userId = Auth::id();
-        // Modifică această linie pentru a căuta evenimentul după nume
+        
         $event = Event::where('slug', $slug)->first();
 
         if ($event) {
@@ -32,11 +32,17 @@ class GenerateTicketController extends Controller
             if ($existingTicket) {
                 $existingTicket->update(['purchase_date' => $generateDate]);
 
-                // Presupun că actualizarea idBilet în Users db este necesară; reverifică logica
+                // Presupun că actualizarea idBilet în Users db este necesară
                 $user = User::find($userId);
                 $user->save();
 
-                return view('generate-ticket', ['existingTicket' => $existingTicket, 'event' => $event]);
+                return view('generate-ticket', [
+                    'existingTicket' => $existingTicket,
+                    'event' => $event,
+                    'user_id' => $userId,
+                    'event_id' => $event->id, 
+                    ]);
+
             } else {
                 // Creează și salvează un nou bilet
                 $ticket = new Ticket();
@@ -50,7 +56,12 @@ class GenerateTicketController extends Controller
                 $user->idBilet = strval($ticket->id);
                 $user->save();
 
-                return view('generate-ticket', ['ticket' => $ticket, 'event' => $event]);
+                return view('generate-ticket', [
+                    'existingTicket' => $ticket, 
+                    'event' => $event,
+                    'user_id' => $userId,
+                    'event_id' => $event->id, 
+                    ]);
             }
         }
 
