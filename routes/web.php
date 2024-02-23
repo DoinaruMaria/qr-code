@@ -36,9 +36,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-// display events in home 
-// Route::get('/acasa', [EvenimenteController::class, 'showEventsHome'])->middleware(['auth', 'verified'])->name('acasa');
-
 //display closed events 
 Route::get('/evenimente-incheiate', [EvenimenteController::class, 'showClosedEvents'])->name('closed-events')  ;
 
