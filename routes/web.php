@@ -26,7 +26,7 @@ use App\Http\Requests;
 */
 
 // display events in homepage without being logged in
-Route::get('/',[EvenimenteController::class, 'showEventsWelcome'] )->name('welcome');
+Route::get('/',[EvenimenteController::class, 'showEvents'] )->name('welcome');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profil', [profileController::class, 'edit'])->name('profile.edit');
@@ -37,16 +37,16 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 // display events in home 
-Route::get('/acasa', [EvenimenteController::class, 'showEventsHome'])->middleware(['auth', 'verified'])->name('acasa');
+// Route::get('/acasa', [EvenimenteController::class, 'showEventsHome'])->middleware(['auth', 'verified'])->name('acasa');
 
 //display closed events 
 Route::get('/evenimente-incheiate', [EvenimenteController::class, 'showClosedEvents'])->name('closed-events')  ;
 
 // display event's infos
-Route::get('/evenimente/{name}', [EvenimenteController::class, 'index']);
+Route::get('/evenimente/{slug}', [EvenimenteController::class, 'index']);
 
 // generates ticket and display qr code
-Route::get('/generate-ticket/{name}', [GenerateTicketController::class, 'index']);
+Route::get('/generate-ticket/{slug}', [GenerateTicketController::class, 'index']);
 
 // display tickets details if the user is admin
 Route::get('/bilete/validare/{userId}/{eventId}', [ValidateController::class, 'validateAdmin'])->middleware(EnsureUserIsAdmin::class);
@@ -59,4 +59,3 @@ Route::get('/biletele-mele', [MyTicketsController::class, 'myTickets'])->name('m
 
 // Adauga in calendar evenimentul
 Route::get('/download-ics/{eventId}', [CalendarController::class, 'downloadICS'])->name('download.ics');
-
