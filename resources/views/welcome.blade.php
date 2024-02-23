@@ -15,55 +15,26 @@
 </head>
 
 <body class="antialiased dark">
-    <div
-        class="relative  justify-center block sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
 
-        @if (Route::has('login'))
-        <div class="sm:fixed sm:top-0 w-full bg-gray-800 sm:right-0 align-middle px-4 sm:px-6 lg:px-8 w-full h-24   text-right z-20">
-            <div class="flex justify-between max-w-[95rem] mx-auto " >
-                <div class="flex justify-center m-2">
-                    <img src="{{ asset('img/logo.svg') }}" width="80px" height="80px" >
-                </div>
-                <div class="flex justify-end  text-right">
-                    @auth
-                    <a href="{{ url('/acasa') }}"
-
-                        class="font-semibold flex items-center py-4 mx-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Acasă</a>
-
-                    @else
-                    <a href="{{ route('login') }}"
-                        class="font-semibold flex items-center py-4 mx-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Conectați-vă</a>
-
-                    @if (Route::has('register'))
-                    <a href="{{ route('register') }}"
-                        class="ml-4 font-semibold flex items-center py-4 mx-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Înregistrați-vă</a>
-                    @endif
-                    @endauth
-                </div>
-            </div>
-            
-
-        </div>
-        @endif
-
-        <div class="w-full p-6 lg:p-8">
+    <x-app-layout>
+        <div class="w-full px-6 pb-6 lg:p-8">
             <div class="w-full flex justify-center relative ">
-                <img src="{{ asset('img/curte-rectorat.jpg') }}" class="rounded-2xl" />
+                <img src="{{ asset('img/curte-rectorat.jpg') }}" class="rounded-b-2xl" />
                 <div
                     class="hidden  md:flex  absolute w-[80%] lg:w-[60%] h-28 bottom-[-4rem] z-10 bg-gray-700 rounded-xl grid grid-cols-3  ">
-                    <div class="w-[33%] block pl-8 pr-4 py-4 justify-start  text-white h-full">
-                        <h3 class="text-[20px] lg:text-[20px] text-center">Unde?</h3>
-                        <p class="w-full text-[14px] lg:text-4 pt-[24px] pb-2 text-center">
+                    <div class="w-[33%] block px-4 py-4  justify-start  text-white h-full">
+                        <h3 class="text-[20px] lg:text-[20px] text-center font-bold ">Unde?</h3>
+                        <p class="w-full text-[14px] lg:text-4 pt-[16px] pb-2 text-center font-normal">
                             Splaiul Independenței nr. 313, București</p>
                     </div>
-                    <div class="w-[33%] block pl-4 pr-4 py-4 justify-start  text-white h-full  ">
-                        <p class="text-[20px] lg:text-[20px] text-center">Când?</p>
-                        <p class="w-full  text-[14px] lg:text-4 pt-[24px] pb-2 text-center">
+                    <div class="w-[33%] block px-4 py-4 justify-start  text-white h-full  ">
+                        <p class="text-[20px] lg:text-[20px] text-center font-bold ">Când?</p>
+                        <p class="w-full  text-[14px] lg:text-4 pt-[16px] pb-2 text-center font-normal">
                             14 martie - 20 noiembrie 2024</p>
                     </div>
-                    <div class="w-[33%] block pl-4 pr-8 py-4 justify-start  text-white h-full  ">
-                        <p class="text-[20px] lg:text-[20px] text-center">Cine?</p>
-                        <p class="w-full  text-[14px] lg:text-4 pt-[24px] pb-2 text-center">
+                    <div class="w-[33%] block px-4 py-4  justify-start  text-white h-full  ">
+                        <p class="text-[20px] lg:text-[20px] text-center font-bold ">Cine?</p>
+                        <p class="w-full  text-[14px] lg:text-4 pt-[16px] pb-2 text-center font-normal">
                             POLITEHNICA București</p>
                     </div>
 
@@ -80,7 +51,7 @@
                 @forelse ($events as $event)
                 @if($event->date == now()->toDateString())
                 <div class="w-full">
-                    <a href="{{ url('evenimente',$event->name) }}"
+                    <a href="{{ url('evenimente',$event->slug) }}"
                         class=" h-150 flex flex-col text-gray-900 dark:text-gray-100">
                         <div class="relative">
                             <div class="w-full h-[250px] lg:h-[350px] rounded-xl relative bg-cover bg-center bg-no-repeat "
@@ -99,7 +70,7 @@
                     <div
                         class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
                         <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
-                            <a href="{{ url('evenimente',$event->name) }}">
+                            <a href="{{ url('evenimente',$event->slug) }}">
                                 <div class="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor"
@@ -125,7 +96,7 @@
                                 </div>
                             </a>
                         </div>
-                        <a href="{{ url('evenimente',$event->name) }}">
+                        <a href="{{ url('evenimente',$event->slug) }}">
                             <p
                                 class="mr-4 px-[25px] py-2 my-[10px] rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
                                 Bilete
@@ -140,7 +111,7 @@
                 @foreach ($events as $event)
                 @if($event->date > now()->toDateString())
                 <div class="w-full">
-                    <a href="{{ url('evenimente',$event->name) }}"
+                    <a href="{{ url('evenimente',$event->slug) }}"
                         class=" h-150 flex flex-col text-gray-900 dark:text-gray-100">
                         <div class="relative">
                             <div class="w-full h-[250px] lg:h-[350px] rounded-xl relative bg-cover bg-center bg-no-repeat "
@@ -159,7 +130,7 @@
                     <div
                         class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
                         <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
-                            <a href="{{ url('evenimente',$event->name) }}">
+                            <a href="{{ url('evenimente',$event->slug) }}">
                                 <div class="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor"
@@ -185,7 +156,7 @@
                                 </div>
                             </a>
                         </div>
-                        <a href="{{ url('evenimente',$event->name) }}">
+                        <a href="{{ url('evenimente',$event->slug) }}">
                             <p
                                 class="mr-4 px-[25px] py-2 my-[10px] rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
                                 Bilete
@@ -199,7 +170,7 @@
                 @foreach ($events->sortByDesc('date') as $event)
                 @if($event->date < now()->toDateString())
                     <div class="w-full">
-                        <a href="{{ url('evenimente',$event->name) }}"
+                        <a href="{{ url('evenimente',$event->slug) }}"
                             class=" h-150 flex flex-col text-gray-900 dark:text-gray-100">
                             <div class="relative">
                                 <div class="w-full h-[250px] lg:h-[350px] rounded-xl relative bg-cover bg-center bg-no-repeat "
@@ -218,7 +189,7 @@
                         <div
                             class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
                             <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
-                                <a href="{{ url('evenimente',$event->name) }}">
+                                <a href="{{ url('evenimente',$event->slug) }}">
                                     <div class="flex items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor"
@@ -244,7 +215,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <a href="{{ url('evenimente',$event->name) }}">
+                            <a href="{{ url('evenimente',$event->slug) }}">
                                 <p
                                     class="mr-4 px-[25px] py-2 my-[10px] rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out">
                                     Bilete
@@ -256,7 +227,8 @@
                     @endforeach
             </div>
         </div>
-    </div>
+        </div>
+    </x-app-layout>
 </body>
 
 </html>
