@@ -48,79 +48,12 @@
         countdown();
     };
     </script>
-    @if(!Auth::check())
-    <div
-        class="relative  justify-center block sm:items-center bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-
-        @if (Route::has('login'))
-        <div class="sm:fixed sm:top-0 sm:right-0 w-full bg-[#111827] h-20 flex justify-between text-right z-10">
-
-            <div class="flex justify-center w-16 h-16 m-2">
-                <img src="{{ asset('img/logo.svg') }}" alt="Logo" id="logoImage">
-            </div>
-            <div class="flex justify-end text-right ">
-                @auth
-                <a href="{{ url('/acasa') }}"
-                    class="font-semibold py-6 pr-2 flex justify-center items-center text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                @else
-                <a href="{{ route('login') }}"
-                    class="font-semibold py-6 pr-2 flex justify-center items-center text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Conectați-vă</a>
-
-                @if (Route::has('register'))
-                <a href="{{ route('register') }}"
-                    class="ml-4 font-semibold py-6 pr-2 flex justify-center items-center text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Înregistrați-vă</a>
-                @endif
-                @endauth
-            </div>
-
-        </div>
-        <script>
-        document.getElementById('logoImage').addEventListener('click', function() {
-            window.location.href = "{{ url('/') }}";
-        });
-        </script>
-        @endif
-    </div>
-    @endif
 </head>
 
 <body>
 
     <x-app-layout>
-        @if(!Auth::check())
-        <div
-            class="relative  justify-center block sm:items-center bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
 
-            @if (Route::has('login'))
-            <div class="sm:fixed sm:top-0 sm:right-0 w-full bg-[#111827] h-20 flex justify-between text-right z-10">
-
-                <div class="flex justify-center w-16 h-16 m-2">
-                    <img src="{{ asset('img/logo.svg') }}" alt="Logo" id="logoImage">
-                </div>
-                <div class="flex justify-end text-right">
-                    @auth
-                    <a href="{{ url('welcome') }}"
-                        class="font-semibold p-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                    @else
-                    <a href="{{ route('login') }}"
-                        class="font-semibold p-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Conectați-vă</a>
-
-                    @if (Route::has('register'))
-                    <a href="{{ route('register') }}"
-                        class="ml-4 font-semibold p-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Înregistrați-vă</a>
-                    @endif
-                    @endauth
-                </div>
-
-            </div>
-            <script>
-            document.getElementById('logoImage').addEventListener('click', function() {
-                window.location.href = "{{ url('/') }}";
-            });
-            </script>
-            @endif
-        </div>
-        @endif
         <x-slot name="header" style="calc(100svh - 96px)">
             <div class="flex flex-col">
                 <div class="w-full h-[30svh] md:h-[50svh] lg:h-[80svh] bg-center bg-no-repeat bg-cover"

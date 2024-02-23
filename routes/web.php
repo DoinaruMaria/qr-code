@@ -59,4 +59,3 @@ Route::get('/biletele-mele', [MyTicketsController::class, 'myTickets'])->name('m
 
 // Adauga in calendar evenimentul
 Route::get('/download-ics/{eventId}', [CalendarController::class, 'downloadICS'])->name('download.ics');
-
