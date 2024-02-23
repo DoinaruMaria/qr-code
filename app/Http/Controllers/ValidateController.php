@@ -18,7 +18,8 @@ class ValidateController extends Controller
     public function validateAdmin(string $userId, string $eventId)
     {
         $user = auth()->user();
-        $ticket = Ticket::where('user_id', $user->id)
+        $ticket = Ticket::with('user') // Presupunând că există o relație 'user' în modelul Ticket
+            ->where('user_id', $userId)
             ->where('event_id', $eventId)
             ->first();
 

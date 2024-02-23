@@ -132,7 +132,7 @@
                 </div>
                 </a>
                 @if(Auth::check())
-                @if(Auth::user()->hasTicketForEvent($event->name))
+                @if(Auth::user()->hasTicketForEvent($event->id))
                 <a href="{{ url('/generate-ticket', $event->slug) }}">
                     <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded"
                         style="background-color: {{ $primary_color }};">Vezi biletul</button>
