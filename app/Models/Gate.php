@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PoartaAcces extends Model
+class Gate extends Model
 {
     use HasFactory;
 
@@ -25,4 +25,9 @@ class PoartaAcces extends Model
         return $this->hasMany(User::class, 'gate_id');
 
     }
+    public function event()
+{
+    return $this->belongsTo(Event::class, 'id_event');
+}
+
 }
