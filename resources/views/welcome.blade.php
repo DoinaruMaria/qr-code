@@ -68,7 +68,7 @@
                         </div>
                     </a>
                     <div
-                        class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
+                        class="flex w-full mt-[10px] rounded-xl border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
                         <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
                             <a href="{{ url('evenimente',$event->slug) }}">
                                 <div class="flex items-center">
@@ -128,7 +128,7 @@
                         </div>
                     </a>
                     <div
-                        class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
+                        class="flex w-full mt-[10px] rounded-xl  border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
                         <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
                             <a href="{{ url('evenimente',$event->slug) }}">
                                 <div class="flex items-center">
@@ -187,7 +187,7 @@
                             </div>
                         </a>
                         <div
-                            class="flex w-full mt-[10px] rounded-xl border border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
+                            class="flex w-full mt-[10px] rounded-xl  border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
                             <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
                                 <a href="{{ url('evenimente',$event->slug) }}">
                                     <div class="flex items-center">
@@ -226,7 +226,6 @@
                     @endif
                     @endforeach
             </div>
-        </div>
         </div>
     </x-app-layout>
 </body>
