@@ -17,7 +17,7 @@
 <body class="antialiased dark">
 
     <x-app-layout>
-        <div class="w-full px-6 pb-6 lg:p-8">
+        <div class="w-full px-6 pb-6 ">
             <div class="w-full flex justify-center relative ">
                 <img src="{{ asset('img/curte-rectorat.jpg') }}" class="rounded-b-2xl" />
                 <div
@@ -40,9 +40,9 @@
 
                 </div>
             </div>
-            <div class="w-full p-6 lg:p-8">
+            <div class="w-full p-6 ">
                 <h2
-                    class=" mt-0 m-8 md:mt-24 flex text-center justify-center items-center font-[900] text-[40px]  text-yellow-400 dark:text-white  md:text-5xl">
+                    class=" mt-4 md:mt-20 flex text-center justify-center items-center font-[900] text-[40px]  text-yellow-400 dark:text-white  md:text-5xl">
                     Evenimente</h2>
             </div>
 
