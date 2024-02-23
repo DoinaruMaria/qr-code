@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\DB;
 
 class GenerateTicketController extends Controller
 {
-   public function index($name)
+   public function index($slug)
 {
     if (Auth::check()) {
         $userId = Auth::id();
         // Modifică această linie pentru a căuta evenimentul după nume
-        $event = Event::where('name', $name)->first();
+        $event = Event::where('slug', $slug)->first();
 
         if ($event) {
             $generateDate = now();

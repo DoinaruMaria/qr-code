@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
+            $table->string('slug');
             $table->date('date');
             $table->text('excerpt');
             $table->text('description');
@@ -38,4 +39,3 @@ return new class extends Migration
         Schema::dropIfExists('events');
     }
 };
-
