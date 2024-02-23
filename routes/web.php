@@ -8,9 +8,12 @@ use App\Http\Controllers\EvenimenteController;
 use App\Http\Controllers\ValidateController;
 use App\Http\Controllers\MyTicketsController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\GateController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Event;
 use App\Models\User;
+use App\Models\Gate;
 use App\Http\Middleware\EnsureUserIsAdmin;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -60,3 +63,11 @@ Route::get('/biletele-mele', [MyTicketsController::class, 'myTickets'])->name('m
 // Adauga in calendar evenimentul
 Route::get('/download-ics/{eventId}', [CalendarController::class, 'downloadICS'])->name('download.ics');
 
+// Admin Dashboard
+Route::get('/admin-dashboard', [AdminDashboardController::class, 'index'])->name('admin-dashboard')->middleware(EnsureUserIsAdmin::class);
+
+// Solicitare AJAX pentru a filtra portile in functie de evenimentul selectat in dashboard
+Route::get('/gates/{eventId}', [GateController::class, 'getGatesByEvent'])->middleware(EnsureUserIsAdmin::class);
+
+// Update gate_id din tabela user
+Route::post('/update-gate/{gateId}', [GateController::class, 'updateGate'])->name('update-gate')->middleware(EnsureUserIsAdmin::class);
