@@ -18,7 +18,7 @@ class GenerateTicketController extends Controller
 {
     if (Auth::check()) {
         $userId = Auth::id();
-        // Modifică această linie pentru a căuta evenimentul după nume
+        
         $event = Event::where('slug', $slug)->first();
 
         if ($event) {
