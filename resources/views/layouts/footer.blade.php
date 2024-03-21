@@ -34,7 +34,7 @@
    
     <div class="w-full flex justify-center p-4 border-t-[1px] border-gray-700  " >
         <p class="text-gray-100 text-[12px] flex justify-center text-center " >
-            © 2023 Universitatea Națională de Știință și Tehnologie POLITEHNICA București | All Rights Reserved
+            © 2024 Universitatea Națională de Știință și Tehnologie POLITEHNICA București | All Rights Reserved
         </p>
     </div>
 </section>
