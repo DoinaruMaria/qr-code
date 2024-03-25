@@ -40,7 +40,7 @@
         @foreach ($events->sortBy('end_date') as $event)
         @if($event->end_date >= now()->toDateString())
         <div class="w-full">
-            <a href="{{ url('evenimente',$event->name) }}"
+            <a href="{{ url('evenimente',$event->slug) }}"
                 class=" h-150 flex flex-col text-gray-900 dark:text-gray-100">
                 <div class="relative">
                     <div class="w-full h-[250px] lg:h-[350px] rounded-xl relative bg-cover bg-center bg-no-repeat "
@@ -87,7 +87,7 @@
                     </div>
                     </a>
                 </div>
-                <a href="{{ url('evenimente',$event->name) }}">
+                <a href="{{ url('evenimente',$event->slug) }}">
                     <p
                         class="ml-4 md:ml-0 mr-4 px-[25px] py-2 my-[10px] rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
                         Bilete
