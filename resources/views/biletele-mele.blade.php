@@ -40,7 +40,8 @@
 <body>
 
     <x-app-layout class="max-w-[80rem] mx-auto  ">
-        <h2 class="m-16 text-center font-[900] text-yellow-400 dark:text-white text-5xl">Biletele mele</h2>
+        <div  style="min-height: 60vh"  >
+            <h2 class="m-16 text-center font-[900] text-yellow-400 dark:text-white text-5xl">Biletele mele</h2>
         <div class="py-12">
 
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -119,6 +120,8 @@
                     @endforeach
                 </div>
             </div>
+        </div>
+        
     </x-app-layout>
 </body>
 <script>
