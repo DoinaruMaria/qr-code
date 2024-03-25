@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
+    @viteReactRefresh
     @vite('resources/css/app.css')
 
     <script>
@@ -80,7 +81,7 @@
         @foreach ($events->sortBy('end_date') as $event)
         @if($event->end_date >= now()->toDateString())
         <div class="w-full">
-            <a href="{{ url('evenimente',$event->name) }}"
+            <a href="{{ url('evenimente',$event->slug) }}"
                 class=" h-150 flex flex-col text-gray-900 dark:text-gray-100">
                 <div class="relative">
                     <div class="w-full h-[250px] lg:h-[350px] rounded-xl relative bg-cover bg-center bg-no-repeat "
@@ -99,7 +100,7 @@
             <div
                 class="block  md:flex w-full mt-[10px] rounded-xl border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
                 <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
-                    <a href="{{ url('evenimente',$event->name) }}"> 
+                    <a href="{{ url('evenimente',$event->slug) }}"> 
                     <div class="flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-200">
@@ -127,7 +128,7 @@
                     </div>
                     </a>
                 </div>
-                <a href="{{ url('evenimente',$event->name) }}">
+                <a href="{{ url('evenimente',$event->slug) }}">
                     <p
                         class="ml-4 md:ml-0 mr-4 px-[25px] py-2 my-[10px] rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
                         Bilete
