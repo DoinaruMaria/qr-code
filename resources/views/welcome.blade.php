@@ -50,7 +50,7 @@
     <x-app-layout>
         <div class="w-full px-6 pb-6 ">
             <div class="w-full flex justify-center relative ">
-                <img src="{{ asset('img/curte-rectorat.jpg') }}" class="rounded-b-2xl" />
+                <img src="{{ asset('img/curte-rectorat.jpg') }}" alt="curte-rectorat" class="rounded-b-2xl" />
                 <div
                     class="hidden  md:flex  absolute w-[80%] lg:w-[60%] h-28 bottom-[-4rem] z-10 bg-gray-700 rounded-xl grid grid-cols-3  ">
                     <div class="w-[33%] block px-4 py-4  justify-start  text-white h-full">
