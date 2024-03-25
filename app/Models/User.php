@@ -68,6 +68,17 @@ class User extends Authenticatable
     {
         return $this->tickets()->where('event_id', $eventId)->exists();
     }
+    
+    /**
+     * Check if the user has a specific role.
+     *
+     * @param string $roleName
+     * @return bool
+     */
+    public function hasRole($roleName)
+    {
+        return $this->role === $roleName;
+    }
 
     /**
      * Define the relationship with gates.
@@ -76,6 +87,6 @@ class User extends Authenticatable
      */
     public function gate()
     {
-        return $this->belongsTo(PoartaAcces::class, 'gate_id');
+        return $this->belongsTo(Gate::class, 'gate_id');
     }
 }

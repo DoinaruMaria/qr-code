@@ -50,7 +50,11 @@
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profil') }}
                         </x-dropdown-link>
-
+                            @if(Auth::user()->role === 1)
+                                <x-dropdown-link :href="route('admin-dashboard')">
+                                    {{ __('Dashboard') }}
+                                </x-dropdown-link>
+                            @endif                    
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -106,7 +110,11 @@
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profil') }}
                 </x-responsive-nav-link>
-
+                            @if(Auth::user()->role === 1)
+                                <x-dropdown-link :href="route('admin-dashboard')">
+                                    {{ __('Dashboard') }}
+                                </x-dropdown-link>
+                            @endif
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
