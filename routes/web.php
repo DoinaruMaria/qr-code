@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\profileController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GenerateTicketController;
 use App\Http\Controllers\NotAdminController;
 use App\Http\Controllers\QrCodeController;
