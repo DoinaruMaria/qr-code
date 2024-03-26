@@ -97,9 +97,8 @@
                     </div>
                 </div>
             </a>
-            <div
-                class="block  md:flex w-full mt-[10px] rounded-xl border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
-                <div class="flex flex-col pl-4 py-2 items-left text-sm  ">
+            <div class="block  w-full mt-[10px] rounded-xl border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
+                <div class="flex flex-col pl-4 py-4 items-left text-sm  ">
                     <a href="{{ url('evenimente',$event->slug) }}"> 
                     <div class="flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -128,18 +127,44 @@
                     </div>
                     </a>
                 </div>
-                <a href="{{ url('evenimente',$event->slug) }}">
-                    <p
-                        class="ml-4 md:ml-0 mr-4 px-[25px] py-2 my-[10px] rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
-                        Bilete
-                    </p>
-                </a>
+                <div class="flex grid gap-y-4 md:grid-cols-2 gap-x-2 pb-4 mr-4 " >
+                    <a href="{{ url('evenimente',$event->slug) }}">
+                        <p
+                            class="ml-4   py-[5px]   rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
+                            Detalii
+                        </p>
+                    </a>
+                     @if(Auth::check())
+                        @if(Auth::user()->hasTicketForEvent($event->id))
+                        <a href="{{ url('/generate-ticket', $event->slug) }}">
+                        <p
+                            class="ml-4   py-[5px]  rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
+                            Vezi biletul
+                        </p>
+                    </a>
+                        @else
+                        <a href="{{ url('/generate-ticket', $event->slug) }}">
+                        <p
+                            class="ml-4   py-[5px]  rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
+                            Ia bilet
+                        </p>
+                    </a>
+                        @endif
+                    @endif
+                    @guest
+                    <a href="{{ url('/generate-ticket', $event->slug) }}">
+                        <p
+                            class="ml-4   py-[5px]  rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
+                            Bilete
+                        </p>
+                    </a>
+                    @endguest
+                </div>
+                
             </div>
         </div>
         @endif
         @endforeach
-
-
     </div>
             
         </div>
