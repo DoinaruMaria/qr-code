@@ -54,7 +54,7 @@
     .notfound {
         max-width: 520px;
         width: 100%;
-        line-height: 1.4;
+        /* line-height: 1.4; */
         text-align: center
     }
 
@@ -75,9 +75,7 @@
         font-size: 252px;
         font-weight: 900;
         margin: 0;
-        color: white;
-        letter-spacing: -40px;
-        margin-left: -20px
+        color: white;  
     }
 
     .notfound .notfound-404 p {
@@ -88,7 +86,7 @@
         color: white;
         margin: 0;
         letter-spacing: 1px;
-        padding-left: 6px
+        padding-bottom: 2rem;
     }
 
     @media only screen and (max-width: 767px) {
@@ -109,7 +107,7 @@
         .notfound .notfound-404 h1 {
             font-size: 162px;
             height: 150px;
-            line-height: 162px
+            /* line-height: 162px */
         }
 
         .notfound h2 {

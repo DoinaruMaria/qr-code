@@ -92,7 +92,7 @@
                 @endisset
                 @if (!empty($event->website))
                 <div class="flex justify-center pt-4 text-sm uppercase text-white">
-                    <a href="{{ $event->website }}" target="_blank" class="flex justify-center">Viziteaza site-ul
+                    <a href="{{ $event->website }}" target="_blank" class="flex justify-center">Vizitează site-ul
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor"
                             class="ml-2 w-[1.2rem] h-[1.2rem] broder-2 border rounded bg-white text-black">
@@ -144,6 +144,15 @@
                 </a>
                 @endif
                 @endif
+                @guest
+                    <p class="text-white mb-4 text-[20px] font-bold " >
+                        Pentru a achiziționa bilet, trebuie să fii autentificat!
+                    </p>
+                    <a href="{{ url('/login') }}">
+                        <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded font-bold"
+                        style="background-color: {{ $primary_color }};">Autentifica-te</button>
+                    </a>
+                @endguest
             </div>
         </section>
 
