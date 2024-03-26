@@ -18,6 +18,7 @@ class RegisteredUserController extends Controller
     /**
      * Display the registration view.
      */
+
     public function create(): View
     {
         $judete = [ "AB" => "Alba", "AR" => "Arad", "AG" => "Argeş", "BC" => "Bacău", "BH" => "Bihor", "BN" => "Bistriţa-Năsăud", "BT" => "Botoşani", "BR" => "Brăila", "BV" => "Braşov", "B" => "Bucureşti", "BZ" => "Buzău", "CL" => "Călăraşi", "CS" => "Caraş-Severin", "CJ" => "Cluj", "CT" => "Constanţa", "CV" => "Covasna", "DB" => "Dâmboviţa", "DJ" => "Dolj", "GL" => "Galaţi", "GR" => "Giurgiu", "GJ" => "Gorj", "HR" => "Harghita", "HD" => "Hunedoara", "IL" => "Ialomiţa", "IS" => "Iaşi", "IF" => "Ilfov", "MM" => "Maramureş", "MH" => "Mehedinţi", "MS" => "Mureş", "NT" => "Neamţ", "OT" => "Olt", "PH" => "Prahova", "SJ" => "Sălaj", "SM" => "Satu Mare", "SB" => "Sibiu", "SV" => "Suceava", "TR" => "Teleorman", "TM" => "Timiş", "TL" => "Tulcea", "VL" => "Vâlcea", "VS" => "Vaslui", "VN" => "Vrancea"];
@@ -55,6 +56,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::CONFIRM_MAIL);
     }
 }

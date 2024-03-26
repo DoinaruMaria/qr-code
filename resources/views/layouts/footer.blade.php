@@ -48,7 +48,7 @@
                 </a>
             </div>
             <p class="text-gray-100 flex justify-center text-center text-[14px] lg:text-[16px] ">
-                Locație:<b class="pl-2">Splaiul Independenței, nr 313B</b>
+                <b class="pl-2">Splaiul Independenței, nr 313B</b>
             </p>
         </div>
         <!-- <div>
@@ -65,10 +65,9 @@
         </div> -->
     </div>
 
-    <div class="w-full flex justify-center p-4 border-t-[1px] border-gray-700  " >
-        <p class="text-gray-100 text-[12px] flex justify-center text-center " >
-            © 2024 Universitatea Națională de Știință și Tehnologie POLITEHNICA București | All Rights Reserved
-
+    <div class="w-full flex justify-center p-4 border-t-[1px] border-gray-700  ">
+        <p class="text-gray-100 text-[12px] flex justify-center text-center ">
+            © 2024 Universitatea Națională de Știință și Tehnologie POLITEHNICA București | Toate drepturile rezervate
         </p>
     </div>
 </section>
