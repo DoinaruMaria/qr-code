@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GenerateTicketController;
 use App\Http\Controllers\NotAdminController;
-use App\Http\Controllers\ConfirmMailController;
+use App\Http\Controllers\ConfirmEmailController;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\EvenimenteController;
 use App\Http\Controllers\ValidateController;
@@ -73,9 +73,9 @@ Route::get('/gates/{eventId}', [GateController::class, 'getGatesByEvent'])->midd
 Route::post('/update-gate/{gateId}', [GateController::class, 'updateGate'])->name('update-gate')->middleware(EnsureUserIsAdmin::class);
 
 // Confirm mail blade
-Route::get('/confirm-mail', [ConfirmMailController::class, 'showConfirmMail'])->name('confirm-mail');
+Route::get('/confirm-email', [ConfirmEmailController::class, 'showConfirmEmail'])->name('confirm-email');
 
-// Resent Verification mail
+// Resent Verification email
 Route::post('/email/verification-notification', function (Request $request) {
     $user = $request->user();
     $user->sendEmailVerificationNotification();
