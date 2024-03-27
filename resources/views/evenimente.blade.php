@@ -39,7 +39,7 @@
 
             if (distance < 0) {
                 clearInterval(x);
-                document.getElementById("countdown").innerHTML = "Evenimentul s-a sfârșit.";
+                document.getElementById("countdown").innerHTML = "Eveniment încheiat.";
             }
         }, 1000);
     }
@@ -131,6 +131,7 @@
                     @endisset
                 </div>
                 </a>
+                @if($event->end_date >= now()->toDateString())
                 @if(Auth::check())
                 @if(Auth::user()->hasTicketForEvent($event->id))
                 <a href="{{ url('/generate-ticket', $event->slug) }}">
@@ -145,14 +146,13 @@
                 @endif
                 @endif
                 @guest
-                    <p class="text-white mb-4 text-[20px] font-bold " >
-                        Pentru a achiziționa bilet, trebuie să fii autentificat!
-                    </p>
-                    <a href="{{ url('/login') }}">
+                    
+                    <a href="{{ url('/generate-ticket', $event->slug) }}">
                         <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded font-bold"
-                        style="background-color: {{ $primary_color }};">Autentifica-te</button>
+                        style="background-color: {{ $primary_color }};">Ia bilet!</button>
                     </a>
                 @endguest
+                @endif
             </div>
         </section>
 
