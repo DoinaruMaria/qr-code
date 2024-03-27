@@ -135,14 +135,14 @@
                     </a>
                      @if(Auth::check())
                         @if(Auth::user()->hasTicketForEvent($event->id))
-                        <a href="{{ url('/generate-ticket', $event->slug) }}">
+                        <a href="{{ url('/generare-bilet', $event->slug) }}">
                         <p
                             class="ml-4   py-[5px]  rounded-xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
                             Vezi biletul
                         </p>
                     </a>
                         @else
-                        <a href="{{ url('/generate-ticket', $event->slug) }}">
+                        <a href="{{ url('/generare-bilet', $event->slug) }}">
                         <p
                             class="ml-4   py-[5px]  rounded-xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
                             Ia bilet
@@ -151,7 +151,7 @@
                         @endif
                     @endif
                     @guest
-                    <a href="{{ url('/generate-ticket', $event->slug) }}">
+                    <a href="{{ url('/generare-bilet', $event->slug) }}">
                         <p
                             class="ml-4   py-[5px]  rounded-xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
                             Bilete
