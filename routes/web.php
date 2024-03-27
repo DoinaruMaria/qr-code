@@ -18,6 +18,8 @@ use App\Models\Gate;
 use App\Http\Middleware\EnsureUserIsAdmin;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Log;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -71,4 +73,14 @@ Route::get('/gates/{eventId}', [GateController::class, 'getGatesByEvent'])->midd
 Route::post('/update-gate/{gateId}', [GateController::class, 'updateGate'])->name('update-gate')->middleware(EnsureUserIsAdmin::class);
 
 // Confirm mail blade
-Route::get('/confirm-mail', [ConfirmMailController::class, 'showConfirmMail'])->name('confirm-mail')  ;
+Route::get('/confirm-mail', [ConfirmMailController::class, 'showConfirmMail'])->name('confirm-mail');
+
+// Resent Verification mail
+Route::post('/email/verification-notification', function (Request $request) {
+    $user = $request->user();
+    $user->sendEmailVerificationNotification();
+
+    Log::info('Verification link sent to user: ' . $user->email);
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
