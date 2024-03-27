@@ -1,3 +1,4 @@
+@include('layouts.navigation')
 <x-guest-layout>
 
     <form method="POST" action="{{ route('register') }}">
@@ -40,32 +41,38 @@
             <x-input-label for="user_type" :value="__('Tip de utilizator')" />
             <div class="mt-1 flex flex-col" for="user_type">
                 <div class="align-middle flex flex-row w-full items-center">
-                    <input type="checkbox" class="rounded-full" name="user_type" value="Elev">
+                    <input type="radio" class="rounded-full" name="user_type" value="Elev"
+                    @if(old('user_type') == 'Elev') checked @endif>
                     <span class="pl-2 text-center text-gray-300 "> Elev </span>
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center">
-                    <input type="checkbox" class="rounded-full" name="user_type" value="Student">
+                    <input type="radio" class="rounded-full" name="user_type" value="Student"
+                    @if(old('user_type') == 'Student') checked @endif>
                     <span class="pl-2 text-center text-gray-300"> Student </span>
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center">
-                    <input type="checkbox" class="rounded-full" name="user_type" value="Absolvent">
+                    <input type="radio" class="rounded-full" name="user_type" value="Absolvent"
+                    @if(old('user_type') == 'Absolvent') checked @endif>
                     <span class="pl-2 text-center text-gray-300"> Absolvent </span>
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center">
-                    <input type="checkbox" class="rounded-full" name="user_type" value="Parinte">
+                    <input type="radio" class="rounded-full" name="user_type" value="Parinte"
+                    @if(old('user_type') == 'Parinte') checked @endif>
                     <span class="pl-2 text-center text-gray-300"> Parinte </span>
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center">
-                    <input type="checkbox" class="rounded-full" name="user_type" value="Vizitator">
+                    <input type="radio" class="rounded-full" name="user_type" value="Vizitator"
+                    @if(old('user_type') == 'Vizitator') checked @endif>
                     <span class="pl-2 text-center text-gray-300"> Vizitator </span>
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center">
-                    <input type="checkbox" class="rounded-full" name="user_type" value="Reprezentant companie">
+                    <input type="radio" class="rounded-full" name="user_type" value="Reprezentant companie"
+                    @if(old('user_type') == 'Reprezentant companie') checked @endif>
                     <span class="pl-2 text-center text-gray-300"> Reprezentant companie </span>
                     </input>
                 </div>
