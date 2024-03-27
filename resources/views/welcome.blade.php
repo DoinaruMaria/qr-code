@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
-    @viteReactRefresh
     @vite('resources/css/app.css')
 
     <script>
@@ -73,7 +72,7 @@
             </div>
             <div class="w-full p-6 ">
                 <h2
-                    class=" mt-4 md:mt-20 flex text-center justify-center items-center font-[900] text-[40px]  text-yellow-400 dark:text-white  md:text-5xl">
+                    class=" my-4 md:mt-20 md:mb-8 flex text-center justify-center items-center font-[900] text-[40px]  text-yellow-400 dark:text-white  md:text-5xl">
                     Evenimente</h2>
             </div>
             <div class="max-w-[80rem] mx-auto grid md:grid-cols-2 px-8 lg:px-4 lg:grid-cols-3 gap-8 pb-8">
@@ -115,13 +114,13 @@
                     </div>
                     <div class="flex items-top pt-1  mr-4">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-4 h-4 text-gray-500 dark:text-gray-200  mt-[2px]">
+                            stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-200  mt-[2px]">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                         </svg>
-                        <p class=" ml-1 text-[12px] text-black dark:text-white align-top">
+                        <p class=" ml-1 pt-[3px] text-[16px] text-black dark:text-white align-top">
                             {{$event->venue}}
                         </p>
                     </div>
@@ -130,7 +129,7 @@
                 <div class="flex grid gap-y-4 md:grid-cols-2 gap-x-2 pb-4 mr-4 " >
                     <a href="{{ url('evenimente',$event->slug) }}">
                         <p
-                            class="ml-4   py-[5px]   rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
+                            class="ml-4   py-[5px]   rounded-xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
                             Detalii
                         </p>
                     </a>
@@ -138,14 +137,14 @@
                         @if(Auth::user()->hasTicketForEvent($event->id))
                         <a href="{{ url('/generate-ticket', $event->slug) }}">
                         <p
-                            class="ml-4   py-[5px]  rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
+                            class="ml-4   py-[5px]  rounded-xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
                             Vezi biletul
                         </p>
                     </a>
                         @else
                         <a href="{{ url('/generate-ticket', $event->slug) }}">
                         <p
-                            class="ml-4   py-[5px]  rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
+                            class="ml-4   py-[5px]  rounded-xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
                             Ia bilet
                         </p>
                     </a>
@@ -154,7 +153,7 @@
                     @guest
                     <a href="{{ url('/generate-ticket', $event->slug) }}">
                         <p
-                            class="ml-4   py-[5px]  rounded-2xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
+                            class="ml-4   py-[5px]  rounded-xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
                             Bilete
                         </p>
                     </a>
