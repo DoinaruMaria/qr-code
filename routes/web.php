@@ -49,7 +49,7 @@ Route::get('/evenimente-incheiate', [EvenimenteController::class, 'showClosedEve
 Route::get('/evenimente/{slug}', [EvenimenteController::class, 'index']);
 
 // generates ticket and display qr code
-Route::get('/generate-ticket/{slug}', [GenerateTicketController::class, 'index']);
+Route::get('/generare-bilet/{slug}', [GenerateTicketController::class, 'index']);
 
 // display tickets details if the user is admin
 Route::get('/bilete/validare/{userId}/{eventId}', [ValidateController::class, 'validateAdmin'])->middleware(EnsureUserIsAdmin::class);
