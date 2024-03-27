@@ -150,7 +150,7 @@
                     </p>
                     <a href="{{ url('/login') }}">
                         <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded font-bold"
-                        style="background-color: {{ $primary_color }};">Autentifica-te</button>
+                        style="background-color: {{ $primary_color }};">Ia bilet</button>
                     </a>
                 @endguest
             </div>
