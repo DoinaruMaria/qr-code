@@ -1,3 +1,4 @@
+@include('layouts.navigation')
 <x-guest-layout>
 
     <form method="POST" action="{{ route('register') }}">
