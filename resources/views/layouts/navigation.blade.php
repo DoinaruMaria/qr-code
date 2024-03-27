@@ -52,8 +52,8 @@
                             {{ __('Profil') }}
                         </x-dropdown-link>
                         @if(Auth::user()->role === 1)
-                        <x-dropdown-link :href="route('admin-dashboard')">
-                            {{ __('Dashboard') }}
+                        <x-dropdown-link :href="route('panou-de-control')">
+                            {{ __('Panou de control') }}
                         </x-dropdown-link>
                         @endif
                         <!-- Authentication -->

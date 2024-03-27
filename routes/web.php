@@ -64,7 +64,7 @@ Route::get('/biletele-mele', [MyTicketsController::class, 'myTickets'])->name('m
 Route::get('/download-ics/{eventId}', [CalendarController::class, 'downloadICS'])->name('download.ics');
 
 // Admin Dashboard
-Route::get('/admin-dashboard', [AdminDashboardController::class, 'index'])->name('admin-dashboard')->middleware(EnsureUserIsAdmin::class);
+Route::get('/panou-de-control', [AdminDashboardController::class, 'index'])->name('panou-de-control')->middleware(EnsureUserIsAdmin::class);
 
 // Solicitare AJAX pentru a filtra portile in functie de evenimentul selectat in dashboard
 Route::get('/gates/{eventId}', [GateController::class, 'getGatesByEvent'])->middleware(EnsureUserIsAdmin::class);
