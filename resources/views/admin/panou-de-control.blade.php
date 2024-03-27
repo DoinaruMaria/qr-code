@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Panou de control</title>
 </head>
 
 <body>
@@ -12,7 +12,7 @@
         <section class="h-full w-full p-4 md:p-[2.5rem]">
             <div class="w-full p-4 sm:p-8 dark:bg-gray-800 flex justify-start mb-6 shadow rounded-lg text-2xl">
                 <p class="text-md text-white">
-                    Bine ați venit pe pagina de dashboard, {{ Auth::user()->first_name }}!
+                    Bine ai venit pe panoul de control, {{ Auth::user()->first_name }}!
                 </p>
             </div>
             <div id="successMessage" class="w-full p-4 sm:p-8 dark:bg-gray-800 hidden justify-start mb-6 shadow rounded-lg">
