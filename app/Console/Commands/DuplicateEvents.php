@@ -35,6 +35,8 @@ class DuplicateEventsCommand extends Command
                 $newEvent->edition = $event->edition + 1;
                 $newEvent->start_date = Carbon::parse($event->start_date)->addYear();
                 $newEvent->end_date = Carbon::parse($event->end_date)->addYear();
+
+                // $newEvent->slug = $event->slug . "-" . date("Y", strtotime($event->start_date));
                 $newEvent->save();
             }
         }
