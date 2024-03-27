@@ -27,18 +27,26 @@ class DuplicateEventsCommand extends Command
      */
     public function handle()
     {
+        $currentYear = date("Y");
+        $nextYear = date("Y", strtotime("+1 year"));
         $events = Event::all();
         foreach ($events as $event) {
             if ($event->end_date < now()->toDateString()) {
+                $newId = $event->id + 15;
+
+
+            if (!Event::where('id', $newId)->exists()) {
                 $newEvent = $event->replicate();
-                $newEvent->id = $event->id + 15; // Be careful with direct ID manipulation
+                $newEvent->id = $newId; // Assign the new id
                 $newEvent->edition = $event->edition + 1;
                 $newEvent->start_date = Carbon::parse($event->start_date)->addYear();
                 $newEvent->end_date = Carbon::parse($event->end_date)->addYear();
+                $year = Carbon::parse($newEvent->start_date)->year;
+                $newEvent->slug = trim(strtolower($event->name)) . '-' . $year;
 
-                // $newEvent->slug = $event->slug . "-" . date("Y", strtotime($event->start_date));
                 $newEvent->save();
             }
         }
+            }
+        }
     }
-}
