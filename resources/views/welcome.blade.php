@@ -51,7 +51,7 @@
             <div class="w-full flex justify-center relative ">
                 <img src="{{ asset('img/curte-rectorat.jpg') }}" alt="curte-rectorat" class="rounded-b-2xl" />
                 <div
-                    class="hidden  md:flex  absolute w-[80%] lg:w-[60%] h-28 bottom-[-4rem] z-10 bg-gray-700 rounded-xl grid grid-cols-3  ">
+                    class="hidden  md:flex  absolute w-[80%] lg:w-[60%] h-28 bottom-[-4rem] z-10 bg-gray-700 rounded-xl grid grid-cols-3 bg-opacity-80 backdrop-blur-sm ">
                     <div class="w-[33%] block px-4 py-4  justify-start  text-white h-full">
                         <h3 class="text-[20px] lg:text-[20px] text-center font-bold ">Unde?</h3>
                         <p class="w-full text-[14px] lg:text-4 pt-[16px] pb-2 text-center font-normal">
@@ -126,34 +126,34 @@
                     </div>
                     </a>
                 </div>
-                <div class="flex grid gap-y-4 md:grid-cols-2 gap-x-2 pb-4 mr-4 " >
+                <div class="flex grid md:grid-cols-2 md:gap-x-2 pb-4 mr-4 " >
                     <a href="{{ url('evenimente',$event->slug) }}">
                         <p
-                            class="ml-4   py-[5px]   rounded-xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
+                            class="ml-4 md:mt-0  flex  items-center  justify-center rounded-lg py-1 text-center text-white  transition-all duration-300 ease-in-out dark:bg-white dark:text-black dark:hover:bg-opacity-[0.8] ">
                             Detalii
                         </p>
                     </a>
                      @if(Auth::check())
                         @if(Auth::user()->hasTicketForEvent($event->id))
-                        <a href="{{ url('/generate-ticket', $event->slug) }}">
+                        <a href="{{ url('/generare-bilet', $event->slug) }}">
                         <p
-                            class="ml-4   py-[5px]  rounded-xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
+                            class="ml-4  mt-4 md:mt-0 flex  items-center  justify-center rounded-lg py-1 text-center text-white  transition-all duration-300 ease-in-out dark:bg-white dark:text-black dark:hover:bg-opacity-[0.8] ">
                             Vezi biletul
                         </p>
                     </a>
                         @else
-                        <a href="{{ url('/generate-ticket', $event->slug) }}">
+                        <a href="{{ url('/generare-bilet', $event->slug) }}">
                         <p
-                            class="ml-4   py-[5px]  rounded-xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
+                            class="ml-4  mt-4 flex md:mt-0 items-center  justify-center rounded-lg py-1 text-center text-white  transition-all duration-300 ease-in-out dark:bg-white dark:text-black dark:hover:bg-opacity-[0.8] ">
                             Ia bilet
                         </p>
                     </a>
                         @endif
                     @endif
                     @guest
-                    <a href="{{ url('/generate-ticket', $event->slug) }}">
+                    <a href="{{ url('/generare-bilet', $event->slug) }}">
                         <p
-                            class="ml-4   py-[5px]  rounded-xl  items-center justify-center text-center flex text-white bg-black hover:bg-opacity-[0.8] transition-all duration-300 ease-in-out dark:text-black dark:bg-white dark:hover:bg-opacity-[0.8] ">
+                            class="ml-4  mt-4 flex md:mt-0 items-center  justify-center rounded-lg py-1 text-center text-white  transition-all duration-300 ease-in-out dark:bg-white dark:text-black dark:hover:bg-opacity-[0.8] ">
                             Bilete
                         </p>
                     </a>

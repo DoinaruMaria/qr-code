@@ -133,12 +133,12 @@
                 </a>
                 @if(Auth::check())
                 @if(Auth::user()->hasTicketForEvent($event->id))
-                <a href="{{ url('/generate-ticket', $event->slug) }}">
+                <a href="{{ url('/generare-bilet', $event->slug) }}">
                     <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded"
                         style="background-color: {{ $primary_color }};">Vezi biletul</button>
                 </a>
                 @else
-                <a href="{{ url('/generate-ticket', $event->slug) }}">
+                <a href="{{ url('/generare-bilet', $event->slug) }}">
                     <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded"
                         style="background-color: {{ $primary_color }};">Ia bilet</button>
                 </a>
@@ -150,7 +150,7 @@
                     </p>
                     <a href="{{ url('/login') }}">
                         <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded font-bold"
-                        style="background-color: {{ $primary_color }};">Autentifica-te</button>
+                        style="background-color: {{ $primary_color }};">Ia bilet</button>
                     </a>
                 @endguest
             </div>
