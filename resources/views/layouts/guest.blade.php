@@ -17,7 +17,8 @@
 </head>
 
 <body class="font-sans text-gray-900 antialiased bg-gray-900 h-screen w-screen flex justify-center items-center">
-    <div class="bg-gray-800 h-screen w-screen md:max-w-[70%] md:h-[90%] mx-auto my-auto md:rounded-xl">
+    <div
+        class="bg-gray-800 h-screen w-screen md::max-w-[70%] lg:max-w-7xl md:h-[57%] lg:h-[50%] mx-auto my-auto md:rounded-xl">
         <div class="p-8 h-full w-full">
             <a href="/">
                 <x-application-logo class="w-4 h-4 text-gray-500 p-8" />
@@ -27,7 +28,7 @@
                     <p class="text-white text-[2.2rem]">Conectați-vă</p>
                 </div>
 
-                <div class="mt-8">
+                <div class="mt-8 lg:mt-0">
                     {{ $slot }}
                 </div>
             </div>
