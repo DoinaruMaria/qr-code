@@ -86,7 +86,9 @@
                     <div class="w-full h-[250px] lg:h-[350px] rounded-xl relative bg-cover bg-center bg-no-repeat "
                         style="background-image: url({{asset($event->thumbnail) }})"></div>
                     <div
-                        class="py-2 px-4 text-xl w-full font-semibold rounded-b-xl leading-tight absolute bottom-0 bg-black bg-opacity-[0.6] backdrop-blur-sm ">
+                        class="py-2 px-4 text-xl w-full font-semibold rounded-b-xl leading-tight absolute bottom-0  "
+                        style="backdrop-filter: blur(4px); background-color: rgba(0,0,0,0.6);"
+                        >
                         <h3 class="flex justify-center text-bold text-white  ">
                             {{ ucfirst($event->name) }}
                         </h3>
