@@ -101,7 +101,7 @@
                         </div>
                         <div
                             class="py-4 md:py-0 md:pt-0 flex flex-col w-full mb-4 border-t-2 md:mt-0 md:mb-0 md:w-[30%] md:border-t-0 border-l-2 border-dashed qr">
-                            {!! QrCode::size(150)->generate(url("http://127.0.0.1:8000/bilete/validare/{$user_id}/{$myTicket->event_id}")); !!}
+                            {!! QrCode::size(150)->generate(url("http://bilete.upb.ro/bilete/validare/{$user_id}/{$myTicket->event_id}")); !!}
                             <button id="printButton" onClick="printTicket({{$myTicket->id}})"
                                 class="pt-4 md:pt-0 mt-[0.5] h-[1rem] w-[12rem] flex justify-center items-center hover:font-semibold printButton">Descarcă
                                 biletul
