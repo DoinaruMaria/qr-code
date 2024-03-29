@@ -19,7 +19,7 @@
 <body class="font-sans text-gray-900 antialiased bg-gray-900 h-screen w-screen">
     <div class="flex flex-col justify-center items-center md:pt-10">
         <div
-            class="bg-gray-800 min-h-screen w-screen md:max-w-screen-md lg:max-w-xl lg:h-[50%] mx-auto md:rounded-xl px-8 md:py-8 md:mb-[3rem]">
+            class="bg-gray-800 min-h-screen w-full md:w-[70%] lg:w-[40%] lg:h-[50%] mx-auto md:rounded-xl px-8 py-8 md:mb-[3rem]">
             <div class="mt-8 lg:mt-0">
                 {{ $slot }}
             </div>
