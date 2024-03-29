@@ -36,7 +36,7 @@ class GenerateTicketController extends Controller
                 $user = User::find($userId);
                 $user->save();
 
-                return view('generate-ticket', [
+                return view('generare-bilet', [
                     'existingTicket' => $existingTicket,
                     'event' => $event,
                     'user_id' => $userId,
@@ -56,7 +56,7 @@ class GenerateTicketController extends Controller
                 $user->idBilet = strval($ticket->id);
                 $user->save();
 
-                return view('generate-ticket', [
+                return view('generare-bilet', [
                     'existingTicket' => $ticket, 
                     'event' => $event,
                     'user_id' => $userId,

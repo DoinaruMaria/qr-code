@@ -33,7 +33,7 @@ class AdminDashboardController extends Controller
             $eventName = null;
         }
 
-        return view('admin.dashboard', compact('events', 'gates', 'gateName', 'eventName'));
+        return view('admin.panou-de-control', compact('events', 'gates', 'gateName', 'eventName'));
     }
 
 }

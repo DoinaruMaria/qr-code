@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GenerateTicketController;
 use App\Http\Controllers\NotAdminController;
+use App\Http\Controllers\ConfirmEmailController;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\EvenimenteController;
 use App\Http\Controllers\ValidateController;
@@ -17,6 +18,8 @@ use App\Models\Gate;
 use App\Http\Middleware\EnsureUserIsAdmin;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Log;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,7 +49,7 @@ Route::get('/evenimente-incheiate', [EvenimenteController::class, 'showClosedEve
 Route::get('/evenimente/{slug}', [EvenimenteController::class, 'index']);
 
 // generates ticket and display qr code
-Route::get('/generate-ticket/{slug}', [GenerateTicketController::class, 'index']);
+Route::get('/generare-bilet/{slug}', [GenerateTicketController::class, 'index']);
 
 // display tickets details if the user is admin
 Route::get('/bilete/validare/{userId}/{eventId}', [ValidateController::class, 'validateAdmin'])->middleware(EnsureUserIsAdmin::class);
@@ -61,10 +64,23 @@ Route::get('/biletele-mele', [MyTicketsController::class, 'myTickets'])->name('m
 Route::get('/download-ics/{eventId}', [CalendarController::class, 'downloadICS'])->name('download.ics');
 
 // Admin Dashboard
-Route::get('/admin-dashboard', [AdminDashboardController::class, 'index'])->name('admin-dashboard')->middleware(EnsureUserIsAdmin::class);
+Route::get('/panou-de-control', [AdminDashboardController::class, 'index'])->name('panou-de-control')->middleware(EnsureUserIsAdmin::class);
 
 // Solicitare AJAX pentru a filtra portile in functie de evenimentul selectat in dashboard
 Route::get('/gates/{eventId}', [GateController::class, 'getGatesByEvent'])->middleware(EnsureUserIsAdmin::class);
 
 // Update gate_id din tabela user
 Route::post('/update-gate/{gateId}', [GateController::class, 'updateGate'])->name('update-gate')->middleware(EnsureUserIsAdmin::class);
+
+// Confirm mail blade
+Route::get('/confirm-email', [ConfirmEmailController::class, 'showConfirmEmail'])->name('confirm-email');
+
+// Resent Verification email
+Route::post('/email/verification-notification', function (Request $request) {
+    $user = $request->user();
+    $user->sendEmailVerificationNotification();
+
+    Log::info('Verification link sent to user: ' . $user->email);
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
