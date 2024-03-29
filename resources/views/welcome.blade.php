@@ -77,97 +77,99 @@
             </div>
             <div class="max-w-[80rem] mx-auto grid md:grid-cols-2 px-8 lg:px-4 lg:grid-cols-3 gap-8 pb-8">
 
-        @foreach ($events->sortBy('end_date') as $event)
-        @if($event->end_date >= now()->toDateString())
-        <div class="w-full">
-            <a href="{{ url('evenimente',$event->slug) }}"
-                class=" h-150 flex flex-col text-gray-900 dark:text-gray-100">
-                <div class="relative">
-                    <div class="w-full h-[250px] lg:h-[350px] rounded-xl relative bg-cover bg-center bg-no-repeat "
-                        style="background-image: url({{asset($event->thumbnail) }})"></div>
+                @foreach ($events->sortBy('end_date') as $event)
+                @if($event->end_date >= now()->toDateString())
+                <div class="w-full">
+                    <a href="{{ url('evenimente',$event->slug) }}"
+                        class=" h-150 flex flex-col text-gray-900 dark:text-gray-100">
+                        <div class="relative">
+                            <div class="w-full h-[250px] lg:h-[350px] rounded-xl relative bg-cover bg-center bg-no-repeat "
+                                style="background-image: url({{asset($event->thumbnail) }})"></div>
+                            <div class="py-2 px-4 text-xl w-full font-semibold rounded-b-xl leading-tight absolute bottom-0  "
+                                style="backdrop-filter: blur(4px); background-color: rgba(0,0,0,0.6);">
+                                <h3 class="flex justify-center text-bold text-white  ">
+                                    {{ ucfirst($event->name) }}
+                                </h3>
+                                <p
+                                    class="my-2 hidden opacity-[0.8] lg:block text-align:left text-sm truncate overflow-hidden text-white  ">
+                                    {{$event->excerpt}}</p>
+                            </div>
+                        </div>
+                    </a>
                     <div
-                        class="py-2 px-4 text-xl w-full font-semibold rounded-b-xl leading-tight absolute bottom-0  "
-                        style="backdrop-filter: blur(4px); background-color: rgba(0,0,0,0.6);"
-                        >
-                        <h3 class="flex justify-center text-bold text-white  ">
-                            {{ ucfirst($event->name) }}
-                        </h3>
-                        <p
-                            class="my-2 hidden opacity-[0.8] lg:block text-align:left text-sm truncate overflow-hidden text-white  ">
-                            {{$event->excerpt}}</p>
+                        class="block  w-full mt-[10px] rounded-xl border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
+                        <div class="flex flex-col pl-4 py-4 items-left text-sm  ">
+                            <a href="{{ url('evenimente',$event->slug) }}">
+                                <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor"
+                                        class="w-5 h-5 text-gray-500 dark:text-gray-200">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+                                    </svg>
+                                    <span id="date-{{ $event->id }}"
+                                        class="pt-[4px] ml-1 text-[16px] font-bold text-white dark:text-white">
+                                        <script>
+                                        formatDates('{{ $event->start_date }}', '{{ $event->end_date }}',
+                                            'date-{{ $event->id }}');
+                                        </script>
+                                    </span>
+                                </div>
+                                <div class="flex items-top pt-1  mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor"
+                                        class="w-5 h-5 text-gray-500 dark:text-gray-200  mt-[2px]">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                                    </svg>
+                                    <p class=" ml-1 pt-[3px] text-[16px] text-black dark:text-white align-top">
+                                        {{$event->venue}}
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="flex grid md:grid-cols-2 md:gap-x-2 pb-4 mr-4 ">
+                            <a href="{{ url('evenimente',$event->slug) }}">
+                                <p
+                                    class="ml-4 md:mt-0  flex  items-center  justify-center rounded-lg py-1 text-center text-white  transition-all duration-300 ease-in-out dark:bg-white dark:text-black dark:hover:bg-opacity-[0.8] ">
+                                    Detalii
+                                </p>
+                            </a>
+                            @if(Auth::check())
+                            @if(Auth::user()->hasTicketForEvent($event->id))
+                            <a href="{{ url('/generare-bilet', $event->slug) }}">
+                                <p
+                                    class="ml-4  mt-4 md:mt-0 flex  items-center  justify-center rounded-lg py-1 text-center text-white  transition-all duration-300 ease-in-out dark:bg-white dark:text-black dark:hover:bg-opacity-[0.8] ">
+                                    Vezi biletul
+                                </p>
+                            </a>
+                            @else
+                            <a href="{{ url('/generare-bilet', $event->slug) }}">
+                                <p
+                                    class="ml-4  mt-4 flex md:mt-0 items-center  justify-center rounded-lg py-1 text-center text-white  transition-all duration-300 ease-in-out dark:bg-white dark:text-black dark:hover:bg-opacity-[0.8] ">
+                                    Ia bilet
+                                </p>
+                            </a>
+                            @endif
+                            @endif
+                            @guest
+                            <a href="{{ url('/generare-bilet', $event->slug) }}">
+                                <p
+                                    class="ml-4  mt-4 flex md:mt-0 items-center  justify-center rounded-lg py-1 text-center text-white  transition-all duration-300 ease-in-out dark:bg-white dark:text-black dark:hover:bg-opacity-[0.8] ">
+                                    Bilete
+                                </p>
+                            </a>
+                            @endguest
+                        </div>
+
                     </div>
                 </div>
-            </a>
-            <div class="block  w-full mt-[10px] rounded-xl border-gray-200 dark:border-slate-700 border-[0.5px] justify-between items-center ">
-                <div class="flex flex-col pl-4 py-4 items-left text-sm  ">
-                    <a href="{{ url('evenimente',$event->slug) }}"> 
-                    <div class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-200">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
-                        </svg>
-                        <span id="date-{{ $event->id }}"
-                            class="pt-[4px] ml-1 text-[16px] font-bold text-white dark:text-white">
-                            <script>
-                            formatDates('{{ $event->start_date }}', '{{ $event->end_date }}', 'date-{{ $event->id }}');
-                            </script>
-                        </span>
-                    </div>
-                    <div class="flex items-top pt-1  mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-200  mt-[2px]">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                        </svg>
-                        <p class=" ml-1 pt-[3px] text-[16px] text-black dark:text-white align-top">
-                            {{$event->venue}}
-                        </p>
-                    </div>
-                    </a>
-                </div>
-                <div class="flex grid md:grid-cols-2 md:gap-x-2 pb-4 mr-4 " >
-                    <a href="{{ url('evenimente',$event->slug) }}">
-                        <p
-                            class="ml-4 md:mt-0  flex  items-center  justify-center rounded-lg py-1 text-center text-white  transition-all duration-300 ease-in-out dark:bg-white dark:text-black dark:hover:bg-opacity-[0.8] ">
-                            Detalii
-                        </p>
-                    </a>
-                     @if(Auth::check())
-                        @if(Auth::user()->hasTicketForEvent($event->id))
-                        <a href="{{ url('/generare-bilet', $event->slug) }}">
-                        <p
-                            class="ml-4  mt-4 md:mt-0 flex  items-center  justify-center rounded-lg py-1 text-center text-white  transition-all duration-300 ease-in-out dark:bg-white dark:text-black dark:hover:bg-opacity-[0.8] ">
-                            Vezi biletul
-                        </p>
-                    </a>
-                        @else
-                        <a href="{{ url('/generare-bilet', $event->slug) }}">
-                        <p
-                            class="ml-4  mt-4 flex md:mt-0 items-center  justify-center rounded-lg py-1 text-center text-white  transition-all duration-300 ease-in-out dark:bg-white dark:text-black dark:hover:bg-opacity-[0.8] ">
-                            Ia bilet
-                        </p>
-                    </a>
-                        @endif
-                    @endif
-                    @guest
-                    <a href="{{ url('/generare-bilet', $event->slug) }}">
-                        <p
-                            class="ml-4  mt-4 flex md:mt-0 items-center  justify-center rounded-lg py-1 text-center text-white  transition-all duration-300 ease-in-out dark:bg-white dark:text-black dark:hover:bg-opacity-[0.8] ">
-                            Bilete
-                        </p>
-                    </a>
-                    @endguest
-                </div>
-                
+                @endif
+                @endforeach
             </div>
-        </div>
-        @endif
-        @endforeach
-    </div>
-            
+
         </div>
     </x-app-layout>
 </body>
@@ -179,7 +181,7 @@
 
 
 
-    <!-- <div class="max-w-[80rem] mx-auto grid md:grid-cols-2 px-2 lg:px-4 lg:grid-cols-3 gap-8">
+<!-- <div class="max-w-[80rem] mx-auto grid md:grid-cols-2 px-2 lg:px-4 lg:grid-cols-3 gap-8">
 
                 @forelse ($events as $event)
                 @if($event->date == now()->toDateString())
