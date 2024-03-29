@@ -107,7 +107,7 @@
         .notfound .notfound-404 h1 {
             font-size: 162px;
             height: 150px;
-            /* line-height: 162px */
+            line-height: 162px
         }
 
         .notfound h2 {
@@ -121,6 +121,8 @@
 </head>
 
 <body class="antialiased dark">
+    <x-app-layout>
+
     <div id="notfound">
         <div class="notfound">
             <div class="notfound-404">
@@ -130,6 +132,8 @@
             <a href="{{ route('welcome') }}" class="home">Întoarce-te la pagina principală!</a>
         </div>
     </div>
+    </x-app-layout>
+    
 </body>
 
 </html>

@@ -75,7 +75,7 @@
                     class=" my-4 md:mt-20 md:mb-8 flex text-center justify-center items-center font-[900] text-[40px]  text-yellow-400 dark:text-white  md:text-5xl">
                     Evenimente</h2>
             </div>
-            <div class="max-w-[80rem] mx-auto grid md:grid-cols-2 px-8 lg:px-4 lg:grid-cols-3 gap-8 pb-8">
+            <div class="max-w-[80rem] mx-auto grid md:grid-cols-2 md:px-8 lg:px-4 lg:grid-cols-3 gap-8 pb-8">
 
         @foreach ($events->sortBy('end_date') as $event)
         @if($event->end_date >= now()->toDateString())
