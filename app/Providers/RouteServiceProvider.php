@@ -18,7 +18,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/';
-    public const CONFIRM_MAIL = '/confirm-mail';
+    public const CONFIRM_MAIL = '/confirm-email';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
