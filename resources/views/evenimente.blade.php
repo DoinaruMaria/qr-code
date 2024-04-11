@@ -59,7 +59,8 @@
                 <div class="w-full h-[30svh] md:h-[50svh] lg:h-[80svh] bg-center bg-no-repeat bg-cover"
                     style="background-image: url({{ asset($event->cover) }})">
                 </div>
-                <div id="countdown" class="flex  items-center justify-center text-white text-center text-[2rem] lg:text-[4rem] "
+                <div id="countdown"
+                    class="flex  items-center justify-center text-white text-center text-[2rem] lg:text-[4rem] "
                     style="height: calc(23svh - 96px); background: linear-gradient(45deg,{{$secondary_color}}, {{$primary_color}})">
                     <div class="flex flex-col me-8 md:me-12 lg:me-16 xl:me-20 2xl:me-32">
                         <span id="zileramase" class="text-3xl md:text-6xl font-bold"></span>
@@ -130,6 +131,7 @@
                     </h1>
                     @endisset
                 </div>
+                <p class="mb-8 text-white"><b>ACCESUL LA EVENIMENT ESTE GRATUIT!</b></p>
                 </a>
                 @if(Auth::check())
                 @if(Auth::user()->hasTicketForEvent($event->id))
@@ -145,13 +147,13 @@
                 @endif
                 @endif
                 @guest
-                    <p class="text-white mb-4 text-[20px] font-bold " >
-                        Pentru a achiziționa bilet, trebuie să fii autentificat!
-                    </p>
-                    <a href="{{ url('/login') }}">
-                        <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded font-bold"
+                <p class="text-white mb-4 text-[20px] font-bold ">
+                    Pentru a achiziționa bilet, trebuie să fii autentificat!
+                </p>
+                <a href="{{ url('/login') }}">
+                    <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded font-bold"
                         style="background-color: {{ $primary_color }};">Ia bilet</button>
-                    </a>
+                </a>
                 @endguest
             </div>
         </section>
