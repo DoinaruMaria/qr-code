@@ -40,10 +40,8 @@
 <body>
 
     <x-app-layout class="max-w-[80rem] mx-auto ">
-
         <section
             class="max-w-7xl mx-auto px-8 flex flex-col justify-center items-center md:items-end xl:h-[calc(100vh-97px)]   h-[50rem]">
-            @if(Auth::user()->hasVerifiedEmail() )
 
             <!-- Sectiunea asta trebuie printata -->
             <!-- TICKET -->
@@ -129,23 +127,6 @@
                 document.body.innerHTML = originalContents;
             }
             </script>
-            @else
-            <div class="relative block flex flex-col w-full p-8 rounded-xl mb-8 bg-gray-800 border-0 ">
-                <p class="text-[2rem] md:text-[2.5rem] mx-auto text-center text-gray-400">Pentru a genera un bilet este
-                    necesar să activați
-                    contul prin
-                    linkul
-                    trimis pe
-                    email!</p>
-
-                <a href="{{ url('/profil') }}">
-                    <p
-                        class="w-60 mt-4 mx-auto rounded-lg py-1 text-center transition-all duration-300 ease-in-out dark:bg-white dark:text-black dark:hover:bg-opacity-[0.8] ">
-                        Mergi la pagina de profil
-                    </p>
-                </a>
-            </div>
-            @endif
         </section>
     </x-app-layout>
 

@@ -42,7 +42,7 @@
                         </select>
                     </div>
                     <div id="buttonContainer" style="display: none;" class="w-full py-4">
-                        <button id="submitButton" class="flex justify-center items-center p-4 w-full bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-[0.875rem] text-center text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
+                        <button id="submitButton" class="flex justify-center items-center p-4 w-full bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-[0.875rem] text-center text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2  focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
                         Salveaza informațiile</button>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                             <h1 id="gateDetails" class="flex items-center">{{ $gateName }}</h1>
                         </div>
                     </div>
-                    <button id="scanTicketButton" class="w-[10rem] mt-4 md:mt-0 flex justify-center items-center p-4 w-full dark:bg-white border border-transparent rounded-md font-semibold text-[0.875rem] text-center text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
+                    <button id="scanTicketButton" class="w-[10rem] mt-4 md:mt-0 flex justify-center items-center p-4 w-full dark:bg-white border border-transparent rounded-md font-semibold text-[0.875rem] text-center text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
                         Scanează</button>
 
                 </div>
