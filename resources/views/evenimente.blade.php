@@ -78,9 +78,41 @@
                         <span class="text-xs tracking-[0.2em]">SECUNDE</span>
                     </div>
                 </div>
+                <div class="flex  items-center justify-center text-white text-center text-[2rem] lg:text-[4rem] "
+                    style="height: calc(23svh - 96px); background: linear-gradient(45deg,{{$secondary_color}}, {{$primary_color}})">
+                    <div class="w-full flex flex-col justify-center text-center items-center" >
+                        @if(Auth::check())
+                            @if(Auth::user()->hasTicketForEvent($event->id))
+                            <a href="{{ url('/generare-bilet', $event->slug) }}" class="w-full">
+                                <div class="w-full px-[5rem] py-[1rem] uppercase text-white text-8 rounded"
+                                    >Vezi biletul</div>
+                            </a>
+                            @else
+                            <a href="{{ url('/generare-bilet', $event->slug) }}" class="w-full" >
+                                <div class=" w-full px-[5rem] py-[1rem] uppercase text-white text-8 rounded"
+                                   >Ia bilet</div>
+                            </a>
+                            @endif
+                        @endif
+                            @guest
+
+                                <a href="{{ url('/login') }}" class="w-full">
+                                    <div class="w-full  uppercase py-[1rem] text-white text-[28px] rounded font-bold"
+                                    >Ia bilet</div>
+                                </a>
+
+                            @endguest
+                    </div>
+                </div>
+                @guest
+                    <p class="text-white py-4 text-[20px] font-bold w-full text-center px-4 flex justify-center bg-[#111827]" >
+                            Pentru a achiziționa bilet, trebuie să fii autentificat!
+                    </p> 
+                @endguest
             </div>
         </x-slot>
-        <section class="max-w-[80rem] mx-auto py-10 px-10 lg:py-[6rem] lg:px-[6rem]">
+        <section class="max-w-[80rem] mx-auto py-10 px-10 lg:py-[3rem] lg:px-[6rem]">
+       
             <div class="flex justify-center align-center w-full bg-center bg-no-repeat bg-contain h-[14rem]"
                 style="background-image: url({{ asset($event->logo) }})">
             </div>
