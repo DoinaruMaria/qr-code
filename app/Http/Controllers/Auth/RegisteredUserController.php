@@ -40,6 +40,7 @@ class RegisteredUserController extends Controller
             'user_type' => ['required', 'string'],
             'county' => ['required', 'string'], 
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'age' => ['required', 'int'],
         ]);
 
         $user = User::create([
@@ -49,6 +50,7 @@ class RegisteredUserController extends Controller
             'phone' => $request->phone,
             'user_type' => $request->user_type,
             'county' => $request->county,
+            'age' => $request->age,
             'password' => Hash::make($request->password),   
         ]);
 
