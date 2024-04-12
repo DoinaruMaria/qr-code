@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bilete UPB</title>
+    <title>Bilete UNSTPB</title>
     <link href="{{ asset('/css/bileteleMele.css') }}" rel="stylesheet">
 
     <script>
@@ -47,6 +47,11 @@
 
                 <div class="max-w-7xl mx-auto px-6 lg:px-8">
                     <div class=" overflow-hidden">
+                        @if(count($myTickets) === 0)
+                             <section class="max-w-7xl mx-auto px-8 pt-6  flex flex-col justify-center items-center md:items-end ">
+                                <p class="text-[2rem] md:text-[2.5rem] mx-auto text-center text-gray-400">Nu ați achiziționat niciun bilet!</p>
+                             </section>
+                        @else
                         @foreach($myTickets as $myTicket)
                         <!-- Sectiunea asta trebuie printata -->
                         <!-- TICKET -->
@@ -124,12 +129,13 @@
 
 
                         @endforeach
+                    @endif
                     </div>
                 </div>
                 @else
                 <section
                     class="max-w-7xl mx-auto px-8 flex flex-col justify-center items-center md:items-end xl:h-[calc(100vh-97px)]   h-[50rem]">
-                    <div class="relative block flex flex-col w-full p-8 rounded-xl mb-8 bg-gray-800 border-0 ">
+                    <div class="relative flex flex-col w-full p-8 rounded-xl mb-8 bg-gray-800 border-0 ">
                         <p class="text-[2rem] md:text-[2.5rem] mx-auto text-center text-gray-400">Pentru a genera un
                             bilet
                             este
