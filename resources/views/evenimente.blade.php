@@ -59,8 +59,34 @@
                 <div class="w-full h-[30svh] md:h-[50svh] lg:h-[80svh] bg-center bg-no-repeat bg-cover"
                     style="background-image: url({{ asset($event->cover) }})">
                 </div>
-                <div id="countdown" class="flex  items-center justify-center text-white text-center text-[2rem] lg:text-[4rem] "
-                    style="height: calc(23svh - 96px); background: linear-gradient(45deg,{{$secondary_color}}, {{$primary_color}})">
+                <div class="flex  items-center justify-center text-white text-center text-[2rem] lg:text-[4rem] "
+                    style=" background-color: {{ $primary_color }};">
+                    <div class="w-full flex flex-col justify-center text-center items-center" >
+                        @if(Auth::check())
+                            @if(Auth::user()->hasTicketForEvent($event->id))
+                            <a href="{{ url('/generare-bilet', $event->slug) }}" class="w-full">
+                                <div class="w-full  uppercase py-[1.4rem]  text-white text-5xl rounded font-extrabold"
+                                    >Vezi biletul</div>
+                            </a>
+                            @else
+                            <a href="{{ url('/generare-bilet', $event->slug) }}" class="w-full" >
+                                <div class="w-full  uppercase py-[1.4rem]  text-white text-5xl rounded font-extrabold"
+                                   >Ia bilet</div>
+                            </a>
+                            @endif
+                        @endif
+                            @guest
+
+                                <a href="{{ url('/login') }}" class="w-full">
+                                    <div class="w-full  uppercase py-[1.4rem]  text-white text-5xl rounded font-extrabold"
+                                    >Ia bilet</div>
+                                </a>
+
+                            @endguest
+                    </div>
+                </div>
+                <div id="countdown" class="flex  items-center justify-center text-white text-center text-[2rem] lg:text-[4rem] pb-[1.4rem]"
+                    style="height: calc(23svh - 96px); background: linear-gradient(360deg,{{$secondary_color}}, {{$primary_color}})">
                     <div class="flex flex-col me-8 md:me-12 lg:me-16 xl:me-20 2xl:me-32">
                         <span id="zileramase" class="text-3xl md:text-6xl font-bold"></span>
                         <span class="text-xs tracking-[0.2em]">ZILE</span>
@@ -78,32 +104,7 @@
                         <span class="text-xs tracking-[0.2em]">SECUNDE</span>
                     </div>
                 </div>
-                <div class="flex  items-center justify-center text-white text-center text-[2rem] lg:text-[4rem] "
-                    style="height: calc(23svh - 96px); background: linear-gradient(45deg,{{$secondary_color}}, {{$primary_color}})">
-                    <div class="w-full flex flex-col justify-center text-center items-center" >
-                        @if(Auth::check())
-                            @if(Auth::user()->hasTicketForEvent($event->id))
-                            <a href="{{ url('/generare-bilet', $event->slug) }}" class="w-full">
-                                <div class="w-full px-[5rem] py-[1rem] uppercase text-white text-8 rounded"
-                                    >Vezi biletul</div>
-                            </a>
-                            @else
-                            <a href="{{ url('/generare-bilet', $event->slug) }}" class="w-full" >
-                                <div class=" w-full px-[5rem] py-[1rem] uppercase text-white text-8 rounded"
-                                   >Ia bilet</div>
-                            </a>
-                            @endif
-                        @endif
-                            @guest
-
-                                <a href="{{ url('/login') }}" class="w-full">
-                                    <div class="w-full  uppercase py-[1rem] text-white text-[28px] rounded font-bold"
-                                    >Ia bilet</div>
-                                </a>
-
-                            @endguest
-                    </div>
-                </div>
+                
                 @guest
                     <p class="text-white py-4 text-[20px] font-bold w-full text-center px-4 flex justify-center bg-[#111827]" >
                             Pentru a achiziționa bilet, trebuie să fii autentificat!
@@ -187,9 +188,6 @@
                 @endguest
             </div>
         </section>
-
     </x-app-layout>
-
 </body>
-
 </html>
