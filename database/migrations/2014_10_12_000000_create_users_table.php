@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('idBilet')->nullable(); 
             $table->rememberToken();
             $table->timestamps();
+            $table->int('age');
         });
     }
 
