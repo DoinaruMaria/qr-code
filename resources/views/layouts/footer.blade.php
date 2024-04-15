@@ -47,9 +47,11 @@
                     </svg>
                 </a>
             </div>
-            <p class="text-gray-100 flex justify-center text-center text-[14px] lg:text-[16px] ">
+            <a href="https://www.google.com/maps/place/Universitatea+Na%C8%9Bional%C4%83+de+%C8%98tiin%C8%9B%C4%83+%C8%99i+Tehnologie+POLITEHNICA+Bucure%C8%99ti/@44.4386102,26.0469176,17z/data=!3m1!4b1!4m6!3m5!1s0x40b201ea132d5141:0xf5d5aecb94fa6dc7!8m2!3d44.4386064!4d26.0494925!16zL20vMDRsbDU2?entry=ttu"
+                aria-label="maps" class="text-gray-100 flex justify-center text-center text-[14px] lg:text-[16px] ">
                 <b class="pl-2">Splaiul Independenței, nr 313B</b>
-            </p>
+            </a>
+
         </div>
         <!-- <div>
             <p class="uppercase text-gray-100 flex justify-center text-center font-bold text-[22px] lg:text-[28px] mx-auto" >Organizare Evenimente</p>
