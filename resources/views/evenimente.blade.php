@@ -125,7 +125,7 @@
                 @endisset
                 @if (!empty($event->website))
                 <div class="flex justify-center pt-4 text-sm uppercase text-white">
-                    <a href="{{ $event->website }}" target="_blank" class="flex justify-center">Vizitează site-ul
+                    <a href="{{ $event->website }}" target="_blank" class="flex justify-center text-[24px] ">Vizitează site-ul
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor"
                             class="ml-2 w-[1.2rem] h-[1.2rem] broder-2 border rounded bg-white text-black">
