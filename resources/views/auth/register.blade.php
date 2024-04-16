@@ -90,7 +90,7 @@
                     name="age" :value="old('age')" required autocomplete="age" />
                 <span class="text-gray-300 ml-2" >ani</span>
             </div>
-            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+            <!-- <x-input-error :messages="$errors->get('age')" class="mt-2" /> -->
         </div>
 
         <!-- Judete-->
