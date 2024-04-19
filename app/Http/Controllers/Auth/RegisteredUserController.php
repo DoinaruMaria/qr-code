@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
             'user_type' => ['required', 'string'],
             'county' => ['required', 'string'], 
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'age' => ['required', 'int'],
+            'age' => ['required', 'int', 'min:1', 'max:99'],
         ]);
 
         $user = User::create([
