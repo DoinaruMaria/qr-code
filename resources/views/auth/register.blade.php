@@ -7,18 +7,18 @@
 
         <!-- Nume -->
         <div>
-            <x-input-label for="last_name" :value="__('Nume')" />
-            <x-text-input id="last_name" class="block mt-1 w-full py-[13px] px-[15px] focus:outline-none" type="text"
-                name="last_name" :value="old('last_name')" required autofocus autocomplete="last_name" />
-            <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
+            <x-input-label for="first_name" :value="__('Nume')" />
+            <x-text-input id="first_name" class="block mt-1 w-full py-[13px] px-[15px] focus:outline-none" type="text"
+                name="first_name" :value="old('first_name')" required autofocus autocomplete="first_name" />
+            <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
         </div>
 
         <!-- Prenume -->
         <div class="mt-4">
-            <x-input-label for="first_name" :value="__('Prenume')" />
-            <x-text-input id="first_name" class="block mt-1 w-full py-[13px] px-[15px] focus:outline-none " type="text"
-                name="first_name" :value="old('first_name')" required autofocus autocomplete="first_name" />
-            <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
+            <x-input-label for="last_name" :value="__('Prenume')" />
+            <x-text-input id="last_name" class="block mt-1 w-full py-[13px] px-[15px] focus:outline-none " type="text"
+                name="last_name" :value="old('last_name')" required autofocus autocomplete="last_name" />
+            <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
         </div>
 
         <!-- Email -->
@@ -55,7 +55,15 @@
                 </div>
                 <div class="align-middle flex flex-row w-full items-center">
                     <input type="radio" class="rounded-full" name="user_type" value="Absolvent UNSTPB"
+                    <input type="radio" class="rounded-full" name="user_type" value="Absolvent UNSTPB"
                         @if(old('user_type')=='Absolvent' ) checked @endif>
+                    <span class="pl-2 text-center text-gray-300"> Absolvent POLITEHNICA</span>
+                    </input>
+                </div>
+                <div class="align-middle flex flex-row w-full items-center">
+                    <input type="radio" class="rounded-full" name="user_type" value="Reprezentant companie"
+                        @if(old('user_type')=='Reprezentant companie' ) checked @endif>
+                    <span class="pl-2 text-center text-gray-300"> Reprezentant companie </span>
                     <span class="pl-2 text-center text-gray-300"> Absolvent POLITEHNICA</span>
                     </input>
                 </div>
@@ -69,14 +77,17 @@
                     <input type="radio" class="rounded-full" name="user_type" value="Parinte"
                         @if(old('user_type')=='Parinte' ) checked @endif>
                     <span class="pl-2 text-center text-gray-300"> Părinte </span>
+                    <span class="pl-2 text-center text-gray-300"> Părinte </span>
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center">
                     <input type="radio" class="rounded-full" name="user_type" value="Vizitator"
                         @if(old('user_type')=='Vizitator' ) checked @endif>
                     <span class="pl-2 text-center text-gray-300"> Altul (doar vizitator) </span>
+                    <span class="pl-2 text-center text-gray-300"> Altul (doar vizitator) </span>
                     </input>
                 </div>
+                
                 
             </div>
             <x-input-error :messages="$errors->get('user_type')" class="mt-2"   />
@@ -84,19 +95,21 @@
 
         <!-- Varsta -->
         <div class="mt-4 ">
-            <x-input-label for="phone" :value="__('Vârstă')" />
+            <x-input-label for="age" :value="__('Vârstă')" />
             <div class="flex align-middle items-center" >
-                <x-text-input id="phone" class="block mt-1 w-[90%] py-[13px] px-[15px] focus:outline-none" type="text"
+                <x-text-input id="age" class="block mt-1 w-[90%] py-[13px] px-[15px] focus:outline-none" type="text"
                     name="age" :value="old('age')" required autocomplete="age" />
                 <span class="text-gray-300 ml-2" >ani</span>
             </div>
-            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+            <x-input-error :messages="$errors->get('age')" class="mt-2" />
         </div>
 
         <!-- Judete-->
         <div class="mt-4">
             <x-input-label for="county" :value="__('Județ')" />
+            <x-input-label for="county" :value="__('Județ')" />
             <select name="county" id="county" class="rounded-md mt-1 text-sl bg-gray-900 text-gray-400">
+                <option value="" class="py-[13px] px-[15px]">Selectează județul</option>
                 <option value="" class="py-[13px] px-[15px]">Selectează județul</option>
                 @foreach ($judete as $key => $node)
                 <option value="{{ $key }}" @selected(old('county')==$key)>{{ $node }}</option>
@@ -109,6 +122,7 @@
         <!-- Parola -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Parolă')" />
+            <x-input-label for="password" :value="__('Parolă')" />
 
             <x-text-input id="password" class="block mt-1 w-full py-[13px] px-[15px]" type="password" name="password"
                 required autocomplete="new-password" />
@@ -118,6 +132,7 @@
 
         <!-- Confirma Parola -->
         <div class="mt-4">
+            <x-input-label for="password_confirmation" :value="__('Confirmă Parola')" />
             <x-input-label for="password_confirmation" :value="__('Confirmă Parola')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full py-[13px] px-[15px] focus:outline-none"
