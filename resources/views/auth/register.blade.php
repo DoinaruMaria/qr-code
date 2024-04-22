@@ -55,7 +55,15 @@
                 </div>
                 <div class="align-middle flex flex-row w-full items-center">
                     <input type="radio" class="rounded-full" name="user_type" value="Absolvent UNSTPB"
+                    <input type="radio" class="rounded-full" name="user_type" value="Absolvent UNSTPB"
                         @if(old('user_type')=='Absolvent' ) checked @endif>
+                    <span class="pl-2 text-center text-gray-300"> Absolvent POLITEHNICA</span>
+                    </input>
+                </div>
+                <div class="align-middle flex flex-row w-full items-center">
+                    <input type="radio" class="rounded-full" name="user_type" value="Reprezentant companie"
+                        @if(old('user_type')=='Reprezentant companie' ) checked @endif>
+                    <span class="pl-2 text-center text-gray-300"> Reprezentant companie </span>
                     <span class="pl-2 text-center text-gray-300"> Absolvent POLITEHNICA</span>
                     </input>
                 </div>
@@ -69,14 +77,17 @@
                     <input type="radio" class="rounded-full" name="user_type" value="Parinte"
                         @if(old('user_type')=='Parinte' ) checked @endif>
                     <span class="pl-2 text-center text-gray-300"> Părinte </span>
+                    <span class="pl-2 text-center text-gray-300"> Părinte </span>
                     </input>
                 </div>
                 <div class="align-middle flex flex-row w-full items-center">
                     <input type="radio" class="rounded-full" name="user_type" value="Vizitator"
                         @if(old('user_type')=='Vizitator' ) checked @endif>
                     <span class="pl-2 text-center text-gray-300"> Altul (doar vizitator) </span>
+                    <span class="pl-2 text-center text-gray-300"> Altul (doar vizitator) </span>
                     </input>
                 </div>
+                
                 
             </div>
             <x-input-error :messages="$errors->get('user_type')" class="mt-2"   />
@@ -96,7 +107,9 @@
         <!-- Judete-->
         <div class="mt-4">
             <x-input-label for="county" :value="__('Județ')" />
+            <x-input-label for="county" :value="__('Județ')" />
             <select name="county" id="county" class="rounded-md mt-1 text-sl bg-gray-900 text-gray-400">
+                <option value="" class="py-[13px] px-[15px]">Selectează județul</option>
                 <option value="" class="py-[13px] px-[15px]">Selectează județul</option>
                 @foreach ($judete as $key => $node)
                 <option value="{{ $key }}" @selected(old('county')==$key)>{{ $node }}</option>
@@ -109,6 +122,7 @@
         <!-- Parola -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Parolă')" />
+            <x-input-label for="password" :value="__('Parolă')" />
 
             <x-text-input id="password" class="block mt-1 w-full py-[13px] px-[15px]" type="password" name="password"
                 required autocomplete="new-password" />
@@ -118,6 +132,7 @@
 
         <!-- Confirma Parola -->
         <div class="mt-4">
+            <x-input-label for="password_confirmation" :value="__('Confirmă Parola')" />
             <x-input-label for="password_confirmation" :value="__('Confirmă Parola')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full py-[13px] px-[15px] focus:outline-none"

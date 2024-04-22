@@ -18,7 +18,7 @@
 
 <body class="font-sans text-gray-900 antialiased bg-gray-900 h-screen w-screen flex justify-center items-center">
     <div
-        class="bg-gray-800 h-screen w-screen md::max-w-[70%] lg:max-w-7xl md:h-[57%] lg:h-[50%] mx-auto my-auto md:rounded-xl">
+        class="bg-gray-800 h-screen w-screen md:max-w-[70%] md:max-h-[500px] lg:max-h-[450px] lg:max-w-7xl  mx-auto my-auto md:rounded-xl">
         <div class="p-8 h-full w-full">
             <a href="/">
                 <x-application-logo class="w-4 h-4 text-gray-500 p-8" />

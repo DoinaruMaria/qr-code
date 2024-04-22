@@ -59,9 +59,34 @@
                 <div class="w-full h-[30svh] md:h-[50svh] lg:h-[80svh] bg-center bg-no-repeat bg-cover"
                     style="background-image: url({{ asset($event->cover) }})">
                 </div>
-                <div id="countdown"
-                    class="flex  items-center justify-center text-white text-center text-[2rem] lg:text-[4rem] "
-                    style="height: calc(23svh - 96px); background: linear-gradient(45deg,{{$secondary_color}}, {{$primary_color}})">
+                <div class="flex  items-center justify-center text-white text-center text-[2rem] lg:text-[4rem] "
+                    style=" background-color: {{ $primary_color }};">
+                    <div class="w-full flex flex-col justify-center text-center items-center" >
+                        @if(Auth::check())
+                            @if(Auth::user()->hasTicketForEvent($event->id))
+                            <a href="{{ url('/generare-bilet', $event->slug) }}" class="w-full">
+                                <div class="w-full  uppercase py-[1.4rem]  text-white text-5xl rounded font-extrabold"
+                                    >Vezi biletul</div>
+                            </a>
+                            @else
+                            <a href="{{ url('/generare-bilet', $event->slug) }}" class="w-full" >
+                                <div class="w-full  uppercase py-[1.4rem]  text-white text-5xl rounded font-extrabold"
+                                   >Ia bilet</div>
+                            </a>
+                            @endif
+                        @endif
+                            @guest
+
+                                <a href="{{ url('/login') }}" class="w-full">
+                                    <div class="w-full  uppercase py-[1.4rem]  text-white text-5xl rounded font-extrabold"
+                                    >Ia bilet</div>
+                                </a>
+
+                            @endguest
+                    </div>
+                </div>
+                <div id="countdown" class="flex  items-center justify-center text-white text-center text-[2rem] lg:text-[4rem] pb-[1.4rem]"
+                    style="height: calc(23svh - 96px); background: linear-gradient(360deg,{{$secondary_color}}, {{$primary_color}})">
                     <div class="flex flex-col me-8 md:me-12 lg:me-16 xl:me-20 2xl:me-32">
                         <span id="zileramase" class="text-3xl md:text-6xl font-bold"></span>
                         <span class="text-xs tracking-[0.2em]">ZILE</span>
@@ -79,9 +104,16 @@
                         <span class="text-xs tracking-[0.2em]">SECUNDE</span>
                     </div>
                 </div>
+                
+                @guest
+                    <p class="text-white py-4 text-[20px] font-bold w-full text-center px-4 flex justify-center bg-[#111827]" >
+                            Pentru a achiziționa bilet, trebuie să fii autentificat!
+                    </p> 
+                @endguest
             </div>
         </x-slot>
-        <section class="max-w-[80rem] mx-auto py-10 px-10 lg:py-[6rem] lg:px-[6rem]">
+        <section class="max-w-[80rem] mx-auto py-10 px-10 lg:py-[3rem] lg:px-[6rem]">
+       
             <div class="flex justify-center align-center w-full bg-center bg-no-repeat bg-contain h-[14rem]"
                 style="background-image: url({{ asset($event->logo) }})">
             </div>
@@ -92,14 +124,16 @@
                 </h1>
                 @endisset
                 @if (!empty($event->website))
-                <div class="flex justify-center pt-4 text-sm uppercase text-white">
-                    <a href="{{ $event->website }}" target="_blank" class="flex justify-center">Vizitează site-ul
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                <div class="flex justify-center pt-4 text-sm uppercase text-white   ">
+                    <a href="{{ $event->website }}" target="_blank" class="px-[5rem] py-[1rem] uppercase text-white text-4 md:text-[16px] rounded font-bold flex justify-center"
+                        style="background-color: {{ $primary_color }}; ">Află mai multe despre eveniment
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor"
-                            class="ml-2 w-[1.2rem] h-[1.2rem] broder-2 border rounded bg-white text-black">
+                            class="ml-2 w-[1.2rem] h-[1.2rem] broder-2 border rounded bg-white"
+                            style="color: {{ $primary_color }}; ">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                        </svg>
+                        </svg> -->
                     </a>
                 </div>
                 @endif
@@ -131,7 +165,6 @@
                     </h1>
                     @endisset
                 </div>
-                <p class="mb-8 text-white"><b>ACCESUL LA EVENIMENT ESTE GRATUIT!</b></p>
                 </a>
                 @if(Auth::check())
                 @if(Auth::user()->hasTicketForEvent($event->id))
@@ -147,19 +180,16 @@
                 @endif
                 @endif
                 @guest
-                <p class="text-white mb-4 text-[20px] font-bold ">
-                    Pentru a achiziționa bilet, trebuie să fii autentificat!
-                </p>
-                <a href="{{ url('/login') }}">
-                    <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded font-bold"
+                    <p class="text-white mb-4 text-[20px] font-bold " >
+                        Pentru a achiziționa bilet, trebuie să fii autentificat!
+                    </p>
+                    <a href="{{ url('/login') }}">
+                        <button class="px-[5rem] py-[1rem] uppercase text-white text-4 rounded font-bold"
                         style="background-color: {{ $primary_color }};">Ia bilet</button>
-                </a>
+                    </a>
                 @endguest
             </div>
         </section>
-
     </x-app-layout>
-
 </body>
-
 </html>
